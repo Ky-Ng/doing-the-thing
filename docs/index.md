@@ -1,5 +1,7 @@
 # Doing The Thing: From Mechanical Turk to Mech Interp
 
+<sub> For motivation/momentum purposes, current consecutive streak: {{ dlog_consecutive_days() }} days! </sub>
+
 ## What is this?
 Here it goes! I'm Kyle, a 4th year Computational Linguistics student at USC. This is the start of my AI Safety journey!
 

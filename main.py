@@ -75,3 +75,25 @@ def define_env(env):
                 line += f'  \n     <sub>{tags_str}</sub>'
             out.append(line)
         return "\n\n".join(out)
+
+    @env.macro
+    def dlog_consecutive_days():
+        """
+        Returns the number of consecutive days (streak) from the most recent date backward.
+        """
+        entries = _load_entries(docs_dir)
+        if not entries:
+            return 0
+
+        # Extract unique sorted dates (ascending)
+        dates = sorted(set(e["date"] for e in entries))
+
+        # Walk backwards from the latest day
+        streak = 1
+        for i in range(len(dates) - 1, 0, -1):
+            diff = (dates[i] - dates[i - 1]).days
+            if diff == 1:
+                streak += 1
+            else:
+                break
+        return streak
