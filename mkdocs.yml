@@ -1,5 +1,5 @@
-site_name: My Docs
-site_url: https://sitename.example
+site_name: Doing The Thing
+site_url: http://ky-ng.github.io/do-the-thing/
 theme:
   name: material
   font:
@@ -13,7 +13,7 @@ theme:
     toggle: 
       icon: material/weather-sunny
       name: Dark mode
-    primary: green
+    primary: blue
     accent: deep purple
   - scheme: default
     toggle:
@@ -44,11 +44,14 @@ markdown_extensions:
       alternate_style: true
   - admonition
   - pymdownx.details
+  - pymdownx.tasklist:
+      custom_checkbox: true
 
 plugins:
   - search
   - git-revision-date-localized:
       type: date
+  - macros
 
 extra: 
   social:

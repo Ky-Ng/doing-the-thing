@@ -1,2 +1,30 @@
 # Keep /sandbox as reference and area to experiment
 docs/sandbox
+
+# AI Generated .gitignore boilerplate
+# --- Python / MkDocs ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+.venv
+venv/
+.envrc
+
+# --- MkDocs build artifacts ---
+site/
+mkdocs_build/
+# (The "site/" folder is created when you run `mkdocs build` — do NOT commit it.
+# GitHub Pages will deploy from the built gh-pages branch instead.)
+
+# --- Editor / OS clutter ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+
+# --- Logs and temporary files ---
+*.log
+.cache/
