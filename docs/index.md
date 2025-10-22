@@ -35,13 +35,15 @@ I am starting this daily log or *dlog* where every day I will document my progre
     - I see Mechanistic Interpretability as a sort of [psycholinguistics](https://www.britannica.com/science/psycholinguistics) (the study of real-time processing of language) for LLMs. 
     - Furthermore, I see Mechanistic Interpretability as a foundational basis for understanding AI systems. Perhaps understanding models (such as like biological organisms) can support the other branches of AI Safety (alignment, control, governance, and more).
 
-## **dlog** 
-Below are the latest updates (auto-generated).  
-**Total focused minutes so far:** {{ dlog_total_minutes() }}
+## **dlog**: {{ dlog_num_days() }} Days and Counting
+**Total focused minutes so far:** {{ dlog_total_minutes() }} mins
 
-## Latest entries
+Below are the latest updates (auto-generated). 
+
+### Latest entries
 {{ dlog_cards(limit=10) }}
 
+## Todo List
 ??? note "Running Todo List"
     - [ ] [Added 25-10-21] Document 25-10-17 to 25-10-20 range of progress
     - [ ] [Added 25-10-21] [ARENA](https://www.arena.education/curriculum) curriculum

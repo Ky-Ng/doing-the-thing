@@ -53,6 +53,10 @@ def define_env(env):
     @env.macro
     def dlog_total_minutes():
         return sum(e["minutes"] for e in _load_entries(docs_dir))
+    
+    @env.macro
+    def dlog_num_days():
+        return len(_load_entries(docs_dir))
 
     @env.macro
     def dlog_cards(limit=7):
