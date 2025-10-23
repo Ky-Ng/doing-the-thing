@@ -5,9 +5,11 @@ import frontmatter
 
 DATE_FMT = "%Y-%m-%d"
 
+
 def _to_minutes(hhmm: str) -> int:
     h, m = map(int, hhmm.split(":"))
     return h * 60 + m
+
 
 def _parse_minutes(sessions):
     total = 0
@@ -16,9 +18,10 @@ def _parse_minutes(sessions):
             total += _to_minutes(s["out"]) - _to_minutes(s["in"])
     return max(total, 0)
 
-def _load_entries(docs_dir: Path): 
+
+def _load_entries(docs_dir: Path):
     dlog_dir = docs_dir / "dlog"
-    
+
     entries = []
     if not dlog_dir.exists():
         return entries
@@ -43,6 +46,7 @@ def _load_entries(docs_dir: Path):
     entries.sort(key=lambda e: e["date"], reverse=True)
     return entries
 
+
 def define_env(env):
     """
     mkdocs-macros entrypoint. Register macros here.
@@ -51,9 +55,14 @@ def define_env(env):
     docs_dir = project_dir / env.conf['docs_dir']  # usually "docs"
 
     @env.macro
-    def dlog_total_minutes():
-        return sum(e["minutes"] for e in _load_entries(docs_dir))
-    
+    def dlog_total_time():
+        total_minutes = sum(e["minutes"] for e in _load_entries(docs_dir))
+        return {
+            "hrs": total_minutes // 60,
+            "mins": total_minutes % 60,
+            "raw_mins": total_minutes
+        }
+
     @env.macro
     def dlog_num_days():
         return len(_load_entries(docs_dir))
@@ -67,7 +76,7 @@ def define_env(env):
         for e in items:
             tags_str = " · ".join(e["tags"]) if e["tags"] else ""
             line = (
-                f'- **[{e["date_str"]}]({e["path"]})** | {e["minutes"]} min | '
+                f'- **[{e["date_str"]}]({e["path"]})** | {e["minutes"]//60} hr {e["minutes"] % 60} min | '
                 f'**Goal:** {e["goal"]}  \n'
                 f'  _{e["summary"]}_  \n'
             )

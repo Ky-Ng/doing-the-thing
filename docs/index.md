@@ -38,7 +38,7 @@ I am starting this daily log or *dlog* where every day I will document my progre
     - Furthermore, I see Mechanistic Interpretability as a foundational basis for understanding AI systems. Perhaps understanding models (such as like biological organisms) can support the other branches of AI Safety (alignment, control, governance, and more).
 
 ## **dlog**: {{ dlog_num_days() }} Days and Counting
-**Total focused minutes so far:** {{ dlog_total_minutes() }} mins
+**Total time focused so far:** {{ dlog_total_time()["hrs"] }} hrs {{ dlog_total_time()["mins"] }} mins throughout {{ dlog_num_days() }} days of learning
 
 Below are the latest updates (auto-generated). 
 
