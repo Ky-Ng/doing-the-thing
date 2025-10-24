@@ -1,4 +1,4 @@
-# Doing The Thing: From Mechanical Turk to Mech Interp
+# Doing The Thing: Journey to Mech Interp
 
 <sub> For motivation/momentum purposes, current consecutive streak: {{ dlog_consecutive_days() }} days! </sub>
 
@@ -18,7 +18,7 @@ Sometimes (often) I get analysis paralysis or want to wait for the perfect {time
 ![Image](./assets/homepage/Mechanical_Turk_to_Mech_Interp.png)
 
 ## What is **dlog**? 
-I am starting this daily log or *dlog* where every day I will document my progress. I hope that the daily act of documenting will make me more resilient and help prove to myself how badly I want to be an interpretable researcher. With the help of AI, a macro pulls the daily logs into the summary you see below
+I am starting this daily log or *dlog* where every day I will document my progress. I hope that the daily act of documenting will make me more resilient and help prove to myself how badly I want to be an interpetability researcher. With the help of AI, a macro pulls the daily logs into the summary you see below:
 
 ??? example "Extra Stuff" 
 
