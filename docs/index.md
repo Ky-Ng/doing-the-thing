@@ -46,9 +46,4 @@ Below are the latest updates (auto-generated).
 {{ dlog_cards(limit=10) }}
 
 ## Todo List
-??? note "Running Todo List"
-    - [ ] [Added 25-10-24] Add section on current project (Dyck Interp Probe)
-    - [x] [Completed 25-10-23] ~[Added 25-10-21]~ Document 25-10-17 to 25-10-20 range of progress
-    - [ ] [Added 25-10-21] [ARENA](https://www.arena.education/curriculum) curriculum
-    - [ ] [Added 25-10-21] Read [Progress measures for grokking via mechanistic interpretability](https://arxiv.org/abs/2301.05217) by Nanda et al.
-    - [ ] [Added 25-10-21] Look into reproducing [Progress measures for grokking via mechanistic interpretability](https://arxiv.org/abs/2301.05217) by Nanda et al.
+The todo list started getting too beefy and has been moved to its own [todo page](notes/Todo)!
