@@ -18,6 +18,7 @@
 - [ ] [Added 2025-10-21] Learn [ARENA](https://www.arena.education/curriculum) curriculum
 
 ## Reading
+- [ ] [Added 2025-10-25] Read [Tracing the thoughts of a large language model](https://www.anthropic.com/research/tracing-thoughts-language-model)
 - [ ] [Added 2025-10-21] Read [Progress measures for grokking via mechanistic interpretability](https://arxiv.org/abs/2301.05217) by Nanda et al.
 - [ ] [Added 2025-10-21] Look into reproducing [Progress measures for grokking via mechanistic interpretability](https://arxiv.org/abs/2301.05217) by Nanda et al.
 
