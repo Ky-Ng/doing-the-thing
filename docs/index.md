@@ -20,7 +20,7 @@ Sometimes (often) I get analysis paralysis or want to wait for the perfect {time
 ## What is **dlog**? 
 I am starting this daily log or *dlog* where every day I will document my progress. I hope that the daily act of documenting will make me more resilient and help prove to myself how badly I want to be an interpetability researcher. With the help of AI, a macro pulls the daily logs into the summary you see below:
 
-??? example "Extra Stuff" 
+??? example "Extra Stuff (click me)" 
 
     ### Wait What's Computational Linguistics?
 
