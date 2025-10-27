@@ -15,7 +15,7 @@ Sometimes (often) I get analysis paralysis or want to wait for the perfect {time
 - Doing --> Working through math problems, reading papers, writing down lists of possible intersections of linguistics and NLP
 - The Thing --> Any of the above for at least 1 hour every day, with consistent (though not perfect) progress.
 
-![Image](./assets/homepage/Mechanical_Turk_to_Mech_Interp.png)
+![Mechanical Turk to Mech Interp](./assets/homepage/Mechanical_Turk_to_Mech_Interp.png)
 
 ## What is **dlog**? 
 I am starting this daily log or *dlog* where every day I will document my progress. I hope that the daily act of documenting will make me more resilient and help prove to myself how badly I want to be an interpetability researcher. With the help of AI, a macro pulls the daily logs into the summary you see below:
