@@ -25,3 +25,6 @@ Adding links I run into that I think can be helpful later in the journey
         - Continuous [[StatQuest Video](https://www.youtube.com/watch?v=OSPr6G6Ka-U&list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9&index=22&pp=iAQB)]
     - Central Limit Theorem [[StatQuest Video](https://www.youtube.com/watch?v=YAlJCEDH2uY&list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9&index=24&pp=iAQB0gcJCQYKAYcqIYzv)]
 
+
+<!-- ## Papers; add this after reading!
+- March 27th, 2025 [Circuit Tracing: Revealing Computational Graphs in Language Models](https://transformer-circuits.pub/2025/attribution-graphs/methods.html) -->

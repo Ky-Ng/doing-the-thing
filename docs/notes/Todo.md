@@ -14,10 +14,16 @@
         - [ ] [Added 2025-10-25] Continuous [[StatQuest Video](https://www.youtube.com/watch?v=OSPr6G6Ka-U&list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9&index=22&pp=iAQB)]
     - [ ] [Added 2025-10-25] Central Limit Theorem [[StatQuest Video](https://www.youtube.com/watch?v=YAlJCEDH2uY&list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9&index=24&pp=iAQB0gcJCQYKAYcqIYzv)]
 
+## Information Theory
+- [ ] [Added 2025-10-27] Surprisal vs. Perplexity vs. Entropy vs. Cross-Entropy
+
 ## Mechanistic Interpretability
 - [ ] [Added 2025-10-21] Learn [ARENA](https://www.arena.education/curriculum) curriculum
 
 ## Reading
+- [ ] [Added 2025-10-26] Download and annotate March 27th, 2025 [Circuit Tracing: Revealing Computational Graphs in Language Models](https://transformer-circuits.pub/2025/attribution-graphs/methods.html)
+    - [ ] [Added 2025-10-26] Perhaps try to reproduce on a smaller model?
+    - [ ] Additional reference: [Added 2025-10-26] [On the Biology of a Large Language Model](https://transformer-circuits.pub/2025/attribution-graphs/biology.html)
 - [ ] [Added 2025-10-25] Read [Tracing the thoughts of a large language model](https://www.anthropic.com/research/tracing-thoughts-language-model)
 - [ ] [Added 2025-10-21] Read [Progress measures for grokking via mechanistic interpretability](https://arxiv.org/abs/2301.05217) by Nanda et al.
 - [ ] [Added 2025-10-21] Look into reproducing [Progress measures for grokking via mechanistic interpretability](https://arxiv.org/abs/2301.05217) by Nanda et al.
