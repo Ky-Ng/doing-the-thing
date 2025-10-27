@@ -2,8 +2,8 @@
 
 ## Math
 - [ ] Go through [StatQuest Statistics Lessons](https://www.youtube.com/watch?v=qBigTkBLU6g&list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9)
-    - [ ] [Added 2025-10-25] Probability Distributions [[StatQuest Video](https://www.youtube.com/watch?v=oI3hZJqXJuc&list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9&index=2)]
-    - [ ] [Added 2025-10-25] Normal Distributions [[StatQuest Video](https://www.youtube.com/watch?v=rzFX5NWojp0&list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9&index=3)]
+    - [x] [Completed 2025-10-27] [Added 2025-10-25] Probability Distributions [[StatQuest Video](https://www.youtube.com/watch?v=oI3hZJqXJuc&list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9&index=2)]
+    - [x] [Completed 2025-10-27] [Added 2025-10-25] Normal Distributions [[StatQuest Video](https://www.youtube.com/watch?v=rzFX5NWojp0&list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9&index=3)]
     - [ ] [Added 2025-10-25] Mean, Variance, Std Deviation [[StatQuest Video](https://www.youtube.com/watch?v=SzZ6GpcfoQY&list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9&index=7)]
     - [ ] [Added 2025-10-25] Mathematical Models [[StatQuest Video](https://www.youtube.com/watch?v=yQhTtdq_y9M&list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9&index=8)]
     - [ ] [Added 2025-10-25] Covariance [[StatQuest Video](https://www.youtube.com/watch?v=qtaqvPAeEJY&list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9&index=17&pp=iAQB)]
