@@ -1,7 +1,7 @@
 # Revisting the Uniform Information Density Hypothesis
 Authors: Clara Meister, Tiago Pimentel, Patrick Haller, Lena Jäger, Ryan Cotterell, Roger Levy
 
-Date: 2021-09-23
+Publication Date: 2021-09-23
 
 Full Paper: [Revisiting the Uniform Information Density Hypothesis](https://arxiv.org/abs/2109.11635)
 

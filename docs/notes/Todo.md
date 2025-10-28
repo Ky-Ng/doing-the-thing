@@ -27,6 +27,7 @@
 - [ ] [Added 2025-10-25] Read [Tracing the thoughts of a large language model](https://www.anthropic.com/research/tracing-thoughts-language-model)
 - [ ] [Added 2025-10-21] Read [Progress measures for grokking via mechanistic interpretability](https://arxiv.org/abs/2301.05217) by Nanda et al.
 - [ ] [Added 2025-10-21] Look into reproducing [Progress measures for grokking via mechanistic interpretability](https://arxiv.org/abs/2301.05217) by Nanda et al.
+- [ ] [Added 2025-10-27] From OpenAI Scheming Blog, [Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety](https://arxiv.org/abs/2507.11473)
 
 ## Documentation
 - [ ] [Added 2025-10-24] Add section on current project (Dyck Interp Probe)
