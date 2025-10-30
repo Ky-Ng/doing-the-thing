@@ -46,4 +46,4 @@ Below are the latest updates (auto-generated).
 {{ dlog_cards(limit=10) }}
 
 ## Todo List
-The todo list started getting too beefy and has been moved to its own [todo page](notes/Todo)!
+The todo list started getting too beefy and has been moved to its own [todo page](notes/Todo.md)!
