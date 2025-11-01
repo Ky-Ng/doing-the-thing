@@ -6,8 +6,6 @@ import re
 import frontmatter
 
 DATE_FMT = "%Y-%m-%d"
-SITE_URL = "https://ky-ng.github.io/doing-the-thing/"
-SITE_SUFFIX = "doing-the-thing"
 
 
 def _get_rel_path(cur_path: str, target_rel_path: str) -> str:
@@ -15,25 +13,11 @@ def _get_rel_path(cur_path: str, target_rel_path: str) -> str:
     Joins cur_path/target_rel_path, removing any "../" and the final file extensions
     """
     # turns (foo/bar/file.md / ../todo.md) into foo/todo.md
-    parent_path = Path(cur_path).parent # Remove the current file and just get dir
-    # target_path_no_extension = Path(target_rel_path).with_suffix("") # Remove the file ending
-    target_path_no_extension = Path(target_rel_path) # Remove the file ending
+    parent_path = Path(cur_path).parent
     
     # Remove "../" in the paths
-    resolved_path = os.path.normpath(parent_path / target_path_no_extension)
+    resolved_path = os.path.normpath(parent_path / Path(target_rel_path))
     return resolved_path
-
-def _get_mkdocs_path(dev_path: str | None, cur_path: str, target_rel_path: str) -> str:
-    """
-    Returns either <SITE_URL>/path_to_file/ or <localhost:port>/path_to_file
-    """
-    path_to_file = _get_rel_path(cur_path, target_rel_path)
-    # full_path = os.path.join(
-    #     os.path.join(dev_path, SITE_SUFFIX) if dev_path else SITE_URL,
-    #     path_to_file
-    # )
-    # full_path = path_to_file if dev_path else os.path.join(SITE_URL, path_to_file)
-    return path_to_file
 
 def _replace_relative_links(text: str, dev_path: str | None, cur_path: str) -> str:
     # Step 1) Find all links in the string
@@ -44,7 +28,7 @@ def _replace_relative_links(text: str, dev_path: str | None, cur_path: str) -> s
         if link_target.startswith("http"):
             return f"[{link_text}]({link_target})"
         else:
-            return f"[{link_text}]({_get_mkdocs_path(dev_path, cur_path, link_target)})"
+            return f"[{link_text}]({_get_rel_path(dev_path, cur_path, link_target)})"
     
     return re.sub(pattern, replacer, text)
 
