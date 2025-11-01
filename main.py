@@ -28,7 +28,7 @@ def _replace_relative_links(text: str, dev_path: str | None, cur_path: str) -> s
         if link_target.startswith("http"):
             return f"[{link_text}]({link_target})"
         else:
-            return f"[{link_text}]({_get_rel_path(dev_path, cur_path, link_target)})"
+            return f"[{link_text}]({_get_rel_path(cur_path, link_target)})"
     
     return re.sub(pattern, replacer, text)
 
