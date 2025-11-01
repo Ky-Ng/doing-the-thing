@@ -1,10 +1,52 @@
 # AI Generated macros to make documentation in docs/dlog appear on index.md automatically
+import os
 from pathlib import Path
 from datetime import datetime
+import re
 import frontmatter
 
 DATE_FMT = "%Y-%m-%d"
+SITE_URL = "https://ky-ng.github.io/doing-the-thing/"
+SITE_SUFFIX = "doing-the-thing"
 
+
+def _get_rel_path(cur_path: str, target_rel_path: str) -> str:
+    """
+    Joins cur_path/target_rel_path, removing any "../" and the final file extensions
+    """
+    # turns (foo/bar/file.md / ../todo.md) into foo/todo.md
+    parent_path = Path(cur_path).parent # Remove the current file and just get dir
+    # target_path_no_extension = Path(target_rel_path).with_suffix("") # Remove the file ending
+    target_path_no_extension = Path(target_rel_path) # Remove the file ending
+    
+    # Remove "../" in the paths
+    resolved_path = os.path.normpath(parent_path / target_path_no_extension)
+    return resolved_path
+
+def _get_mkdocs_path(dev_path: str | None, cur_path: str, target_rel_path: str) -> str:
+    """
+    Returns either <SITE_URL>/path_to_file/ or <localhost:port>/path_to_file
+    """
+    path_to_file = _get_rel_path(cur_path, target_rel_path)
+    # full_path = os.path.join(
+    #     os.path.join(dev_path, SITE_SUFFIX) if dev_path else SITE_URL,
+    #     path_to_file
+    # )
+    # full_path = path_to_file if dev_path else os.path.join(SITE_URL, path_to_file)
+    return path_to_file
+
+def _replace_relative_links(text: str, dev_path: str | None, cur_path: str) -> str:
+    # Step 1) Find all links in the string
+    pattern = r'\[([^\]]+)\]\(([^)]+)\)'
+
+    def replacer(matches) -> str:
+        link_text, link_target = matches.groups()
+        if link_target.startswith("http"):
+            return f"[{link_text}]({link_target})"
+        else:
+            return f"[{link_text}]({_get_mkdocs_path(dev_path, cur_path, link_target)})"
+    
+    return re.sub(pattern, replacer, text)
 
 def _to_minutes(hhmm: str) -> int:
     h, m = map(int, hhmm.split(":"))
@@ -53,6 +95,7 @@ def define_env(env):
     """
     project_dir = Path(env.project_dir)         # repo root
     docs_dir = project_dir / env.conf['docs_dir']  # usually "docs"
+    DEV_PATH =  str(env.conf.get("dev_addr")) if env.conf.get("dev_addr") else None
 
     @env.macro
     def dlog_total_time():
@@ -75,10 +118,13 @@ def define_env(env):
         out = []
         for e in items:
             tags_str = " · ".join(e["tags"]) if e["tags"] else ""
+            goal =  _replace_relative_links(e["goal"], DEV_PATH, e["path"])
+            summary =  _replace_relative_links(e["summary"], DEV_PATH, e["path"])
+            
             line = (
                 f'- **[{e["date_str"]}]({e["path"]})** | {e["minutes"]//60} hr {e["minutes"] % 60} min | '
-                f'**Goal:** {e["goal"]}  \n'
-                f'  _{e["summary"]}_  \n'
+                f'**Goal:** {goal}  \n'
+                f'  _{summary}_  \n'
             )
             if tags_str:
                 line += f'  \n     <sub>{tags_str}</sub>'
