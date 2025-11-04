@@ -5,6 +5,7 @@
     - [x] [Completed 2025-10-27] [Added 2025-10-25] Probability Distributions [[StatQuest Video](https://www.youtube.com/watch?v=oI3hZJqXJuc&list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9&index=2)]
     - [x] [Completed 2025-10-27] [Added 2025-10-25] Normal Distributions [[StatQuest Video](https://www.youtube.com/watch?v=rzFX5NWojp0&list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9&index=3)]
     - [ ] [Added 2025-10-25] Mean, Variance, Std Deviation [[StatQuest Video](https://www.youtube.com/watch?v=SzZ6GpcfoQY&list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9&index=7)]
+    - [ ] [Added 2025-11-03] (n-1) vs. (n) in estimate of population variance [[StatQuest Video]](https://www.youtube.com/watch?v=sHRBg6BhKjI)
     - [ ] [Added 2025-10-25] Mathematical Models [[StatQuest Video](https://www.youtube.com/watch?v=yQhTtdq_y9M&list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9&index=8)]
     - [ ] [Added 2025-10-25] Covariance [[StatQuest Video](https://www.youtube.com/watch?v=qtaqvPAeEJY&list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9&index=17&pp=iAQB)]
     - [ ] [Added 2025-10-25] Conditional Probabilities [[StatQuest Video](https://www.youtube.com/watch?v=_IgyaD7vOOA&list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9&index=19&pp=iAQB)]
