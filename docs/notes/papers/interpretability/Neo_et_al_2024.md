@@ -20,10 +20,10 @@ See [handwritten notes/derivations (section Reproducing Neo et al. 2024)](https:
 3. Use GPT-4 to generate explanations for activity patterns of these attention heads
 4. Evaluate response quality by using GPT-4 zero shot classifier for head activity on a new prompt 
 
-## Identifying Neurons and MLP Interpretability
+## Identifying Next-token Neurons and MLP Interpretability
 
 ### MLP Architecture
-???+ example "MLP Algorithm"
+??? example "MLP Algorithm"
     let Up Projection Weight Matrix $ = W_{up} \in \mathbb{R}^{d_{up}, d_{model}}$
 
     let Down Projection Weight Matrix $ = W_{down} \in \mathbb{R}^{d_{model}, d_{up}}$
@@ -41,9 +41,9 @@ I like to call this part the "Secret Life of a Hidden Neuron" (also known as fin
 
 1. Feature Weighting (Reading from Residual Stream)
 2. Down Projection Matrix Columns as Information (Writing to Residual Stream)
-3. Next-token neuron as max information and unembedding congruence
+3. Next-token neuron as max congruence between information and unembedding
 
-???+ info "Concept 1: Feature Weighting"
+??? info "Concept 1: Feature Weighting"
     To find the `next-token neuron` $a_i$ or weight of information vector $W_{down}[:,i]$, we calculate $a$:
     
     $$a = W_{up} h + b_{up} \in \mathbb{R}^{d_{up}}$$
@@ -57,7 +57,7 @@ I like to call this part the "Secret Life of a Hidden Neuron" (also known as fin
     2. Each weight $a_i$` decides to include`/`gates`/`weights` a specific information basis vector $W_{down}[:,i] \in \mathbb{R}^{d_{model}}$ to be passed onto the Residual Stream $h$
     3. There are $d_{up}$ features to weigh; high dimensionality $d_{up}$ allows the model to store $d_{up}$ "vectors of information"
 
-???+ info "Concept 2: $W_{down}[:,i]$ as information basis vectors"
+??? info "Concept 2: $W_{down}[:,i]$ as information basis vectors"
     In this section, we assume the following interpretation of matrices (based on 3Blue1Brown [Change of basis | Chapter 13, Essence of linear algebra](https://www.youtube.com/watch?v=P2LTAUO1TdA)):
     
     1. Matrices encode linear transformations 
@@ -73,9 +73,9 @@ I like to call this part the "Secret Life of a Hidden Neuron" (also known as fin
 
     The update from the previous Residual Stream $h_{k}$ to the new Residual Stream $h_{k+1}$ is mathematically expressed as the weighted sum of all the $d_{up}$ potential information to include:
 
-    $$h_{k+1} = \sum_{i=1}^{d_{up}} \langle a_i, W_{down}[:,i] \rangle $$
+    $$h_{k+1} = \sum_{i=1}^{d_{up}} a_i \cdot W_{down}[:,i] $$
 
-???+ example "Concept 3: Next-token Neuron = Max Congruence Score"
+??? example "Concept 3: Next-token Neuron = Max Congruence Score"
     Armed with an understanding of $a_i$  $W_{down}[:,i]$ and $ W_{up}[i]$, we define the `potential` for a neuron $a_i$ to activate token $t$ as $s_i$:
 
     $$ s_i = \underset{t \in \mathbb{V}}{max} \langle W_{down}[:, i], e^{(t)} \rangle $$
@@ -96,3 +96,10 @@ I like to call this part the "Secret Life of a Hidden Neuron" (also known as fin
 | $\langle a_i, W_{down}[:, i] \rangle$  | `Gate`/`weight`/`how much` of information from $W_{down}[:,i]$ |
 | $h_{k+1}$ | Weighted sum of information, $W_{down}[:, i]$ to add to residual stream |
 | $s_i$ | Congruence between information in $W_{down}[:, i]$ and unembedding vector for token $t$, $e^{(t)}$ used to calcualte next-token neuron
+
+## Head Attribution
+??? info "Chain of Activations"
+    Given a next-token neuron $i$ at layer $l$:
+
+    1. The definition of a next-token neuron is that the $i$ chosen has max $s_i$ for all tokens
+    2. Max $s_i$ means max 
