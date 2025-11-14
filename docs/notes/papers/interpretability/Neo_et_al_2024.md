@@ -5,6 +5,8 @@ Publication Date: 2024-10-23
 
 Full Paper: [Interpreting Context Look-ups in Transformers: Investigating Attention-MLP Interactions](https://arxiv.org/abs/2402.15055)
 
+In Progress Reproduction: [Github Repo](https://github.com/Ky-Ng/reproducing-neo-et-al-2024)
+
 ## Summary
 This paper aims to bridge the gap between MLP and Attention Interpretability by focusing on (1) identifying next-token neurons and (2) find which attention heads activate that neuron.
 
@@ -46,7 +48,7 @@ I like to call this part the "Secret Life of a Hidden Neuron" (also known as fin
 ??? info "Concept 1: Feature Weighting"
     To find the `next-token neuron` $a_i$ or weight of information vector $W_{down}[:,i]$, we calculate $a$:
     
-    $$a = W_{up} h + b_{up} \in \mathbb{R}^{d_{up}}$$
+    $$a = \sigma(W_{up} h + b_{up}) \in \mathbb{R}^{d_{up}}$$
 
     1. Crucially, the consequence of the formula is that $a_i = \langle W_{up}[i], h \rangle$
 
