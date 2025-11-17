@@ -22,7 +22,7 @@ See [handwritten notes/derivations (section Reproducing Neo et al. 2024)](https:
 3. Use GPT-4 to generate explanations for activity patterns of these attention heads
 4. Evaluate response quality by using GPT-4 zero shot classifier for head activity on a new prompt 
 
-## Identifying Next-token Neurons and MLP Interpretability
+## Section 4.1: Identifying Next-token Neurons and MLP Interpretability
 
 ### MLP Architecture
 ??? example "MLP Algorithm"
@@ -99,7 +99,34 @@ I like to call this part the "Secret Life of a Hidden Neuron" (also known as fin
 | $h_{k+1}$ | Weighted sum of information, $W_{down}[:, i]$ to add to residual stream |
 | $s_i$ | Congruence between information in $W_{down}[:, i]$ and unembedding vector for token $t$, $e^{(t)}$ used to calcualte next-token neuron
 
-## Head Attribution
+## Section 4.2: High-Activating Prompts
+???+ note "High Level Goal ([Computation Level](https://wiki.qri.org/wiki/Marr%27s_Levels_of_Analysis))"
+    Given a neuron $i$ in the MLP of layer $l$, $n_{l, i}$:
+    - Find the maximum activating set of contexts/prompts $P$
+
+    Intuition
+    
+    1. We developed the algorithm for Next-token neurons above
+    2. For each neuron, we want to find the context where the neuron does lots of work/`fires`/`activates`
+    3. Next steps: given a prompt $p$ from $P$, go through $p$ token by token and see if $n_{l,i}$ is activated
+
+??? info "$\phi (p; l, i)$ Algorithm: Prompt Neuron Activation"
+    let $n_{(l,i)}$ = neuron $i$ of layer $l$
+
+    let prompt $p$ of length $T$ = $(x_1, x_2, x_3, ..., x_T)$; we will use $t$ to represent a token in $p$
+
+    $\phi (p; l, i)$ is the maximum activation of the specific neuron $n_{(l,i)}$ in the prompt $p$. We can imagine:
+    
+    1. Running a forward pass with prompt $p$ 
+    2. Each token $t$ in $p$ is like a `flip book`/`z-axis` (we can imagine holding a magical push pin on that $n_{(l,i)}$ as we flip the page $t$)
+    3. Take the token that maximally activates the neuron $n_{(l,i)}$
+
+    Mathematically, this `flip book` and `push pin` is represented as:
+
+    $$\phi (p; l, i) = \underset{t \in p}{max}  ( a_{(l, i)}^{(t)} )$$
+
+
+## Section 4.3: Individual Head Attribution
 ??? info "Chain of Activations"
     Given a next-token neuron $i$ at layer $l$:
 
