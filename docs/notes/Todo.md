@@ -22,13 +22,14 @@
 - [ ] [Added 2025-10-21] Learn [ARENA](https://www.arena.education/curriculum) curriculum
 
 ## Reading
+- [ ] [Added 2025-12-01] [How Can Interpretability Researchers Help AGI Go Well?](https://www.alignmentforum.org/posts/MnkeepcGirnJn736j/how-can-interpretability-researchers-help-agi-go-well) to reading list
+- [ ] [Added 2025-10-27] From OpenAI Scheming Blog, [Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety](https://arxiv.org/abs/2507.11473)
 - [ ] [Added 2025-10-26] Download and annotate March 27th, 2025 [Circuit Tracing: Revealing Computational Graphs in Language Models](https://transformer-circuits.pub/2025/attribution-graphs/methods.html)
     - [ ] [Added 2025-10-26] Perhaps try to reproduce on a smaller model?
     - [ ] Additional reference: [Added 2025-10-26] [On the Biology of a Large Language Model](https://transformer-circuits.pub/2025/attribution-graphs/biology.html)
 - [ ] [Added 2025-10-25] Read [Tracing the thoughts of a large language model](https://www.anthropic.com/research/tracing-thoughts-language-model)
 - [ ] [Added 2025-10-21] Read [Progress measures for grokking via mechanistic interpretability](https://arxiv.org/abs/2301.05217) by Nanda et al.
 - [ ] [Added 2025-10-21] Look into reproducing [Progress measures for grokking via mechanistic interpretability](https://arxiv.org/abs/2301.05217) by Nanda et al.
-- [ ] [Added 2025-10-27] From OpenAI Scheming Blog, [Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety](https://arxiv.org/abs/2507.11473)
 
 ## Documentation
 - [ ] [Added 2025-10-24] Add section on current project (Dyck Interp Probe)
