@@ -1,6 +1,9 @@
 # Doing The Thing: From Mechanical Turk to Mech Interp
 
-<sub> For motivation/momentum purposes, current consecutive streak: {{ dlog_consecutive_days() }} days! </sub>
+## Updates
+See most recent work: [Reproducing Neo et al. 2024](./notes/papers/interpretability/Neo_et_al_2024.md) Interpreting Context Look Ups and associated in-progress [Github Repo](https://github.com/Ky-Ng/reproducing-neo-et-al-2024).
+
+<sub> For motivation/momentum purposes: **{{ dlog_num_days() }} total days** with current consecutive streak of **{{ dlog_consecutive_days() }} days**! </sub>
 
 ## What is this?
 Here it goes! I'm Kyle, a 4th year Computational Linguistics student at USC. This is the start of my AI Safety journey!
