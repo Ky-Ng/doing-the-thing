@@ -1,6 +1,8 @@
 # Doing The Thing: From Mechanical Turk to Mech Interp
 
 ## Updates
+Excited to be attending NeurIPS [Mech Interp 2025 Workshop](https://mechinterpworkshop.com)!
+
 See most recent work: [Reproducing Neo et al. 2024](./notes/papers/interpretability/Neo_et_al_2024.md) Interpreting Context Look Ups and associated in-progress [Github Repo](https://github.com/Ky-Ng/reproducing-neo-et-al-2024).
 
 <sub> For motivation/momentum purposes: **{{ dlog_num_days() }} total days** with current consecutive streak of **{{ dlog_consecutive_days() }} days**! </sub>
