@@ -8,7 +8,7 @@ See most recent work: [Reproducing Neo et al. 2024](./notes/papers/interpretabil
 <sub> For motivation/momentum purposes: **{{ dlog_num_days() }} total days** with current consecutive streak of **{{ dlog_consecutive_days() }} days**! </sub>
 
 ## What is this?
-Here it goes! I'm Kyle, a 4th year Computational Linguistics student at USC. This is the start of my AI Safety journey!
+Here it goes! I'm Kyle, a 4th year Computational Linguistics student at USC. This is the start of my AI Safety journey! I am very greatful to be mentored by [Prof. Khalil Iskarous](https://dornsife.usc.edu/profile/khalil-iskarous/) at USC.
 
 I learned about AI Safety from the Seattle Llama4 Hackathon on June 21st, 2025 where I learned of [AI 2027](https://ai-2027.com). After finishing an awesome summer of [engineering](https://en.wikipedia.org/wiki/Annapurna_Labs), I realized the problems which excite me the most lie at the crossroads of engineering and science (computation and linguistics). 
 
