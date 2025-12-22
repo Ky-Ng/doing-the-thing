@@ -10,7 +10,7 @@ Time: The whole day! 4 hours of driving from LA to San Diego but definitely wort
 2. Some very cool people to learn from (and was really cool meeting them), Sarah from Transluce, Neel Nanda, David Bau, Leo Gao, J
 
 3. Takeaways
-    - LLMs are probabilistic/continuous models of cognition; approaches like SAE and Linear probes for intepretability seek to find symbolic/discrete representations
+    - LLMs are probabilistic/continuous models of cognition; approaches like SAE and Linear probes for interpretability seek to find symbolic/discrete representations
        - When thinking about distributed/connectionist and localist models of the world, it seems that the world is inherently continuous/probabilistic and our models of cognition can create symbolic/discrete representations as abstractions
     - Pragmaticism and Ambition/Curiosity are two sides of the same coin. Similar to the understanding above, perhaps we should channel our curiosity through measurable proxy goals so that we can progress on our ambitious overarching goals
     - Probing a models inverse scope quantification could be an interesting way to probe how models represent empirical language phenomena (English vs. Mandarin representations) through the intersection of multilingualism and semantics
