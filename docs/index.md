@@ -1,7 +1,9 @@
 # Doing The Thing: From Mechanical Turk to Mech Interp
 
 ## Updates
-Excited to be attending NeurIPS [Mech Interp 2025 Workshop](https://mechinterpworkshop.com)!
+Attending [ARBOx](https://oaisi.org/arbox3) from `Jan 5th - Jan 16th`; will be in `London` for 1 week from `Sat., Jan 17 - Sat. Jan 24th` to hope to meet more AI Safety folks and learn new perspectives!
+
+Attended NeurIPS [Mech Interp 2025 Workshop](https://mechinterpworkshop.com) and found some cool [takeaways](./notes/reflections/meetings/NeurIPS_2025_Mech_Interp_Workshop.md)!
 
 See most recent work: [Reproducing Neo et al. 2024](./notes/papers/interpretability/Neo_et_al_2024.md) Interpreting Context Look Ups and associated in-progress [Github Repo](https://github.com/Ky-Ng/reproducing-neo-et-al-2024).
 
