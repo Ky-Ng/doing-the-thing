@@ -15,6 +15,8 @@ In Progress: [Github Repo](https://github.com/Ky-Ng/reproducing-neo-et-al-2024)
     | ---- | --------- |
     | 0-1 | Scaffold Project using GPT Project |
     | 1-2 | Setup Github, generate stimuli, start understanding log probs | 
+    | 2-5.5 | Understand log probs, vectorized logic for Continuations Log Probs | 
+    | 5.5-7.5 | Setup aggregation/comparing Log Probs for surface vs. inverse Prompts | 
 
 ## High Level Summary
 I am interested in investigating how (multilingual) LLMs represent [`Quantifier Scope Ambiguity`](https://www.sfu.ca/~jeffpell/Ling324/fjpSlides7.pdf) cross-linguistically. 
@@ -58,10 +60,38 @@ Examples:
     - A new TODO is to understand how Reasoning models work mathematically (high level intuition)
 
 
-??? note "Hour 1-2"
+??? note "Hour 1-2: Setup Github, generate stimuli, start understanding log probs"
     
     1. Evaluation methods: Use same language continuations instead of MCQs to test latent linguistic knowledge rather than meta-linguistic judgement. Specifically, MCQs may be testing a models reasoning capabilities which are often skewed towards English reasoning (doesn't exactly tell us something interesting about the models underlying representations if we look at the likely English reasoning space)
 
     2. Setup ipynb to generate `stimuli,jsonl` and `stimuli_with_continuations.jsonl`
 
     3. Next Step: Understand how to compare continuations log probs from first principles
+
+??? note "Hour 2-5.5: Understand log probs, vectorized logic for Continuations Log Probs"
+    
+    1. Work out Log Probs/comparisons from first principles on pencil and paper
+
+    2. Extract Log Probs of inverse/surface continuations through a batched operation
+
+    - Probably should take more breaks/sleep when working on this instead of grinding through the night
+
+??? note "Hour 5.5-7.5: Setup aggregation/comparing Log Probs for surface vs. inverse Prompts"
+    
+    1. Setup pipeline to compare surface vs. inverse log sum/mean difference and odds (exponentiate the log differences)
+
+    2. Save outputs for model specifics
+
+    The key finding from working on GPT-2 is that the model always prefers surface scope. Next, we will try to see if this extrapolates to other models that have more than just pretraining.
+
+    Additional follow up:
+    
+    - After running some experiments as background jobs, the models `Qwen3-0.6B`, `Llama-3.2-1B`, and `Llama-3.2-1B-Instruct`
+    - Interestingly enough, `gemma-3-1b` prefers `inverse` scope for Mandarin for most examples whereas for English both surface and inverse are preferred. This is counter to intuitions from Natural Language semantics where `inverse` scope is not available
+        - This could be due to pragmatics ("a child made every parent smile" is more likely to have inverse scope than "a president made every citizen happy")
+        
+    TODO:
+
+    - Perhaps investigate this pragmatic infludence with MCQ style questions?
+
+    - Investiage whether the prompts in different languages show the same inverse/surface scope; if both Mandarin and English prompt translations give the same scope, this is likely affects of pragmatics (and the most "likely"/"first" interpretation)
