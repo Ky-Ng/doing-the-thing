@@ -17,6 +17,8 @@ In Progress: [Github Repo](https://github.com/Ky-Ng/reproducing-neo-et-al-2024)
     | 1-2 | Setup Github, generate stimuli, start understanding log probs | 
     | 2-5.5 | Understand log probs, vectorized logic for Continuations Log Probs | 
     | 5.5-7.5 | Setup aggregation/comparing Log Probs for surface vs. inverse Prompts | 
+    | 7.5-10.5 | Debug scripts to add (1) bfloat16 support large models (>27b) and (2) comparison of EN vs. ZH | 
+    
 
 ## High Level Summary
 I am interested in investigating how (multilingual) LLMs represent [`Quantifier Scope Ambiguity`](https://www.sfu.ca/~jeffpell/Ling324/fjpSlides7.pdf) cross-linguistically. 
@@ -95,3 +97,141 @@ Examples:
     - Perhaps investigate this pragmatic infludence with MCQ style questions?
 
     - Investiage whether the prompts in different languages show the same inverse/surface scope; if both Mandarin and English prompt translations give the same scope, this is likely affects of pragmatics (and the most "likely"/"first" interpretation)
+
+??? note "Hour 7.5-10.5: Debug scripts to add (1) bfloat16 support large models (>27b) and (2) comparison of en vs. zh"
+    
+    1. Models greater than 12b (e.g. `Gemma-3-12b`) are too large to fit on a High-RAM A100 on Collab in fp32
+        - Some back of the napkin calculation
+        $$ 12 \text{ b params} \cdot \frac{32 \text{ bits}}{1 \text{ param}} \cdot \frac{1 \text{ byte}}{8 
+        \text{ bits}} \cdot \frac{1 \text{ G}}{1 \text{ B}} 96 \text{ Gb}$$
+        - Since a A100 High-RAM GPU has 167 GB of CPU RAM but 80 GB of HBM (GPU RAM), then FP32 will not fit on device
+        - Pivoting to use FP16 halfs the footprint to 48GB but the decreased range causes logits to go to NaNs
+        - Thus, using BF16 solves the memory footprint and range issues
+            - We also upcast logits to FP32 during post-processing
+    
+    2. The results in the tabs below show that for models >4B, surface is always preferred; smaller models (270M and 1B) prefer surface for en and incorrectly prefer inverse for zh
+
+    | Model Size   | `en` Preference to Surface | `en` Preference to Inverse | `zh` Preference to Surface | `zh` Preference to Inverse | Takeaway                                                                                                                      |
+    | ------------ | -------------------------- | -------------------------- | -------------------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+    | Gemma-3-27B  | 59                         | 5                          | 51                         | 13                         | Strong surface preference in both English and Mandarin; large model behaves conservatively and consistently across languages. |
+    | Gemma-3-12B  | 51                         | 13                         | 37                         | 27                         | Surface preference remains, but Mandarin shows degradation and increased inverse scope relative to English.                   |
+    | Gemma-3-4B   | 47                         | 17                         | 41                         | 23                         | Both languages show weakened surface bias; Mandarin drifts further toward inverse interpretations.                            |
+    | Gemma-3-1B   | 45                         | 19                         | 14                         | 50                         | English still surface-biased, but Mandarin strongly prefers inverse—opposite of theoretical expectation for small models.     |
+    | Gemma-3-270M | 64                         | 0                          | 29                         | 35                         | English collapses entirely to surface scope; Mandarin slightly prefers inverse, showing extreme cross-lingual divergence.     |
+
+
+    ??? example "Gemma-3-27b results"
+        Takeaway: Model prefers surface form for both zh and en
+        
+        | model                 | language   |   inverse |   surface |   total | p_inverse   |
+        |-----------------------|------------|-----------|-----------|---------|-------------|
+        | google_gemma-3-27b-it | en         |         5 |        59 |      64 | 7.8%        |
+        | google_gemma-3-27b-it | zh         |        13 |        51 |      64 | 20.3%       |
+
+        | model                 | language   |   delta_mean__count |   delta_mean__mean |   delta_mean__median |   delta_mean__std |   ratio_mean__count |   ratio_mean__mean |   ratio_mean__median |   ratio_mean__std |
+        |-----------------------|------------|---------------------|--------------------|----------------------|-------------------|---------------------|--------------------|----------------------|-------------------|
+        | google_gemma-3-27b-it | en         |                  64 |             -0.858 |               -0.863 |             0.546 |                  64 |              0.491 |                0.422 |             0.281 |
+        | google_gemma-3-27b-it | zh         |                  64 |             -0.961 |               -1.098 |             1.238 |                  64 |              0.842 |                0.333 |             1.313 |
+
+        | model                 | agreement_rate   |
+        |-----------------------|------------------|
+        | google_gemma-3-27b-it | 71.9%            |
+
+        | model                 | pattern                |   count |
+        |-----------------------|------------------------|---------|
+        | google_gemma-3-27b-it | surface_EN__surface_ZH |      46 |
+        | google_gemma-3-27b-it | surface_EN__inverse_ZH |      13 |
+        | google_gemma-3-27b-it | inverse_EN__surface_ZH |       5 |
+
+    ??? example "Gemma-3-12b results"
+        Takeaway: Model prefers surface form for both zh and en; zh degraded performance
+
+        | model                 | language   |   inverse |   surface |   total | p_inverse   |
+        |-----------------------|------------|-----------|-----------|---------|-------------|
+        | google_gemma-3-12b-it | en         |        13 |        51 |      64 | 20.3%       |
+        | google_gemma-3-12b-it | zh         |        27 |        37 |      64 | 42.2%       |
+
+        | model                 | language   |   delta_mean__count |   delta_mean__mean |   delta_mean__median |   delta_mean__std |   ratio_mean__count |   ratio_mean__mean |   ratio_mean__median |   ratio_mean__std |
+        |-----------------------|------------|---------------------|--------------------|----------------------|-------------------|---------------------|--------------------|----------------------|-------------------|
+        | google_gemma-3-12b-it | en         |                  64 |             -0.496 |               -0.549 |             0.521 |                  64 |              0.699 |                0.578 |             0.392 |
+        | google_gemma-3-12b-it | zh         |                  64 |              0.13  |               -0.517 |             1.634 |                  64 |              4.511 |                0.598 |             7.996 |
+
+        | model                 | agreement_rate   |
+        |-----------------------|------------------|
+        | google_gemma-3-12b-it | 37.5%            |
+
+        | model                 | pattern                |   count |
+        |-----------------------|------------------------|---------|
+        | google_gemma-3-12b-it | surface_EN__inverse_ZH |      27 |
+        | google_gemma-3-12b-it | surface_EN__surface_ZH |      24 |
+        | google_gemma-3-12b-it | inverse_EN__surface_ZH |      13 |
+    
+    ??? example "Gemma-3-4b results"
+        Takeaway: Both zh/en prefer inverse slightly more. Degradation in Mandarin performance
+
+        | model                | language   |   inverse |   surface |   total | p_inverse   |
+        |----------------------|------------|-----------|-----------|---------|-------------|
+        | google_gemma-3-4b-it | en         |        17 |        47 |      64 | 26.6%       |
+        | google_gemma-3-4b-it | zh         |        23 |        41 |      64 | 35.9%       |
+
+        | model                | language   |   delta_mean__count |   delta_mean__mean |   delta_mean__median |   delta_mean__std |   ratio_mean__count |   ratio_mean__mean |   ratio_mean__median |   ratio_mean__std |
+        |----------------------|------------|---------------------|--------------------|----------------------|-------------------|---------------------|--------------------|----------------------|-------------------|
+        | google_gemma-3-4b-it | en         |                  64 |             -0.386 |               -0.602 |             1.155 |                  64 |              1.857 |                0.548 |             4.793 |
+        | google_gemma-3-4b-it | zh         |                  64 |             -0.849 |               -0.861 |             1.955 |                  64 |              1.602 |                0.423 |             2.271 |
+
+        | model                | agreement_rate   |
+        |----------------------|------------------|
+        | google_gemma-3-4b-it | 56.2%            |
+
+        | model                | pattern                |   count |
+        |----------------------|------------------------|---------|
+        | google_gemma-3-4b-it | surface_EN__surface_ZH |      30 |
+        | google_gemma-3-4b-it | surface_EN__inverse_ZH |      17 |
+        | google_gemma-3-4b-it | inverse_EN__surface_ZH |      11 |
+        | google_gemma-3-4b-it | inverse_EN__inverse_ZH |       6 |
+    
+    ??? example "Gemma-3-1b results"
+        Takeaway: zh heavily prefers inverse while en prefers surface. Opposite of expected behavior; theoretically if aligned with [Brinkmann et al. 2025](https://arxiv.org/abs/2501.06346), then smaller models would prefer only surface form.
+
+        | model                | language   |   inverse |   surface |   total | p_inverse   |
+        |----------------------|------------|-----------|-----------|---------|-------------|
+        | google_gemma-3-1b-it | en         |        19 |        45 |      64 | 29.7%       |
+        | google_gemma-3-1b-it | zh         |        50 |        14 |      64 | 78.1%       |
+
+        | model                | language   |   delta_mean__count |   delta_mean__mean |   delta_mean__median |   delta_mean__std |   ratio_mean__count |   ratio_mean__mean |   ratio_mean__median |   ratio_mean__std |
+        |----------------------|------------|---------------------|--------------------|----------------------|-------------------|---------------------|--------------------|----------------------|-------------------|
+        | google_gemma-3-1b-it | en         |                  64 |             -0.432 |               -0.416 |             0.622 |                  64 |              0.772 |                0.66  |             0.455 |
+        | google_gemma-3-1b-it | zh         |                  64 |              0.704 |                0.492 |             0.934 |                  64 |              3.56  |                1.636 |             5.84  |
+
+        | model                | agreement_rate   |
+        |----------------------|------------------|
+        | google_gemma-3-1b-it | 45.3%            |
+
+        | model                | pattern                |   count |
+        |----------------------|------------------------|---------|
+        | google_gemma-3-1b-it | surface_EN__inverse_ZH |      33 |
+        | google_gemma-3-1b-it | inverse_EN__inverse_ZH |      17 |
+        | google_gemma-3-1b-it | surface_EN__surface_ZH |      12 |
+        | google_gemma-3-1b-it | inverse_EN__surface_ZH |       2 |
+    
+    ??? example "Gemma-3-270m results"
+        Takeaway: en only predicts surface while slight preference to inverse for zh
+
+        | model                  | language   |   inverse |   surface |   total | p_inverse   |
+        |------------------------|------------|-----------|-----------|---------|-------------|
+        | google_gemma-3-270m-it | en         |         0 |        64 |      64 | 0.0%        |
+        | google_gemma-3-270m-it | zh         |        35 |        29 |      64 | 54.7%       |
+
+        | model                  | language   |   delta_mean__count |   delta_mean__mean |   delta_mean__median |   delta_mean__std |   ratio_mean__count |   ratio_mean__mean |   ratio_mean__median |   ratio_mean__std |
+        |------------------------|------------|---------------------|--------------------|----------------------|-------------------|---------------------|--------------------|----------------------|-------------------|
+        | google_gemma-3-270m-it | en         |                  64 |             -4.226 |               -3.902 |             1.644 |                  64 |              0.04  |                 0.02 |             0.057 |
+        | google_gemma-3-270m-it | zh         |                  64 |              0.386 |                0.376 |             2.904 |                  64 |             24.851 |                 1.46 |            62.733 |
+
+        | model                  | agreement_rate   |
+        |------------------------|------------------|
+        | google_gemma-3-270m-it | 45.3%            |
+
+        | model                  | pattern                |   count |
+        |------------------------|------------------------|---------|
+        | google_gemma-3-270m-it | surface_EN__inverse_ZH |      35 |
+        | google_gemma-3-270m-it | surface_EN__surface_ZH |      29 |
