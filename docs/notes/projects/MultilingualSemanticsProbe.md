@@ -44,15 +44,115 @@ Examples:
 
     - Larger models will over-generalize English Inverse Scope semantics to Mandarin while smaller models will correctly apply language-specific semantic interpretations
 
-??? note "Original Study: Abstract of Scrontas et al."
+??? note "Relevant Papers"
+    1. [Scrontas et al. 2017: Cross-linguistic scope ambiguity: When two systems meet](https://www.glossa-journal.org/article/id/4898/)
+
+        a. Double quantifier scope ambiguity in Mandarin-English Heritage Bilinguals
+
+    2. [Brinkmann et al. 2025: Large Language Models Share Representations of Latent Grammatical Concepts Across Typologically Diverse Languages](https://arxiv.org/abs/2501.06346)
+
+        a. Larger models can represent multi-lingual concepts about morphosyntactic category (even when predominantly trained on English)
+
+    3. [Claude Haiku Multilingual Circuits](https://transformer-circuits.pub/2025/attribution-graphs/biology.html#dives-multilingual) 
+
+        a. Section 5.6 shows that English is priviledged though multi-lingual representations do exist
+
+    4. [Fang et al. 2025: Quantifier Scope Interpretation in Language Learners and LLMs](https://arxiv.org/abs/2509.10860v1) 
+
+        a. Exactly the same from [Scrontas et al. 2017](https://www.glossa-journal.org/article/id/4898/) applied to humans, gives insightful models to try
     
-    Accurately recognizing and resolving ambiguity is a hallmark of linguistic ability. English is a language with scope ambiguities in doubly-quantified sentences like A shark ate every pirate; this sentence can either describe a scenario with a single shark eating all of the pirates, or a scenario with many sharks—a potentially-different one eating each pirate. In Mandarin Chinese, the corresponding sentence is unambiguous, as it can only describe the single-shark scenario. We present experimental evidence to this effect, comparing native speakers of English with native speakers of Mandarin in their interpretations of doubly-quantified sentences. Having demonstrated the difference between these two languages in their ability for inverse scope interpretations, we then probe the robustness of the grammar of scope by extending our experiments to English-dominant adult heritage speakers of Mandarin. Like native speakers of Mandarin, heritage Mandarin speakers lack inverse scope in Mandarin. Crucially, these speakers also lack inverse scope in English, their dominant language in adulthood. We interpret these results as evidence for the pressure to simplify the grammar of scope, decreasing ambiguity when possible. In other words, when two systems meet—as in the case of heritage speakers—the simpler system prevails.
+    5. [Schut et al. 2025: Do Multilingual LLMs Think In English?](https://arxiv.org/abs/2502.15603)
+        
+        a. Evidence that multilingual models `reason` in an English centric way
+        
+        b. Introduction to the steering vector concept
 
 ### Project Scaffold
 
 1. Create a stimulus dataset of inverse/surface quantifier scope with various lexical items (words, aka not just sharks and pirates)
 2. Create pipeline for evaluating model log-probs for surface/inverse scope
 3. Inspect models that show inverse scope (Interp techniques TBD keeping pragmaticism in mind; likely linear probe + steering vector)
+
+## Steering Vectors Math
+
+- The goal of this project is not just to find correlation between a models hidden representation and the quantifier scope feature (in doubly quantified sentences), but to test causality through steering vectors.
+
+??? note "First principles derived method for looking into steering vectors"
+
+    `Two key assumptions:
+
+    Given a model's hidden representation in the residual stream $h_{l} \in \mathbb{R}^d$ in layer $l$:
+
+
+    2. `Hidden State h as combination of direction w and noise`
+
+        - Assume the hidden state is composed of the direction $w$ and other info/noise $\epsilon$ 
+
+        $$h_l = z \cdot w + \epsilon$$
+        
+        a. $z \in {-1, +1}$ -> -1 if feature on (e.g. inverse scope), +1 if feature off (e.g. surface scope)
+        
+        b. $w \in \mathbb{R}^d$ -> direction in activation space of a feature
+        
+        c. $\epsilon$ is unrelated information to the direction $w$ in activation space / noise
+
+    3. `Difference of means method` to find steering vector $w$\
+
+        - Assume the average hidden representation for example $i$ from class {surface, inverse} $h_{l,i}$ when subtracted will yield the direction vector
+        
+        a. let $i \in S$ be surface examples and $i \in I$ be inverse examples
+        
+        b. Plug in the $h_l$ example formula and get the RHS equivalent
+
+        $$ \mu_S = \frac{1}{|S|} \sum_{i \in S} h_{l,i} = \frac{1}{|S|} \sum_{i \in S} z_i \cdot w + \epsilon_i = (+1) w + \mathbb{E}[\epsilon]$$
+
+        $$ \mu_I = \frac{1}{|I|} \sum_{i \in S} h_{l,i} = \frac{1}{|I|} \sum_{i \in S} z_i \cdot w + \epsilon_i = (-1) w + \mathbb{E}[\epsilon]$$
+
+        Problem, now we have this pesky $\mathbb{E}[\epsilon]$ term, but we want $w$! Since the $\mathbb{E}[\epsilon]$ term occurs in both $\mu_S and \mu_I$, subtracting them gives us $v \approx 2w$ 
+        
+        $$v = \mu_S - \mu_I = 2w$$
+
+    4. `Causal Steering via Intervention`: Test to see if $w$ can change the model's output
+
+        - Downstream operations on $h_l$ are a combination of linear mappings/non-linear activations. Thus, we can make a simplifying assumption of how $h_l$ is used by the model
+
+        $$\text{model information from h} \approx w^{\top} h_l$$
+
+        - Intervene by turning on/off the direction
+
+        $$h_{l, i}' =  h_{l,i} + \alpha v$$
+
+        - Mathematically, we change the representation by adding the direction to the information the model uses it
+
+        $$\text{model information from h}' \approx w^{\top} h_{l,i}' = w^{\top} (h_{l,i} + \alpha v) = w^{\top}h_{l,i} + \alpha w^{\top}v $$
+
+    5. `Similarity of direction w and hidden state h`
+        
+        - Take the dot product of $v$ and $h_{l,i}$ to see if the hidden state and steering vector point in the same direction (are aligned)
+        
+        $$ p_i = v^{\top} h_{l,i} $$
+
+        - if v represents the inverse scope direction then $ p_i \uparrow -> h_{l,i}$ encodes inverse scope, if $ p_i \downarrow -> h_{l,i}$ encodes surface scope, else if $ p_i = 0 -> h_{l,i}$ is not related to scope.
+
+        Mathematically, this hashes out as:
+
+        $$ p_i = v^{\top} h_{l,i} $$
+
+        $$ = (2w)^{\top} (z_i w + \epsilon_i)$$
+
+        $$ = (2w)^{\top} (z_i w) + (2w)^{\top} \epsilon_i $$
+
+        Since we assume that $ \mathbb{E}[\epsilon_i] = 0 $ (or perhaps that it's constant), we are reduced to
+
+        $$ \approx (2w)^{\top} (z_i w) $$
+
+        $$ p_i \approx 2 z_i ||w||^{2} $$
+
+        a. Thus, if $i \in I$ (denotes an inverse scope sentence), then $z_i = (+1)$ and $p_i$ should be positive.
+
+        b. Thus, if $i \in S$ (denotes a surface scope sentence), then $z_i = (-1)$ and $p_i$ should be negative.
+
+
 
 ## Progress Details
 
