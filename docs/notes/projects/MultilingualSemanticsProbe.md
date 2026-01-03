@@ -21,7 +21,10 @@ In Progress: [Github Repo](https://github.com/Ky-Ng/reproducing-neo-et-al-2024)
     | 10.5-12 | Read [Fang et al.](https://arxiv.org/abs/2509.10860v1) and [Schut 2025 et al.](https://arxiv.org/abs/2502.15603), test GPT-2-Chinese (`uer_gpt2-xlarge-chinese-cluecorpussmall`), `aya-23-35B`, `Gemma2-27B`, and `aya-expanse-32b` | 
     | 12-12.5 | Verified that Existential-Universal and Universal-Existential prefer the same continuation preferences |
     | 12.5-13 | Find that English preference for inverse and Chinese preference for surface is statistically significant (p=1.948e-18)|
-    | 13 - TBD | Plan Mechanistic Interpretability techniques to use |
+    | 13 - 14 | Learn and document math of Steering Vectors |
+    | 14 - 15 | Setback--GPT2-Chinese is unreliable |
+    | 15 - 16 | Qwen2.5 Surface/Inverse Scope Judgements; continue documenting Steering Vector math |
+    | 17 - 20 | Look for Steering Vectors |
 
 ## High Level Summary
 I am interested in investigating how (multilingual) LLMs represent [`Quantifier Scope Ambiguity`](https://www.sfu.ca/~jeffpell/Ling324/fjpSlides7.pdf) cross-linguistically. 
@@ -443,7 +446,7 @@ Examples:
         | Universal-Existential | en | 1.674e-15 |
         | Universal-Existential | zh | 1.948e-18 |
 
-??? note "Hour 13-14: Learn math of Steering Vectors" 
+??? note "Hour 13-14: Learn and document math of Steering Vectors" 
     Potential Mechanistic Interpretability techniques:
     
     <small>The results above are super exciting! In fact, this will be my first time working on any SOTA probe type of technology from the MechInterp literature. A key focus right now is to make sure that I stay pragmatic considering I'm already at hour 13 of this project</small>
@@ -820,3 +823,45 @@ Examples:
         |------------|-----|-------------|-----------|----------|------------|--------------|
         | en         | 100 |           5 |  2.27e-18 |  -0.349  |    -0.2952 | surface      |
         | zh         | 100 |         539 |  4.29e-12 |  -0.6502 |    -0.8149 | surface      |
+
+??? note "Hour 17-20: Look for Steering Vector"
+    - Goal: look fora steering vector for inverse/surface in DQ constructions
+    - Agnostic on whether the model correctly generalizes the expected Mandarin surface scope only
+    - Agnostic on whether the steering vector applies cross-linguistically
+
+    Steps:
+
+    1. Find token position to find `.`/`。` token  before the continuation (where the information about the sentence is likely pooled
+
+    2. Calculate the $\mu_S$ and $\mu_I$ for en/zh to get $v_{en}$ and $v_{zh}$; normalize v into a unit vector.
+
+    3. Correlation: Histograms of $ p_i = v^{\top} h_{l,i} $ with $i \in S$ and $I \in I$ next to each other to see if there is correlation of the steering vector and the scope type
+
+    4. Causation: Intervene by adding $h_{l, i}' =  h_{l,i} + \alpha v$ and see if the preferences skew
+
+    Gotchas
+    1.  Create a train/test set; calcuate $v$ (and therefore $\mu_{inverse}$ and $\mu_{surface}$) from the trainining set; see how well v generalizes to test set in $p_i$
+
+    2. Same as above, apply training $v$ to test h's for steering
+
+    3. Deciding which layer is tricky (using an AUC metric but need to better understand math from first principles). Deciding how much to scale $\alpha$ is also tricky
+
+    Takeaways so far:
+    1. Cross-linguistic evidence of v is not supported; applying $v_{en}$ to zh data doesn't separate zh inverse and surface forms. Similarly, $v_{zh}$ does not separate inverse and surface forms.
+
+    2. Mandarin Existential-Universal and Universal-Existential supports a language specific steering vector occurs early in layer 4-7, that separates inverse and surface judgements.
+
+    3. Tokenization idiosyncracies (e.g. removing a space between the sentence and its continuation in Mandarin) yields more favorability towards inverse scope). Additionally, Universal-Existential constructions favor inverse scope in Mandarin for model sizes except for Qwen2.5-14b.
+
+??? note "Future Work"
+    While there was not enough time to pursue activation patching of this steering vector in Mandarin stimulus, below are the next steps to evalute if candidate direction $v_{zh}$ causally affect the continuation preference.
+
+    $$ h'_i = h_i + \alpha v_{zh} $$
+    
+    1. Baseline: add {random noise, $v_{zh}$} to verify if $v_{zh}$ indeed establishes causality
+    
+    2. Intervene at high AUC layers (layers 4-7)
+    
+    3. Test whether different token positions before the continuation may also encode scope direction (e.g. The continuation starting positions "there is"/"有一[CLASSIFIER]") in addition to the period mark which we assume to pool information.
+
+    Also added AUC, ROC, and Wilcoxon stats knowledge to [todos](../Todo.md)

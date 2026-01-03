@@ -1,6 +1,8 @@
 # Running Todo List
 
 ## Math
+- [ ] [Added 2025-12-30] Area Under Curve (AUC) and Receiver Operating Characteristic (ROC) Test
+- [ ] [Added 2025-12-30] Wilcoxon Signed-Rank Test
 - [ ] Go through [StatQuest Statistics Lessons](https://www.youtube.com/watch?v=qBigTkBLU6g&list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9)
     - [x] [Completed 2025-10-27] [Added 2025-10-25] Probability Distributions [[StatQuest Video](https://www.youtube.com/watch?v=oI3hZJqXJuc&list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9&index=2)]
     - [x] [Completed 2025-10-27] [Added 2025-10-25] Normal Distributions [[StatQuest Video](https://www.youtube.com/watch?v=rzFX5NWojp0&list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9&index=3)]
