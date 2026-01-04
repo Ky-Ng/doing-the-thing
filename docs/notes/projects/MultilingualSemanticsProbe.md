@@ -2,7 +2,9 @@
 
 Version 1: 2025-12-18 - 2026-01-03
 
-In Progress: [Github Repo](https://github.com/Ky-Ng/multilingual-semantics-probe)
+- In Progress [Github Repo](https://github.com/Ky-Ng/multilingual-semantics-probe)
+
+- [Executive Summary](https://docs.google.com/document/d/1vIrKKqP2K-zsxBVDk3B__qtATR1jjnqw0A5TNLFH8RA/edit?usp=sharing)
 
 ???+ tip "Timelog"
     To timebox this project, we'll follow a [Nanda MATS stream](https://tinyurl.com/neel-mats-app) style 16-20 hour project.
