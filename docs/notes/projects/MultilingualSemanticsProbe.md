@@ -1,10 +1,8 @@
 # Multilingual Semantics Probe
 
-Started: 2025-12-18
+Version 1: 2025-12-18 - 2026-01-03
 
-<!-- Writeup: [Interpreting Context Look-ups in Transformers: Investigating Attention-MLP Interactions](https://arxiv.org/abs/2402.15055) -->
-
-In Progress: [Github Repo](https://github.com/Ky-Ng/reproducing-neo-et-al-2024)
+In Progress: [Github Repo](https://github.com/Ky-Ng/multilingual-semantics-probe)
 
 ???+ tip "Timelog"
     To timebox this project, we'll follow a [Nanda MATS stream](https://tinyurl.com/neel-mats-app) style 16-20 hour project.
@@ -505,6 +503,40 @@ Examples:
     2. Universal-Existential (UE) show Surface preference for English and Mandarin. Surprisingly, Mandarin also accepts inverse scope in UE.
     3. All preferences for surface are significant
 
+    !!! example "Existential-Universal Construction (A … Every…)"
+
+        | Model Size | Language | Inverse | Surface |
+        |-------------------|----------|---------|---------|
+        | Qwen2.5-0.5B      | en       | 7       | 93      |
+        | Qwen2.5-0.5B      | zh       | 8       | 92      |
+        | Qwen2.5-1.5B      | en       | 14      | 86      |
+        | Qwen2.5-1.5B      | zh       | 0       | 100     |
+        | Qwen2.5-3B        | en       | 16      | 84      |
+        | Qwen2.5-3B        | zh       | 0       | 100     |
+        | Qwen2.5-7B        | en       | 10      | 90      |
+        | Qwen2.5-7B        | zh       | 4       | 96      |
+        | Qwen2.5-14B       | en       | 7       | 93      |
+        | Qwen2.5-14B       | zh       | 0       | 100     |
+        | Qwen2.5-32B       | en       | 10      | 90      |
+        | Qwen2.5-32B       | zh       | 0       | 100     |
+    
+    !!! example "Universal-Existential Construction (Every…A …)"
+
+        | Model / Model Size | Language | Inverse | Surface |
+        |-------------------|----------|---------|---------|
+        | Qwen2.5-0.5B      | en       | 6       | 94      |
+        | Qwen2.5-0.5B      | zh       | 29      | 71      |
+        | Qwen2.5-1.5B      | en       | 9       | 91      |
+        | Qwen2.5-1.5B      | zh       | 22      | 78      |
+        | Qwen2.5-3B        | en       | 6       | 94      |
+        | Qwen2.5-3B        | zh       | 27      | 73      |
+        | Qwen2.5-7B        | en       | 3       | 97      |
+        | Qwen2.5-7B        | zh       | 24      | 76      |
+        | Qwen2.5-14B       | en       | 7       | 93      |
+        | Qwen2.5-14B       | zh       | 7       | 93      |
+        | Qwen2.5-32B       | en       | 2       | 98      |
+        | Qwen2.5-32B       | zh       | 26      | 74      |
+    
     Next steps: 
     
     - Since our goal is to use these sentences as a way to probe for steering vectors and then causality, the stats/stimlui need not be perfect. 
@@ -840,6 +872,7 @@ Examples:
     4. Causation: Intervene by adding $h_{l, i}' =  h_{l,i} + \alpha v$ and see if the preferences skew
 
     Gotchas
+
     1.  Create a train/test set; calcuate $v$ (and therefore $\mu_{inverse}$ and $\mu_{surface}$) from the trainining set; see how well v generalizes to test set in $p_i$
 
     2. Same as above, apply training $v$ to test h's for steering
@@ -847,6 +880,7 @@ Examples:
     3. Deciding which layer is tricky (using an AUC metric but need to better understand math from first principles). Deciding how much to scale $\alpha$ is also tricky
 
     Takeaways so far:
+
     1. Cross-linguistic evidence of v is not supported; applying $v_{en}$ to zh data doesn't separate zh inverse and surface forms. Similarly, $v_{zh}$ does not separate inverse and surface forms.
 
     2. Mandarin Existential-Universal and Universal-Existential supports a language specific steering vector occurs early in layer 4-7, that separates inverse and surface judgements.
