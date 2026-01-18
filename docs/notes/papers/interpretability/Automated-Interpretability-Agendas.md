@@ -23,6 +23,7 @@ Flowchart and summarization of ideas + 3 contributions of use cases for Fazl Bar
     Essentially, Automated Interpretability’s 3-step agentic pipelines have the potential to transform interpretability from a bespoke art, to a scalable science that mitigates x-risk by empowering human engagement and trust of safety in AI systems.
 
     References:
+    
     [Automated Interpretability-Driven Model Auditing and Control: A Research Agenda [Barez 2026]](https://aigi.ox.ac.uk/publications/automated-interpretability-driven-model-auditing-and-control-a-research-agenda/)
 
     [LatentQA: Teaching LLMs to Decode Activations Into Natural Language [Pan et al. 2024]](https://arxiv.org/abs/2412.08686)
