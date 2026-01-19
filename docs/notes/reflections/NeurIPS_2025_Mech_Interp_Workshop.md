@@ -1,6 +1,8 @@
 # NeurIPS Mech Interp Workshop 2025
 Date: 25.12.07
+
 Location: San Diego Convention Center
+
 Time: The whole day! 4 hours of driving from LA to San Diego but definitely worth it!
 
 ## Notes
