@@ -1,13 +1,37 @@
 # Doing The Thing: From Mechanical Turk to Mech Interp
+<sub> For motivation/momentum purposes: Started AI Safety journey **{{ dlog_num_days() }} days ago** with current daily streak of "doing the thing" for **{{ dlog_consecutive_days() }} consecutive days**! </sub>
 
-## Updates
-Attending [ARBOx](https://oaisi.org/arbox3) from `Jan 5th - Jan 16th`; will be in `London` for 1 week from `Sat., Jan 17 - Sat. Jan 24th` to hope to meet more AI Safety folks and learn new perspectives!
+???+ tip "Updates"
+    1. In the UK working from [LISA](https://www.safeai.org.uk/) from **Monday, January 19th to Friday, January 23rd**; worked from Trajan House, Oxford Monday, January 5th to Friday, January 16th
+        
+        a. Looking to meet more AI Safety folks! Please let me know if you would like to meet up; happy to travel to meet!
+    
+    2. Reflections from [ARBOx](./notes/reflections/ARBOx.md) including work in progress Theory of Change
 
-Attended NeurIPS [Mech Interp 2025 Workshop](https://mechinterpworkshop.com) and found some cool [takeaways](./notes/reflections/meetings/NeurIPS_2025_Mech_Interp_Workshop.md)!
+    3. Currently working on an Automated Interpretability Project extending [Neo et al. 2024 Interpreting Context Look Ups](./notes/papers/interpretability/Neo_et_al_2024.md). I'm also interested in:
+        
+        a. Automated Circuit Tracing (e.g. developing Agents to automatically find circuits in Neuronpedia like attribution graphs)
 
-See most recent work: [Reproducing Neo et al. 2024](./notes/papers/interpretability/Neo_et_al_2024.md) Interpreting Context Look Ups and associated in-progress [Github Repo](https://github.com/Ky-Ng/reproducing-neo-et-al-2024).
+        b. Cross-lingual alignment (e.g. Does aligning a model in English mean it's aligned in Chinese?)
 
-<sub> For motivation/momentum purposes: **{{ dlog_num_days() }} total days** with current consecutive streak of **{{ dlog_consecutive_days() }} days**! </sub>
+??? note "TLDR of Things I've Done Since Starting My AI Safety Journey {{ dlog_num_days() }} Days Ago"
+    **Projects**
+
+    1. Cross-Linguistic Alignment: Does LoRA Fine Tuning a model on a task (e.g. respond in all CAPS) translate cross-linguistically? ([Summary](https://docs.google.com/presentation/d/16jQDJhF4orOrSzpVKMJwtU52u-vlzT77pCK8gZGwO9g/edit?usp=sharing) && [Github](https://github.com/leungchristopher/arbox_project))
+
+    2. Reproducing [Neo et al. 2024 Interpreting Context Look Ups](./notes/papers/interpretability/Neo_et_al_2024.md)
+
+    3. [Multilingual Semantics Probe](./notes/projects/MultilingualSemanticsProbe.md): Looking for Steering Vectors for semantically ambiguous sentences in English but not Mandarin 
+
+    3. Syntactic Dependencies in Transformers: Attention Patterns for Balanced Parentheses (Dyck) Language ([Github](https://github.com/Ky-Ng/Dyck-Interp-Probe))
+
+    **Programs**
+
+    1. [ARBOx](./notes/reflections/ARBOx.md): 2 weeks of compressed ARENA curriculum; project on Cross-linguistic generalization of fine-tuning
+    
+    2. Attended NeurIPS [Mech Interp 2025 Workshop](https://mechinterpworkshop.com) and found some cool [takeaways](./notes/reflections/meetings/NeurIPS_2025_Mech_Interp_Workshop.md)!
+
+    3. Started being mentored by [Sudhanshu Kasewa](https://www.linkedin.com/in/skasewa/?originalSubdomain=uk) from [80,000 Hours](https://80000hours.org/)
 
 ## What is this?
 Here it goes! I'm Kyle, a 4th year Computational Linguistics student at USC. This is the start of my AI Safety journey! I am very greatful to be mentored by [Prof. Khalil Iskarous](https://dornsife.usc.edu/profile/khalil-iskarous/) at USC.

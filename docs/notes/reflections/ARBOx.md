@@ -1,4 +1,4 @@
-# NeurIPS Mech Interp Workshop 2025
+# ARBOx3
 Date: 26.01.05 - 26.01.16
 
 Location: Trajan House, Oxford
