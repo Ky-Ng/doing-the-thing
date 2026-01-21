@@ -2,8 +2,7 @@
 
 Flowchart and summarization of ideas + 2 ideas for use cases from Fazl Barez's Automated Interpretability Agenda 2026
 
-Original Paper: [Automated Interpretability-Driven Model Auditing and Control:
-A Research Agenda](https://aigi.ox.ac.uk/wp-content/uploads/2026/01/Automated_interp_Research_Agenda.pdf)
+Original Paper: [Automated Interpretability-Driven Model Auditing and Control: A Research Agenda](https://aigi.ox.ac.uk/wp-content/uploads/2026/01/Automated_interp_Research_Agenda.pdf)
 
 ![Automated Interp Agenda Barez 2025](../../../assets/papers/automated-interp-agenda/automated-interp-agend-barez-2025.png)
 
