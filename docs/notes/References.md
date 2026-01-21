@@ -28,3 +28,6 @@ Adding links I run into that I think can be helpful later in the journey
 
 <!-- ## Papers; add this after reading!
 - March 27th, 2025 [Circuit Tracing: Revealing Computational Graphs in Language Models](https://transformer-circuits.pub/2025/attribution-graphs/methods.html) -->
+
+## Interesting Papers
+- [Evaluating honesty and lie detection techniques on a diverse suite of dishonest models](https://alignment.anthropic.com/2025/honesty-elicitation/)

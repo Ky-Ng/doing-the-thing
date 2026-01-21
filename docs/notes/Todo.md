@@ -36,6 +36,13 @@
 - [ ] [Added 2026-01-18] [Refusal Direction is Universal Across Safety-Aligned Languages](https://arxiv.org/abs/2505.17306)
 - [ ] [Added 2026-01-18] [LLMs Encode Harmfulness and Refusal Separately](https://arxiv.org/abs/2507.11878v1)
 
+### Automated Circuit Discovery
+- [ ] [Added 2026-01-19] [Transformer Circuit Faithfulness Metrics are not Robust](https://arxiv.org/abs/2407.08734), response to ACDC
+- [ ] [Added 2026-01-19] [Towards Automated Circuit Discovery for Mechanistic Interpretability](https://arxiv.org/abs/2304.14997)
+
+### Interp for Monitoring/Control
+- [ ] [Added 2026-01-19] [Building Production-Ready Probes For Gemini](https://arxiv.org/abs/2601.11516)
+
 ## Reading
 - [ ] [Added 2025-12-01] [How Can Interpretability Researchers Help AGI Go Well?](https://www.alignmentforum.org/posts/MnkeepcGirnJn736j/how-can-interpretability-researchers-help-agi-go-well) to reading list
 - [ ] [Added 2025-10-27] From OpenAI Scheming Blog, [Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety](https://arxiv.org/abs/2507.11473)
