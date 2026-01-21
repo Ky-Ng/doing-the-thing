@@ -19,7 +19,7 @@ Cross-linguistic Alignment: Does LoRA Fine Tuning a model on a task (e.g. respon
 
 1. [Summary](https://docs.google.com/presentation/d/16jQDJhF4orOrSzpVKMJwtU52u-vlzT77pCK8gZGwO9g/edit?usp=sharing)
 
-2. [Github](https://github.com/leungchristopher/arbox_project)
+2. [Github](https://github.com/Ky-Ng/x-linguistic-fine-tuning-generalization)
 
 ![Cross Linguistic Alignment Flowchart](../../assets/projects/cross-linguistic-caps/cross-linguistic-alignment-flowchart.png)
 

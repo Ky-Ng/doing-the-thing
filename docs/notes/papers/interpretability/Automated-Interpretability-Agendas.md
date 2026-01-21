@@ -1,9 +1,15 @@
 # Automated Interpretability Agenda
 
-Flowchart and summarization of ideas + 2 suggestions of use cases for Fazl Barez's Automated Interpretability Agenda 2025
+Flowchart and summarization of ideas + 2 ideas for use cases from Fazl Barez's Automated Interpretability Agenda 2026
+
+Original Paper: [Automated Interpretability-Driven Model Auditing and Control:
+A Research Agenda](https://aigi.ox.ac.uk/wp-content/uploads/2026/01/Automated_interp_Research_Agenda.pdf)
+
 ![Automated Interp Agenda Barez 2025](../../../assets/papers/automated-interp-agenda/automated-interp-agend-barez-2025.png)
 
-??? note "Thoughts on Why Automted Interpretability is Underrated"
+??? note "Thoughts on Automated Interpretability Agenda (Barez 2026)"
+    <small>Response to MATS Summer 2026 application question on an `underrated` idea in Empirical AI Safety research.</small>
+    
     Automated Interpretability has strong promise to catalyze interpretability from a descriptive tool of current model behavior to a robust predictive pipeline to monitor, control, and permanently intervene on increasingly powerful models. The 3-step agentic system in Automated Interpretability-Driven Model Auditing and Control: A Research Agenda [Barez 2026] allows domain experts to interact with 
 
     (a) target frontier model, 
