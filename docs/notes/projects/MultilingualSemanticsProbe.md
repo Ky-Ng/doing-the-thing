@@ -82,7 +82,7 @@ Examples:
 
 ??? note "First principles derived method for looking into steering vectors"
 
-    `Two key assumptions:
+    Two key assumptions:
 
     Given a model's hidden representation in the residual stream $h_{l} \in \mathbb{R}^d$ in layer $l$:
 
