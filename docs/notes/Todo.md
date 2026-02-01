@@ -45,6 +45,7 @@
 
 ## RL 
 - [ ] [Added 2026-01-30] [A Case for Model Persona Research](https://www.lesswrong.com/posts/kCtyhHfpCcWuQkebz/a-case-for-model-persona-research); thanks to Daniel Tan for sharing this at LISA during the Evan Hubinger talk
+- [ ] [Added 2026-01-30] [PERSONA VECTORS: MONITORING AND CONTROLLING CHARACTER TRAITS IN LANGUAGE MODELS](https://arxiv.org/pdf/2507.21509)
 
 ## Reading
 - [ ] [Added 2025-12-01] [How Can Interpretability Researchers Help AGI Go Well?](https://www.alignmentforum.org/posts/MnkeepcGirnJn736j/how-can-interpretability-researchers-help-agi-go-well) to reading list
