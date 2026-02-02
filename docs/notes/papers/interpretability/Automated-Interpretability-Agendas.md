@@ -4,7 +4,7 @@ Flowchart and summarization of ideas + 2 ideas for use cases from Fazl Barez's A
 
 Original Paper: [Automated Interpretability-Driven Model Auditing and Control: A Research Agenda](https://aigi.ox.ac.uk/wp-content/uploads/2026/01/Automated_interp_Research_Agenda.pdf)
 
-![Automated Interp Agenda Barez 2025](../../../assets/papers/automated-interp-agenda/automated-interp-agend-barez-2025.png)
+![Automated Interp Agenda Barez 2025](../../../assets/papers/automated-interp-agenda/automated-interp-agenda-barez-2026.png)
 
 ??? note "Thoughts on Automated Interpretability Agenda (Barez 2026)"
     <small>Response to MATS Summer 2026 application question on an `underrated` idea in Empirical AI Safety research.</small>
