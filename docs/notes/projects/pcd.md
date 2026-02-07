@@ -126,3 +126,19 @@ $$ \mathcal{L}_{next-tokens} = - \sum_{t=1}^{n_{suffix}} \log p_{\mathcal{D}} (s
     3. If we take away the TopK, given that $m$ (the size of the up projection of the encoder) is much larger than $d$, then we could literally pass the token embedding. Although we do have a TopK which enforces sparsity, the same idea applies that the encoder could not actually learn meaningful information.
 
     ![Thought Experiment: PCD Pretraining with Prefix Token Activations](../../assets/projects/pcd/PCD_Pretraining_with_Prefix.png)
+
+#### Auxiliary Loss `Maintaining Concept Activity`
+
+let $I$ be the set of inactive concepts with the highest dot product with $a$ (almost activated/selected but not quite), where inactive means the concept has not been selected in the TopK for the last 1M tokens
+
+let $k_{aux} = |I|$
+
+let $\epsilon_{aux}$ be a scalar of the gradient to backpropogate into the inactive concept selected, in the paper $\epsilon_{aux} = 10^{-4}$
+
+We have divide by $k_{aux}$ in $ \frac{\epsilon_{aux}}{k_{aux}} $ because imagine if we have more inactive concepts, we don't want to overload the loss (normalize the aux loss by the number of inactive concepts we want to help revive)
+
+Intuition: For concepts that are very close to being activated but not selected, let those concepts get a little bit of gradient so they can become more aligned with being useful for the decoder
+
+$$ \mathcal{L}_{aux} = - \frac{\epsilon_{aux}}{k_{aux}} \sum_{i \in I} W_{enc, i}(a) $$
+
+#### Finetuning
