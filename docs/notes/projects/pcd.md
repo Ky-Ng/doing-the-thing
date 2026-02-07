@@ -127,7 +127,10 @@ $$ \mathcal{L}_{next-tokens} = - \sum_{t=1}^{n_{suffix}} \log p_{\mathcal{D}} (s
 
     ![Thought Experiment: PCD Pretraining with Prefix Token Activations](../../assets/projects/pcd/PCD_Pretraining_with_Prefix.png)
 
-#### Auxiliary Loss `Maintaining Concept Activity`
+##### Auxiliary Loss `Maintaining Concept Activity`
+
+Intuition: For concepts that are very close to being activated but not selected, let those concepts get a little bit of gradient so they can become more aligned with being useful for the decoder
+<small>This feels a little bit like the aux loss in Mixture of Experts (MoE)!</small>
 
 let $I$ be the set of inactive concepts with the highest dot product with $a$ (almost activated/selected but not quite), where inactive means the concept has not been selected in the TopK for the last 1M tokens
 
@@ -137,8 +140,14 @@ let $\epsilon_{aux}$ be a scalar of the gradient to backpropogate into the inact
 
 We have divide by $k_{aux}$ in $ \frac{\epsilon_{aux}}{k_{aux}} $ because imagine if we have more inactive concepts, we don't want to overload the loss (normalize the aux loss by the number of inactive concepts we want to help revive)
 
-Intuition: For concepts that are very close to being activated but not selected, let those concepts get a little bit of gradient so they can become more aligned with being useful for the decoder
-
 $$ \mathcal{L}_{aux} = - \frac{\epsilon_{aux}}{k_{aux}} \sum_{i \in I} W_{enc, i}(a) $$
 
+#### Concept Auto-Labelling
+- After pretraining, the encoder is frozen, thus, it's possible to use an LLM to label a given concept given top-activating prompts
+
 #### Finetuning
+- Use SynthSys (a dataset where the model has an implicit assumption about the user known as a `user model`)
+- Mix in Pretraining (FineWeb) sequences at 50% to reduce "forgetting" (which I think means concepts dying in the encoder dictionary)
+- Train using the same loss function as in Pretraining except middle is user and prompt activations, decoder also a user prompt.
+
+![PCD Fineutning](../../assets/projects/pcd/PCD_Finetuning.png)
