@@ -2,9 +2,9 @@
 
 Date: Feb. 7th, 2026
 
-Github: 
+Github: [github.com/Ky-Ng/repro-pcd](https://github.com/Ky-Ng/repro-pcd)
 
-Paper: 
+Paper: [Predictive Concept Decoders: Training Scalable End-to-End Interpretability Assistants](https://arxiv.org/abs/2512.15712)
 
 - Attempted 1 day hackathon to build PCDs on a Student Budget
 
@@ -16,17 +16,24 @@ Paper:
 ## High Level Plan
 
 Goal: Reproduce the most important aspects of PCDs (1) Encoder/Decoder Architecture (2) Pretraining/FT (3) Understand $L_{aux}$
-    - Cutting out baseline benchmarking
 
-0. Understand math/intuition behind PCDs (maybe take a quick look at Activation Oracles (AOs))
+0. Understand math/intuition behind PCDs
 
-1. Implement Encoder/Decoder Architecture (w/ soft tokens from $l_{read}$ to $l_{write}$ and Top-K) with unitialized weights
+1. Implement Encoder/Decoder Architecture (w/ soft tokens from $l_{read}$ to $l_{write}$ and Top-K) with uninitialized weights
 
-2. Setup training infrastructure (LoRA), $L_{aux}$
+2. Find datasets: FineWeb for Pretraining and a SynthSys equivalent for Finetuning
 
-3. Attempt to uncover a hidden goal using PCD corroborated by Encoder Concepts
+3. Setup training infrastructure: (GPU), LoRA adaptors, Loss functions and $L_{aux}$
 
-4. Open source streamlined version/tutorial/ReadMe (maybe LessWrong post?)
+4. Run training loop pretraining
+
+5. Sanity check encoder concepts using AutoInterp Labeler
+
+6. Run training loop finetuning
+
+7. Attempt to uncover a hidden goal using PCD corroborated by Encoder Concepts
+
+8. Open source streamlined version/tutorial/ReadMe (maybe LessWrong post?)
 
 - Use AI models (e.g. Claude) to help understand and scaffold code but not Coding Agents (e.g. Claude Code) to get the intuitions and practice of building by hand
 
@@ -102,11 +109,11 @@ $$ P = p^({1:n_{prefix}}) + p^({n_{prefix}:n_{middle}}) + p^({n_{middle}:n_{suff
 
 To make our lives easier:
 
-- let $s^({1:n_{suffix}})$ be the suffix (in finetuning, the explanation of model behavior) that the decoder $\mathcal{D}$ is trying to predict, represented above as the corresponding tokens ($p^({n_{middle}:n_{suffix}})$)
+- let $s^{({1:n_{suffix}})}$ be the suffix (in finetuning, the explanation of model behavior) that the decoder $\mathcal{D}$ is trying to predict, represented above as the corresponding tokens ($p^{({n_{middle}:n_{suffix}})}$)
 
-- let $ a^{(1:n_{middle})} \in \mathbb{R}^d$ be the activations from $\mathcal{S}$ at layer $l_{read}$ for the middle tokens (don't include the activations from the prefix $p^({1:n_{prefix}})$!). 
+- let $ a^{(1:n_{middle})} \in \mathbb{R}^d$ be the activations from $\mathcal{S}$ at layer $l_{read}$ for the middle tokens (don't include the activations from the prefix $p^{({1:n_{prefix}})}$!). 
 
-From $a^{(1:n_{middle})}$, predict suffix tokens $s^({1:n_{suffix}})$.
+From $a^{(1:n_{middle})}$, predict suffix tokens $s^{({1:n_{suffix}})}$.
 
 Formally from equation 2 in the paper the loss $\mathcal{L}_{next-tokens}$:
 
