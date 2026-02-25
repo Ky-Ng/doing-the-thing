@@ -1,0 +1,7779 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ky-ng.github.io/doing-the-thing/notes/projects/MultilingualSemanticsProbe/">
+      
+      
+        <link rel="prev" href="../Dyck-probe/">
+      
+      
+        <link rel="next" href="../pcd/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Multilingual Semantics Probe - Doing The Thing</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i%7CRed+Hat+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Merriweather Sans";--md-code-font:"Red Hat Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#multilingual-semantics-probe" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Doing The Thing" class="md-header__button md-logo" aria-label="Doing The Thing" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Doing The Thing
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Multilingual Semantics Probe
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="deep-purple"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-orange"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Ky-Ng/doing-the-thing" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Doing The Thing" class="md-nav__button md-logo" aria-label="Doing The Thing" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Doing The Thing
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Ky-Ng/doing-the-thing" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Doing The Thing: From Mechanical Turk to Mech Interp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dlog
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dlog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-10-17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-10-17 | And So It Begins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-10-18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-10-18 | ARENA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-10-19/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-10-19 | Shannon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-10-20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-10-20 | Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-10-21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-10-21 | Setup Cont.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-10-22/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-10-22 | Doc Updates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-10-23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-10-23 | MDPs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-10-24/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-10-24 | Transformer Lens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-10-25/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-10-25 | Applications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-10-26/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-10-26 | Applications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-10-27/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-10-27 | Stats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-10-28/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-10-28 | Apps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-10-29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-10-29 | Apps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-10-30/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-10-30 | Apps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-10-31/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-10-31 | Stats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-11-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-11-01 | Relative Links
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-11-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-11-02 | Stats (a little)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-11-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-11-03 | Stats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-11-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-11-04 | Dyck Probe Debugging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-11-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-11-05 | Career
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-11-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-11-06 | RRG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-11-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-11-07 | Reproducing Papers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-11-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-11-08 | Reproducing Papers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-11-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-11-09 | Apps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-11-10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-11-10 | Courses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-11-11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-11-11 | Neo et al. 2024
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-11-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-11-12 | Neo et al. 2024 cont.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-11-13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-11-13 | Neo et al. 2024 cont.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-11-14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-11-14 | Apps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-11-15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-11-15 | Reproducing Neo et al.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-11-16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-11-16 | Reproducing Neo et al.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-11-17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-11-17 | Career Advising
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-11-18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-11-18 | Reproducing Neo et al.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-11-19/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-11-19 | Reproducing Neo et al.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-11-20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-11-20 | Apps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-11-21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-11-21 | Apps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-11-28/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-11-28 | Reproducing Neo et al.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-11-29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-11-29 | Reproducing Neo et al.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-12-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-12-01 | Reproducing Neo et al.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-12-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-12-02 | Reproducing Neo et al.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-12-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-12-03 | Matrix Rank Concept
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-12-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-12-04 | Mentorship
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-12-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-12-05 | No Zero Days
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-12-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-12-06 | Prep NeurIPS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-12-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-12-07 | Takeaways from NeurIPS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-12-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-12-08 | Timebox Prompt Probe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-12-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-12-09 | AI Safety Talk/Catchup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-12-10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-12-10 | Prep NeurIPS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-12-11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-12-11 | Semantic Trajectories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-12-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-12-12 | Semantic Trajectories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-12-13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-12-13 | Documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-12-18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-12-18 | Cross-linguistic Quantifier Scope Probe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-12-20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-12-20 | Break
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-12-26/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-12-26 | Multilingual Semantics Probe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-12-27/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-12-27 | Multilingual Semantics Probe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-12-28/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-12-28 | Multilingual Semantics Probe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-12-29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-12-29 | Multilingual Semantics Probe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-12-30/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-12-30 | Multilingual Semantics Probe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2025-12-31/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025-12-31 | Multilingual Semantics Probe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-01-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-01-01 | Multilingual Semantics Probe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-01-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-01-02 | Multilingual Semantics Probe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-01-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-01-03 | Multilingual Semantics Probe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-01-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-01-04 | Travel to ARBOx
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-01-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-01-05 | ARBOx Day 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-01-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-01-06 | ARBOx Day 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-01-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-01-07 | ARBOx Day 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-01-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-01-08 | ARBOx Day 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-01-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-01-09 | ARBOx Day 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-01-10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-01-10 | Apps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-01-11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-01-11 | Apps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-01-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-01-12 | ARBOx Day 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-01-13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-01-13 | ARBOx Day 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-01-14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-01-14 | ARBOx Day 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-01-15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-01-15 | ARBOx Day 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-01-16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-01-16 | ARBOx Day 10 (Last Day :/ )
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-01-17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-01-17 | ARBOx Reflections
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-01-18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-01-17 | Apps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-01-19/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-01-19 | Apps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-01-20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-01-20 | LISA Coworking - Circuits
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-01-21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-01-21 | LISA Coworking - ACDC and Meetings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-01-22/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-01-22 | LISA Coworking - ACDC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-01-23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-01-23 | LISA Coworking - ACDC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-01-24/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-01-24 | Reading && Thesis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-01-25/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-01-25 | Thesis Proposal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-01-29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-01-29 | Recursion Reading Group
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-01-30/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-01-30 | SPAR Interview + Thesis Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-01-31/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-01-31 | SPAR Interview + Thesis Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-02-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-02-01 | CodeSignal Prep + AutoInterp Prep
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-02-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-02-02 | AutoInterp Agenda 2026 Meeting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-02-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-02-03 | Recursion Reading Group
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-02-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-02-04 | Predictive Concept Decoders
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-02-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-02-05 | Maxwell Project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-02-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-02-06 | Maxwell Project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-02-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-02-07 | Building PCD on a Student Budget
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-02-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-02-12 | Understand Rayleigh Quotient for Eigenvectors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-02-13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-02-13 | Deriving Rayleigh Equations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-02-16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-02-16 | Star and Path Spectrums
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-02-17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-02-17 | Star and Path Spectrums
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-02-18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-02-18 | Dyck Graphs + Interpret Spectrums
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-02-20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-02-20 | Dyck Graphs + Interpret Spectrums
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dlog/2026-02-24/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-02-24 | Circuits + Documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Notes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../References/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference Links
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Todo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running Todo List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/stats_and_probability_concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stats and Probability Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Papers
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Papers
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_1" id="__nav_3_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Information theory
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Information theory
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../papers/information-theory/UID/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Revisting the Uniform Information Density Hypothesis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_2" id="__nav_3_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interpretability
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Interpretability
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../papers/interpretability/ACDC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Towards Automated Circuit Discovery for Mechanistic Interpretability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../papers/interpretability/Automated-Interpretability-Agendas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automated Interpretability Agenda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../papers/interpretability/Neo_et_al_2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interpreting Context Look Ups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../papers/interpretability/Scheming_OpenAI_Apollo_2025-09-17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Detecting and reducing scheming in AI models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dyck-probe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dyck Transformer Probe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multilingual Semantics Probe
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multilingual Semantics Probe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#high-level-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High Level Summary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="High Level Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#project-scaffold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Scaffold
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steering-vectors-math" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steering Vectors Math
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progress-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Progress Details
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pcd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building Predictive Concept Decoders (PCD) on a Student Budget
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reflections
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reflections
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reflections/ARBOx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ARBOx3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reflections/NeurIPS_2025_Mech_Interp_Workshop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NeurIPS Mech Interp Workshop 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#high-level-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High Level Summary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="High Level Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#project-scaffold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Scaffold
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steering-vectors-math" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steering Vectors Math
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progress-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Progress Details
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="multilingual-semantics-probe">Multilingual Semantics Probe</h1>
+<p>Version 1: 2025-12-18 - 2026-01-03</p>
+<ul>
+<li>
+<p>In Progress <a href="https://github.com/Ky-Ng/multilingual-semantics-probe">Github Repo</a></p>
+</li>
+<li>
+<p><a href="https://docs.google.com/document/d/1vIrKKqP2K-zsxBVDk3B__qtATR1jjnqw0A5TNLFH8RA/edit?usp=sharing">Executive Summary</a></p>
+</li>
+</ul>
+<details class="tip" open="open">
+<summary>Timelog</summary>
+<p>To timebox this project, we'll follow a <a href="https://tinyurl.com/neel-mats-app">Nanda MATS stream</a> style 16-20 hour project.</p>
+<p>Hopefully, this rigorous/pragmatic approach can lead to some ambitious outcomes in understanding model representations of the scope ambiguity phenomenon.</p>
+<table>
+<thead>
+<tr>
+<th>Hour</th>
+<th>Progress</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0-1</td>
+<td>Scaffold Project using GPT Project</td>
+</tr>
+<tr>
+<td>1-2</td>
+<td>Setup Github, generate stimuli, start understanding log probs</td>
+</tr>
+<tr>
+<td>2-5.5</td>
+<td>Understand log probs, vectorized logic for Continuations Log Probs</td>
+</tr>
+<tr>
+<td>5.5-7.5</td>
+<td>Setup aggregation/comparing Log Probs for surface vs. inverse Prompts</td>
+</tr>
+<tr>
+<td>7.5-10.5</td>
+<td>Debug scripts to add (1) bfloat16 support large models (&gt;27b) and (2) comparison of EN vs. ZH</td>
+</tr>
+<tr>
+<td>10.5-12</td>
+<td>Read <a href="https://arxiv.org/abs/2509.10860v1">Fang et al.</a> and <a href="https://arxiv.org/abs/2502.15603">Schut 2025 et al.</a>, test GPT-2-Chinese (<code>uer_gpt2-xlarge-chinese-cluecorpussmall</code>), <code>aya-23-35B</code>, <code>Gemma2-27B</code>, and <code>aya-expanse-32b</code></td>
+</tr>
+<tr>
+<td>12-12.5</td>
+<td>Verified that Existential-Universal and Universal-Existential prefer the same continuation preferences</td>
+</tr>
+<tr>
+<td>12.5-13</td>
+<td>Find that English preference for inverse and Chinese preference for surface is statistically significant (p=1.948e-18)</td>
+</tr>
+<tr>
+<td>13 - 14</td>
+<td>Learn and document math of Steering Vectors</td>
+</tr>
+<tr>
+<td>14 - 15</td>
+<td>Setback--GPT2-Chinese is unreliable</td>
+</tr>
+<tr>
+<td>15 - 16</td>
+<td>Qwen2.5 Surface/Inverse Scope Judgements; continue documenting Steering Vector math</td>
+</tr>
+<tr>
+<td>17 - 20</td>
+<td>Look for Steering Vectors</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h2 id="high-level-summary">High Level Summary</h2>
+<p>I am interested in investigating how (multilingual) LLMs represent <a href="https://www.sfu.ca/~jeffpell/Ling324/fjpSlides7.pdf"><code>Quantifier Scope Ambiguity</code></a> cross-linguistically. </p>
+<p>Examples:</p>
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th>Sentence</th>
+<th>Expected Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>English</td>
+<td>A shark ate every pirate</td>
+<td>Ambiguous<br>(1) There is exactly 1 shark (Surface Scope)<br>(2) There are 1 or more sharks (Inverse Scope)</td>
+</tr>
+<tr>
+<td>Mandarin</td>
+<td>yǒu yì tiáo shāyú chī le měi yí gè hǎidào<br><br>有一條鯊魚吃了每一個海盜</td>
+<td>Unambiguous<br>(2) There is exactly 1 shark (Surface Scope)</td>
+</tr>
+</tbody>
+</table>
+<details class="note" open="open">
+<summary>Research Questions</summary>
+<ol>
+<li>Do LLMs allow for Ambiguous (Surface/Inverse) quantifier scope in English but only Surface Scope in Mandarin?</li>
+<li>Recent research on model size has found "shared circuitry increases with model scale" (<a href="https://arxiv.org/abs/2501.06346">Brinkmann et al. 2025</a>); does model size impact whether an LLMs applies the correct language-specific interpretation?<ol>
+<li>E.g. larger models with a multi-lingual semantic space would incorrectly apply the Inverse scope to Mandarin while a small model wouldn't</li>
+</ol>
+</li>
+<li>Is there an interpretable hidden representation for quantifier scope? Can this be used to steer the model to get a specific interpretation in a particular language?</li>
+</ol>
+</details>
+<details class="example" open="open">
+<summary>Hypothesis</summary>
+<p>Given a multiple-choice situation (<code>please choose exactly 1 answer, (1) there is exactly 1 shark | (2) there are 1 or more sharks</code>):</p>
+<ul>
+<li>Larger models will over-generalize English Inverse Scope semantics to Mandarin while smaller models will correctly apply language-specific semantic interpretations</li>
+</ul>
+</details>
+<details class="note">
+<summary>Relevant Papers</summary>
+<ol>
+<li>
+<p><a href="https://www.glossa-journal.org/article/id/4898/">Scrontas et al. 2017: Cross-linguistic scope ambiguity: When two systems meet</a></p>
+<p>a. Double quantifier scope ambiguity in Mandarin-English Heritage Bilinguals</p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/2501.06346">Brinkmann et al. 2025: Large Language Models Share Representations of Latent Grammatical Concepts Across Typologically Diverse Languages</a></p>
+<p>a. Larger models can represent multi-lingual concepts about morphosyntactic category (even when predominantly trained on English)</p>
+</li>
+<li>
+<p><a href="https://transformer-circuits.pub/2025/attribution-graphs/biology.html#dives-multilingual">Claude Haiku Multilingual Circuits</a> </p>
+<p>a. Section 5.6 shows that English is priviledged though multi-lingual representations do exist</p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/2509.10860v1">Fang et al. 2025: Quantifier Scope Interpretation in Language Learners and LLMs</a> </p>
+<p>a. Exactly the same from <a href="https://www.glossa-journal.org/article/id/4898/">Scrontas et al. 2017</a> applied to humans, gives insightful models to try</p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/2502.15603">Schut et al. 2025: Do Multilingual LLMs Think In English?</a></p>
+<p>a. Evidence that multilingual models <code>reason</code> in an English centric way</p>
+<p>b. Introduction to the steering vector concept</p>
+</li>
+</ol>
+</details>
+<h3 id="project-scaffold">Project Scaffold</h3>
+<ol>
+<li>Create a stimulus dataset of inverse/surface quantifier scope with various lexical items (words, aka not just sharks and pirates)</li>
+<li>Create pipeline for evaluating model log-probs for surface/inverse scope</li>
+<li>Inspect models that show inverse scope (Interp techniques TBD keeping pragmaticism in mind; likely linear probe + steering vector)</li>
+</ol>
+<h2 id="steering-vectors-math">Steering Vectors Math</h2>
+<ul>
+<li>The goal of this project is not just to find correlation between a models hidden representation and the quantifier scope feature (in doubly quantified sentences), but to test causality through steering vectors.</li>
+</ul>
+<details class="note">
+<summary>First principles derived method for looking into steering vectors</summary>
+<p>Two key assumptions:</p>
+<p>Given a model's hidden representation in the residual stream <span class="arithmatex">\(h_{l} \in \mathbb{R}^d\)</span> in layer <span class="arithmatex">\(l\)</span>:</p>
+<ol>
+<li>
+<p><code>Hidden State h as combination of direction w and noise</code></p>
+<ul>
+<li>Assume the hidden state is composed of the direction <span class="arithmatex">\(w\)</span> and other info/noise <span class="arithmatex">\(\epsilon\)</span> </li>
+</ul>
+<div class="arithmatex">\[h_l = z \cdot w + \epsilon\]</div>
+<p>a. <span class="arithmatex">\(z \in {-1, +1}\)</span> -&gt; -1 if feature on (e.g. inverse scope), +1 if feature off (e.g. surface scope)</p>
+<p>b. <span class="arithmatex">\(w \in \mathbb{R}^d\)</span> -&gt; direction in activation space of a feature</p>
+<p>c. <span class="arithmatex">\(\epsilon\)</span> is unrelated information to the direction <span class="arithmatex">\(w\)</span> in activation space / noise</p>
+</li>
+<li>
+<p><code>Difference of means method</code> to find steering vector <span class="arithmatex">\(w\)</span>\</p>
+<ul>
+<li>Assume the average hidden representation for example <span class="arithmatex">\(i\)</span> from class {surface, inverse} <span class="arithmatex">\(h_{l,i}\)</span> when subtracted will yield the direction vector</li>
+</ul>
+<p>a. let <span class="arithmatex">\(i \in S\)</span> be surface examples and <span class="arithmatex">\(i \in I\)</span> be inverse examples</p>
+<p>b. Plug in the <span class="arithmatex">\(h_l\)</span> example formula and get the RHS equivalent</p>
+<div class="arithmatex">\[ \mu_S = \frac{1}{|S|} \sum_{i \in S} h_{l,i} = \frac{1}{|S|} \sum_{i \in S} z_i \cdot w + \epsilon_i = (+1) w + \mathbb{E}[\epsilon]\]</div>
+<div class="arithmatex">\[ \mu_I = \frac{1}{|I|} \sum_{i \in S} h_{l,i} = \frac{1}{|I|} \sum_{i \in S} z_i \cdot w + \epsilon_i = (-1) w + \mathbb{E}[\epsilon]\]</div>
+<p>Problem, now we have this pesky <span class="arithmatex">\(\mathbb{E}[\epsilon]\)</span> term, but we want <span class="arithmatex">\(w\)</span>! Since the <span class="arithmatex">\(\mathbb{E}[\epsilon]\)</span> term occurs in both <span class="arithmatex">\(\mu_S and \mu_I\)</span>, subtracting them gives us <span class="arithmatex">\(v \approx 2w\)</span> </p>
+<div class="arithmatex">\[v = \mu_S - \mu_I = 2w\]</div>
+</li>
+<li>
+<p><code>Causal Steering via Intervention</code>: Test to see if <span class="arithmatex">\(w\)</span> can change the model's output</p>
+<ul>
+<li>Downstream operations on <span class="arithmatex">\(h_l\)</span> are a combination of linear mappings/non-linear activations. Thus, we can make a simplifying assumption of how <span class="arithmatex">\(h_l\)</span> is used by the model</li>
+</ul>
+<div class="arithmatex">\[\text{model information from h} \approx w^{\top} h_l\]</div>
+<ul>
+<li>Intervene by turning on/off the direction</li>
+</ul>
+<div class="arithmatex">\[h_{l, i}' =  h_{l,i} + \alpha v\]</div>
+<ul>
+<li>Mathematically, we change the representation by adding the direction to the information the model uses it</li>
+</ul>
+<div class="arithmatex">\[\text{model information from h}' \approx w^{\top} h_{l,i}' = w^{\top} (h_{l,i} + \alpha v) = w^{\top}h_{l,i} + \alpha w^{\top}v \]</div>
+</li>
+<li>
+<p><code>Similarity of direction w and hidden state h</code></p>
+<ul>
+<li>Take the dot product of <span class="arithmatex">\(v\)</span> and <span class="arithmatex">\(h_{l,i}\)</span> to see if the hidden state and steering vector point in the same direction (are aligned)</li>
+</ul>
+<div class="arithmatex">\[ p_i = v^{\top} h_{l,i} \]</div>
+<ul>
+<li>if v represents the inverse scope direction then $ p_i \uparrow -&gt; h_{l,i}$ encodes inverse scope, if $ p_i \downarrow -&gt; h_{l,i}$ encodes surface scope, else if $ p_i = 0 -&gt; h_{l,i}$ is not related to scope.</li>
+</ul>
+<p>Mathematically, this hashes out as:</p>
+<div class="arithmatex">\[ p_i = v^{\top} h_{l,i} \]</div>
+<div class="arithmatex">\[ = (2w)^{\top} (z_i w + \epsilon_i)\]</div>
+<div class="arithmatex">\[ = (2w)^{\top} (z_i w) + (2w)^{\top} \epsilon_i \]</div>
+<p>Since we assume that $ \mathbb{E}[\epsilon_i] = 0 $ (or perhaps that it's constant), we are reduced to</p>
+<div class="arithmatex">\[ \approx (2w)^{\top} (z_i w) \]</div>
+<div class="arithmatex">\[ p_i \approx 2 z_i ||w||^{2} \]</div>
+<p>a. Thus, if <span class="arithmatex">\(i \in I\)</span> (denotes an inverse scope sentence), then <span class="arithmatex">\(z_i = (+1)\)</span> and <span class="arithmatex">\(p_i\)</span> should be positive.</p>
+<p>b. Thus, if <span class="arithmatex">\(i \in S\)</span> (denotes a surface scope sentence), then <span class="arithmatex">\(z_i = (-1)\)</span> and <span class="arithmatex">\(p_i\)</span> should be negative.</p>
+</li>
+</ol>
+</details>
+<h2 id="progress-details">Progress Details</h2>
+<details class="note">
+<summary>Hour 0-1: Scaffolding with AI</summary>
+<p>1 hour brainstorming session with GPT on roadmap for executing the experiment</p>
+<ul>
+<li>
+<p>Started looking into the interpretability technique (linear probe) contenders and models (Gemma, Llama, Qwen, DeepSeek)</p>
+</li>
+<li>
+<p>A new TODO is to understand how Reasoning models work mathematically (high level intuition)</p>
+</li>
+</ul>
+</details>
+<details class="note">
+<summary>Hour 1-2: Setup Github, generate stimuli, start understanding log probs</summary>
+<ol>
+<li>
+<p>Evaluation methods: Use same language continuations instead of MCQs to test latent linguistic knowledge rather than meta-linguistic judgement. Specifically, MCQs may be testing a models reasoning capabilities which are often skewed towards English reasoning (doesn't exactly tell us something interesting about the models underlying representations if we look at the likely English reasoning space)</p>
+</li>
+<li>
+<p>Setup ipynb to generate <code>stimuli,jsonl</code> and <code>stimuli_with_continuations.jsonl</code></p>
+</li>
+<li>
+<p>Next Step: Understand how to compare continuations log probs from first principles</p>
+</li>
+</ol>
+</details>
+<details class="note">
+<summary>Hour 2-5.5: Understand log probs, vectorized logic for Continuations Log Probs</summary>
+<ol>
+<li>
+<p>Work out Log Probs/comparisons from first principles on pencil and paper</p>
+</li>
+<li>
+<p>Extract Log Probs of inverse/surface continuations through a batched operation</p>
+</li>
+<li>
+<p>Probably should take more breaks/sleep when working on this instead of grinding through the night</p>
+</li>
+</ol>
+</details>
+<details class="note">
+<summary>Hour 5.5-7.5: Setup aggregation/comparing Log Probs for surface vs. inverse Prompts</summary>
+<ol>
+<li>
+<p>Setup pipeline to compare surface vs. inverse log sum/mean difference and odds (exponentiate the log differences)</p>
+</li>
+<li>
+<p>Save outputs for model specifics</p>
+</li>
+</ol>
+<p>The key finding from working on GPT-2 is that the model always prefers surface scope. Next, we will try to see if this extrapolates to other models that have more than just pretraining.</p>
+<p>Additional follow up:</p>
+<ul>
+<li>After running some experiments as background jobs, the models <code>Qwen3-0.6B</code>, <code>Llama-3.2-1B</code>, and <code>Llama-3.2-1B-Instruct</code></li>
+<li>Interestingly enough, <code>gemma-3-1b</code> prefers <code>inverse</code> scope for Mandarin for most examples whereas for English both surface and inverse are preferred. This is counter to intuitions from Natural Language semantics where <code>inverse</code> scope is not available<ul>
+<li>This could be due to pragmatics ("a child made every parent smile" is more likely to have inverse scope than "a president made every citizen happy")</li>
+</ul>
+</li>
+</ul>
+<p>TODO:</p>
+<ul>
+<li>
+<p>Perhaps investigate this pragmatic infludence with MCQ style questions?</p>
+</li>
+<li>
+<p>Investiage whether the prompts in different languages show the same inverse/surface scope; if both Mandarin and English prompt translations give the same scope, this is likely affects of pragmatics (and the most "likely"/"first" interpretation)</p>
+</li>
+</ul>
+</details>
+<details class="note">
+<summary>Hour 7.5-10.5: Debug scripts to add (1) bfloat16 support large models (&gt;27b) and (2) comparison of en vs. zh</summary>
+<ol>
+<li>
+<p>Models greater than 12b (e.g. <code>Gemma-3-12b</code>) are too large to fit on a High-RAM A100 on Collab in fp32</p>
+<ul>
+<li>Some back of the napkin calculation
+$$ 12 \text{ b params} \cdot \frac{32 \text{ bits}}{1 \text{ param}} \cdot \frac{1 \text{ byte}}{8 
+\text{ bits}} \cdot \frac{1 \text{ G}}{1 \text{ B}} 96 \text{ Gb}$$</li>
+<li>Since a A100 High-RAM GPU has 167 GB of CPU RAM but 80 GB of HBM (GPU RAM), then FP32 will not fit on device</li>
+<li>Pivoting to use FP16 halfs the footprint to 48GB but the decreased range causes logits to go to NaNs</li>
+<li>Thus, using BF16 solves the memory footprint and range issues<ul>
+<li>We also upcast logits to FP32 during post-processing</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>The results in the tabs below show that for models &gt;4B, surface is always preferred; smaller models (270M and 1B) prefer surface for en and incorrectly prefer inverse for zh</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Model Size</th>
+<th><code>en</code> Preference to Surface</th>
+<th><code>en</code> Preference to Inverse</th>
+<th><code>zh</code> Preference to Surface</th>
+<th><code>zh</code> Preference to Inverse</th>
+<th>Takeaway</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gemma-3-27B</td>
+<td>59</td>
+<td>5</td>
+<td>51</td>
+<td>13</td>
+<td>Strong surface preference in both English and Mandarin; large model behaves conservatively and consistently across languages.</td>
+</tr>
+<tr>
+<td>Gemma-3-12B</td>
+<td>51</td>
+<td>13</td>
+<td>37</td>
+<td>27</td>
+<td>Surface preference remains, but Mandarin shows degradation and increased inverse scope relative to English.</td>
+</tr>
+<tr>
+<td>Gemma-3-4B</td>
+<td>47</td>
+<td>17</td>
+<td>41</td>
+<td>23</td>
+<td>Both languages show weakened surface bias; Mandarin drifts further toward inverse interpretations.</td>
+</tr>
+<tr>
+<td>Gemma-3-1B</td>
+<td>45</td>
+<td>19</td>
+<td>14</td>
+<td>50</td>
+<td>English still surface-biased, but Mandarin strongly prefers inverse—opposite of theoretical expectation for small models.</td>
+</tr>
+<tr>
+<td>Gemma-3-270M</td>
+<td>64</td>
+<td>0</td>
+<td>29</td>
+<td>35</td>
+<td>English collapses entirely to surface scope; Mandarin slightly prefers inverse, showing extreme cross-lingual divergence.</td>
+</tr>
+</tbody>
+</table>
+<details class="example">
+<summary>Gemma-3-27b results</summary>
+<p>Takeaway: Model prefers surface form for both zh and en</p>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>inverse</th>
+<th>surface</th>
+<th>total</th>
+<th>p_inverse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>google_gemma-3-27b-it</td>
+<td>en</td>
+<td>5</td>
+<td>59</td>
+<td>64</td>
+<td>7.8%</td>
+</tr>
+<tr>
+<td>google_gemma-3-27b-it</td>
+<td>zh</td>
+<td>13</td>
+<td>51</td>
+<td>64</td>
+<td>20.3%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>delta_mean__count</th>
+<th>delta_mean__mean</th>
+<th>delta_mean__median</th>
+<th>delta_mean__std</th>
+<th>ratio_mean__count</th>
+<th>ratio_mean__mean</th>
+<th>ratio_mean__median</th>
+<th>ratio_mean__std</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>google_gemma-3-27b-it</td>
+<td>en</td>
+<td>64</td>
+<td>-0.858</td>
+<td>-0.863</td>
+<td>0.546</td>
+<td>64</td>
+<td>0.491</td>
+<td>0.422</td>
+<td>0.281</td>
+</tr>
+<tr>
+<td>google_gemma-3-27b-it</td>
+<td>zh</td>
+<td>64</td>
+<td>-0.961</td>
+<td>-1.098</td>
+<td>1.238</td>
+<td>64</td>
+<td>0.842</td>
+<td>0.333</td>
+<td>1.313</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>agreement_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>google_gemma-3-27b-it</td>
+<td>71.9%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>pattern</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>google_gemma-3-27b-it</td>
+<td>surface_EN__surface_ZH</td>
+<td>46</td>
+</tr>
+<tr>
+<td>google_gemma-3-27b-it</td>
+<td>surface_EN__inverse_ZH</td>
+<td>13</td>
+</tr>
+<tr>
+<td>google_gemma-3-27b-it</td>
+<td>inverse_EN__surface_ZH</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="example">
+<summary>Gemma-3-12b results</summary>
+<p>Takeaway: Model prefers surface form for both zh and en; zh degraded performance</p>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>inverse</th>
+<th>surface</th>
+<th>total</th>
+<th>p_inverse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>google_gemma-3-12b-it</td>
+<td>en</td>
+<td>13</td>
+<td>51</td>
+<td>64</td>
+<td>20.3%</td>
+</tr>
+<tr>
+<td>google_gemma-3-12b-it</td>
+<td>zh</td>
+<td>27</td>
+<td>37</td>
+<td>64</td>
+<td>42.2%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>delta_mean__count</th>
+<th>delta_mean__mean</th>
+<th>delta_mean__median</th>
+<th>delta_mean__std</th>
+<th>ratio_mean__count</th>
+<th>ratio_mean__mean</th>
+<th>ratio_mean__median</th>
+<th>ratio_mean__std</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>google_gemma-3-12b-it</td>
+<td>en</td>
+<td>64</td>
+<td>-0.496</td>
+<td>-0.549</td>
+<td>0.521</td>
+<td>64</td>
+<td>0.699</td>
+<td>0.578</td>
+<td>0.392</td>
+</tr>
+<tr>
+<td>google_gemma-3-12b-it</td>
+<td>zh</td>
+<td>64</td>
+<td>0.13</td>
+<td>-0.517</td>
+<td>1.634</td>
+<td>64</td>
+<td>4.511</td>
+<td>0.598</td>
+<td>7.996</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>agreement_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>google_gemma-3-12b-it</td>
+<td>37.5%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>pattern</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>google_gemma-3-12b-it</td>
+<td>surface_EN__inverse_ZH</td>
+<td>27</td>
+</tr>
+<tr>
+<td>google_gemma-3-12b-it</td>
+<td>surface_EN__surface_ZH</td>
+<td>24</td>
+</tr>
+<tr>
+<td>google_gemma-3-12b-it</td>
+<td>inverse_EN__surface_ZH</td>
+<td>13</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="example">
+<summary>Gemma-3-4b results</summary>
+<p>Takeaway: Both zh/en prefer inverse slightly more. Degradation in Mandarin performance</p>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>inverse</th>
+<th>surface</th>
+<th>total</th>
+<th>p_inverse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>google_gemma-3-4b-it</td>
+<td>en</td>
+<td>17</td>
+<td>47</td>
+<td>64</td>
+<td>26.6%</td>
+</tr>
+<tr>
+<td>google_gemma-3-4b-it</td>
+<td>zh</td>
+<td>23</td>
+<td>41</td>
+<td>64</td>
+<td>35.9%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>delta_mean__count</th>
+<th>delta_mean__mean</th>
+<th>delta_mean__median</th>
+<th>delta_mean__std</th>
+<th>ratio_mean__count</th>
+<th>ratio_mean__mean</th>
+<th>ratio_mean__median</th>
+<th>ratio_mean__std</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>google_gemma-3-4b-it</td>
+<td>en</td>
+<td>64</td>
+<td>-0.386</td>
+<td>-0.602</td>
+<td>1.155</td>
+<td>64</td>
+<td>1.857</td>
+<td>0.548</td>
+<td>4.793</td>
+</tr>
+<tr>
+<td>google_gemma-3-4b-it</td>
+<td>zh</td>
+<td>64</td>
+<td>-0.849</td>
+<td>-0.861</td>
+<td>1.955</td>
+<td>64</td>
+<td>1.602</td>
+<td>0.423</td>
+<td>2.271</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>agreement_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>google_gemma-3-4b-it</td>
+<td>56.2%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>pattern</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>google_gemma-3-4b-it</td>
+<td>surface_EN__surface_ZH</td>
+<td>30</td>
+</tr>
+<tr>
+<td>google_gemma-3-4b-it</td>
+<td>surface_EN__inverse_ZH</td>
+<td>17</td>
+</tr>
+<tr>
+<td>google_gemma-3-4b-it</td>
+<td>inverse_EN__surface_ZH</td>
+<td>11</td>
+</tr>
+<tr>
+<td>google_gemma-3-4b-it</td>
+<td>inverse_EN__inverse_ZH</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="example">
+<summary>Gemma-3-1b results</summary>
+<p>Takeaway: zh heavily prefers inverse while en prefers surface. Opposite of expected behavior; theoretically if aligned with <a href="https://arxiv.org/abs/2501.06346">Brinkmann et al. 2025</a>, then smaller models would prefer only surface form.</p>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>inverse</th>
+<th>surface</th>
+<th>total</th>
+<th>p_inverse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>google_gemma-3-1b-it</td>
+<td>en</td>
+<td>19</td>
+<td>45</td>
+<td>64</td>
+<td>29.7%</td>
+</tr>
+<tr>
+<td>google_gemma-3-1b-it</td>
+<td>zh</td>
+<td>50</td>
+<td>14</td>
+<td>64</td>
+<td>78.1%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>delta_mean__count</th>
+<th>delta_mean__mean</th>
+<th>delta_mean__median</th>
+<th>delta_mean__std</th>
+<th>ratio_mean__count</th>
+<th>ratio_mean__mean</th>
+<th>ratio_mean__median</th>
+<th>ratio_mean__std</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>google_gemma-3-1b-it</td>
+<td>en</td>
+<td>64</td>
+<td>-0.432</td>
+<td>-0.416</td>
+<td>0.622</td>
+<td>64</td>
+<td>0.772</td>
+<td>0.66</td>
+<td>0.455</td>
+</tr>
+<tr>
+<td>google_gemma-3-1b-it</td>
+<td>zh</td>
+<td>64</td>
+<td>0.704</td>
+<td>0.492</td>
+<td>0.934</td>
+<td>64</td>
+<td>3.56</td>
+<td>1.636</td>
+<td>5.84</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>agreement_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>google_gemma-3-1b-it</td>
+<td>45.3%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>pattern</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>google_gemma-3-1b-it</td>
+<td>surface_EN__inverse_ZH</td>
+<td>33</td>
+</tr>
+<tr>
+<td>google_gemma-3-1b-it</td>
+<td>inverse_EN__inverse_ZH</td>
+<td>17</td>
+</tr>
+<tr>
+<td>google_gemma-3-1b-it</td>
+<td>surface_EN__surface_ZH</td>
+<td>12</td>
+</tr>
+<tr>
+<td>google_gemma-3-1b-it</td>
+<td>inverse_EN__surface_ZH</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="example">
+<summary>Gemma-3-270m results</summary>
+<p>Takeaway: en only predicts surface while slight preference to inverse for zh</p>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>inverse</th>
+<th>surface</th>
+<th>total</th>
+<th>p_inverse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>google_gemma-3-270m-it</td>
+<td>en</td>
+<td>0</td>
+<td>64</td>
+<td>64</td>
+<td>0.0%</td>
+</tr>
+<tr>
+<td>google_gemma-3-270m-it</td>
+<td>zh</td>
+<td>35</td>
+<td>29</td>
+<td>64</td>
+<td>54.7%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>delta_mean__count</th>
+<th>delta_mean__mean</th>
+<th>delta_mean__median</th>
+<th>delta_mean__std</th>
+<th>ratio_mean__count</th>
+<th>ratio_mean__mean</th>
+<th>ratio_mean__median</th>
+<th>ratio_mean__std</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>google_gemma-3-270m-it</td>
+<td>en</td>
+<td>64</td>
+<td>-4.226</td>
+<td>-3.902</td>
+<td>1.644</td>
+<td>64</td>
+<td>0.04</td>
+<td>0.02</td>
+<td>0.057</td>
+</tr>
+<tr>
+<td>google_gemma-3-270m-it</td>
+<td>zh</td>
+<td>64</td>
+<td>0.386</td>
+<td>0.376</td>
+<td>2.904</td>
+<td>64</td>
+<td>24.851</td>
+<td>1.46</td>
+<td>62.733</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>agreement_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>google_gemma-3-270m-it</td>
+<td>45.3%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>pattern</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>google_gemma-3-270m-it</td>
+<td>surface_EN__inverse_ZH</td>
+<td>35</td>
+</tr>
+<tr>
+<td>google_gemma-3-270m-it</td>
+<td>surface_EN__surface_ZH</td>
+<td>29</td>
+</tr>
+</tbody>
+</table>
+</details>
+</details>
+<details class="note">
+<summary>Hour 10.5-12: Read <a href="https://arxiv.org/abs/2509.10860v1">Fang et al.</a> <a href="https://arxiv.org/abs/2502.15603">Schut 2025 et al.</a>, test GPT-2-Chinese (<code>uer_gpt2-xlarge-chinese-cluecorpussmall</code>), <code>aya-23-35B</code>, <code>Gemma2-27B</code>, and <code>aya-expanse-32b</code></summary>
+<p>Based on 
+1. <a href="https://arxiv.org/abs/2502.15603">Schut 2025 et al.</a>: Do Multilingual LLMs Think In English?
+    a. LLMs use English representation to reason/ 
+2. <a href="https://arxiv.org/abs/2509.10860v1">Fang et al.</a>: Quantifier Scope Interpretation in Language Learners and LLMs</p>
+<p>Find that <code>gpt2-chinese</code> prefers surface for Chinese and inverse for English!</p>
+<details class="example">
+<summary>aya-23-35B results</summary>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>inverse</th>
+<th>surface</th>
+<th>total</th>
+<th>p_inverse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CohereLabs_aya-23-35B</td>
+<td>en</td>
+<td>5</td>
+<td>59</td>
+<td>64</td>
+<td>7.8%</td>
+</tr>
+<tr>
+<td>CohereLabs_aya-23-35B</td>
+<td>zh</td>
+<td>31</td>
+<td>33</td>
+<td>64</td>
+<td>48.4%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>delta_mean__count</th>
+<th>delta_mean__mean</th>
+<th>delta_mean__median</th>
+<th>delta_mean__std</th>
+<th>ratio_mean__count</th>
+<th>ratio_mean__mean</th>
+<th>ratio_mean__median</th>
+<th>ratio_mean__std</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CohereLabs_aya-23-35B</td>
+<td>en</td>
+<td>64</td>
+<td>-0.89</td>
+<td>-0.964</td>
+<td>0.485</td>
+<td>64</td>
+<td>0.468</td>
+<td>0.382</td>
+<td>0.283</td>
+</tr>
+<tr>
+<td>CohereLabs_aya-23-35B</td>
+<td>zh</td>
+<td>64</td>
+<td>0.035</td>
+<td>-0.018</td>
+<td>0.389</td>
+<td>64</td>
+<td>1.111</td>
+<td>0.982</td>
+<td>0.405</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>agreement_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CohereLabs_aya-23-35B</td>
+<td>56.2%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>pattern</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CohereLabs_aya-23-35B</td>
+<td>surface_EN__surface_ZH</td>
+<td>32</td>
+</tr>
+<tr>
+<td>CohereLabs_aya-23-35B</td>
+<td>surface_EN__inverse_ZH</td>
+<td>27</td>
+</tr>
+<tr>
+<td>CohereLabs_aya-23-35B</td>
+<td>inverse_EN__inverse_ZH</td>
+<td>4</td>
+</tr>
+<tr>
+<td>CohereLabs_aya-23-35B</td>
+<td>inverse_EN__surface_ZH</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="example">
+<summary>gpt2-xlarge-chinese-cluecorpussmall results</summary>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>inverse</th>
+<th>surface</th>
+<th>total</th>
+<th>p_inverse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uer_gpt2-xlarge-chinese-cluecorpussmall</td>
+<td>en</td>
+<td>64</td>
+<td>0</td>
+<td>64</td>
+<td>100.0%</td>
+</tr>
+<tr>
+<td>uer_gpt2-xlarge-chinese-cluecorpussmall</td>
+<td>zh</td>
+<td>0</td>
+<td>64</td>
+<td>64</td>
+<td>0.0%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>delta_mean__count</th>
+<th>delta_mean__mean</th>
+<th>delta_mean__median</th>
+<th>delta_mean__std</th>
+<th>ratio_mean__count</th>
+<th>ratio_mean__mean</th>
+<th>ratio_mean__median</th>
+<th>ratio_mean__std</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uer_gpt2-xlarge-chinese-cluecorpussmall</td>
+<td>en</td>
+<td>64</td>
+<td>0.471</td>
+<td>0.467</td>
+<td>0.08</td>
+<td>64</td>
+<td>1.607</td>
+<td>1.596</td>
+<td>0.129</td>
+</tr>
+<tr>
+<td>uer_gpt2-xlarge-chinese-cluecorpussmall</td>
+<td>zh</td>
+<td>64</td>
+<td>-0.703</td>
+<td>-0.715</td>
+<td>0.243</td>
+<td>64</td>
+<td>0.51</td>
+<td>0.489</td>
+<td>0.125</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>agreement_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uer_gpt2-xlarge-chinese-cluecorpussmall</td>
+<td>0.0%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>pattern</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uer_gpt2-xlarge-chinese-cluecorpussmall</td>
+<td>inverse_EN__surface_ZH</td>
+<td>64</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="example">
+<summary>aya-expanse-32b results</summary>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>inverse</th>
+<th>surface</th>
+<th>total</th>
+<th>p_inverse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CohereLabs_aya-expanse-32b</td>
+<td>en</td>
+<td>0</td>
+<td>64</td>
+<td>64</td>
+<td>0.0%</td>
+</tr>
+<tr>
+<td>CohereLabs_aya-expanse-32b</td>
+<td>zh</td>
+<td>61</td>
+<td>3</td>
+<td>64</td>
+<td>95.3%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>delta_mean__count</th>
+<th>delta_mean__mean</th>
+<th>delta_mean__median</th>
+<th>delta_mean__std</th>
+<th>ratio_mean__count</th>
+<th>ratio_mean__mean</th>
+<th>ratio_mean__median</th>
+<th>ratio_mean__std</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CohereLabs_aya-expanse-32b</td>
+<td>en</td>
+<td>64</td>
+<td>-1.681</td>
+<td>-1.636</td>
+<td>0.366</td>
+<td>64</td>
+<td>0.198</td>
+<td>0.195</td>
+<td>0.071</td>
+</tr>
+<tr>
+<td>CohereLabs_aya-expanse-32b</td>
+<td>zh</td>
+<td>64</td>
+<td>0.82</td>
+<td>0.922</td>
+<td>0.487</td>
+<td>64</td>
+<td>2.532</td>
+<td>2.514</td>
+<td>1.198</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>agreement_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CohereLabs_aya-expanse-32b</td>
+<td>4.7%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>pattern</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CohereLabs_aya-expanse-32b</td>
+<td>surface_EN__inverse_ZH</td>
+<td>61</td>
+</tr>
+<tr>
+<td>CohereLabs_aya-expanse-32b</td>
+<td>surface_EN__surface_ZH</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="example">
+<summary>gpt2-chinese-cluecorpussmall (aka small) results</summary>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>inverse</th>
+<th>surface</th>
+<th>total</th>
+<th>p_inverse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uer_gpt2-chinese-cluecorpussmall</td>
+<td>en</td>
+<td>64</td>
+<td>0</td>
+<td>64</td>
+<td>100.0%</td>
+</tr>
+<tr>
+<td>uer_gpt2-chinese-cluecorpussmall</td>
+<td>zh</td>
+<td>0</td>
+<td>64</td>
+<td>64</td>
+<td>0.0%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>delta_mean__count</th>
+<th>delta_mean__mean</th>
+<th>delta_mean__median</th>
+<th>delta_mean__std</th>
+<th>ratio_mean__count</th>
+<th>ratio_mean__mean</th>
+<th>ratio_mean__median</th>
+<th>ratio_mean__std</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uer_gpt2-chinese-cluecorpussmall</td>
+<td>en</td>
+<td>64</td>
+<td>1.014</td>
+<td>1.036</td>
+<td>0.206</td>
+<td>64</td>
+<td>2.813</td>
+<td>2.819</td>
+<td>0.55</td>
+</tr>
+<tr>
+<td>uer_gpt2-chinese-cluecorpussmall</td>
+<td>zh</td>
+<td>64</td>
+<td>-0.923</td>
+<td>-0.871</td>
+<td>0.185</td>
+<td>64</td>
+<td>0.404</td>
+<td>0.418</td>
+<td>0.071</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>agreement_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uer_gpt2-chinese-cluecorpussmall</td>
+<td>0.0%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>pattern</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uer_gpt2-chinese-cluecorpussmall</td>
+<td>inverse_EN__surface_ZH</td>
+<td>64</td>
+</tr>
+</tbody>
+</table>
+</details>
+</details>
+<details class="note">
+<summary>Hour 12-13: Verify (1) Existential-Universal and Universal-Existential preference (2) statistical significance</summary>
+<ol>
+<li>
+<p>Universal-Existential and Existential-Universal</p>
+<p>a. Verify that the surface/inverse scope preference hold for either a Existential-Universal and Universal-Existential test</p>
+</li>
+<li>
+<p>Using a Wilcox Signed-Rank Test </p>
+<table>
+<thead>
+<tr>
+<th>Scope Type</th>
+<th>Language</th>
+<th>p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Existential-Universal</td>
+<td>en</td>
+<td>1.948e-18</td>
+</tr>
+<tr>
+<td>Existential-Universal</td>
+<td>zh</td>
+<td>1.948e-18</td>
+</tr>
+<tr>
+<td>Universal-Existential</td>
+<td>en</td>
+<td>1.674e-15</td>
+</tr>
+<tr>
+<td>Universal-Existential</td>
+<td>zh</td>
+<td>1.948e-18</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+</details>
+<details class="note">
+<summary>Hour 13-14: Learn and document math of Steering Vectors</summary>
+<p>Potential Mechanistic Interpretability techniques:</p>
+<p><small>The results above are super exciting! In fact, this will be my first time working on any SOTA probe type of technology from the MechInterp literature. A key focus right now is to make sure that I stay pragmatic considering I'm already at hour 13 of this project</small></p>
+<p>Suggested approaches from AI:</p>
+<ol>
+<li>
+<p>Linear probes (per layer, per token)</p>
+</li>
+<li>
+<p>Difference-of-means direction</p>
+</li>
+</ol>
+<p>3.Steering intervention</p>
+<ol>
+<li>One clean ablation experiment</li>
+</ol>
+<p>Note: I haven't ever used any of these techniques so to me it is more important to also learn what these techniques imply/shortcomings.</p>
+<p>Side note on hypotheses: I assumed that we are looking for a <code>scope vector</code> represented in the model. Ideally this <code>scope vector</code> would be active in both the zh and en sentences (available cross linguistically) and be steerable so that we can cause inverse scope preference for continuation. (since these GPT-2 models are only pretrained and not instruction tuned, it's not possible to affect the models QA/instruction following capabilities)</p>
+<p>Derived the math for Steering Vectors from first principles with help from AI.</p>
+</details>
+<details class="note">
+<summary>Hour 14-15: Setback--GPT2-Chinese is unreliable</summary>
+<p>Turns out the clean results from GPT2-Chinese judgements are a result of the model being undertrained.'</p>
+<p>For example, this is the next most likely set of tokens in for <code>uer/gpt2-xlarge-chinese-cluecorpussmall</code>. I realized this when looking at the vocab size for the GPT-2-Chinese models being ~20k whereas the original GPT2-vocab is ~50k. Thus, this got me suspicious and sent me down a probing route. I am surprised how <a href="https://arxiv.org/abs/2509.10860v1">Fang et al.</a> was able to use these models for their double quantifier paper.</p>
+<p>Thus, it is likely that the model does not actually have a good understanding of the language.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>&#39;a shark ate everyday.the##n.a.n.a.a.a.a.a.a.a.a.a.a.a.a.a.&#39;
+</span></code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>每一条都是经过反复推敲的，不是随便说说的。[UNK][UNK][UNK][UNK][UNK][UNK][UNK][UNK][UNK][UNK][UNK][UNK][UNK][UNK][UNK][UNK][UNK]
+</span></code></pre></div>
+<p><code>qwen2.5-3B</code> outputs are quite reasonable:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>每一條路線的車站數量、車站名稱、車站位置、車站間的距離、車站間的時間、車站間的運行時間、車站間的運行速度、車站間的運
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>The number of stations on each route; the station names; station locations; the distances between stations; the time between stations; the operating time between stations; the operating speed between stations;
+</span></code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>A Shark ate every pirate on a ship. The pirates were divided into 3 groups. The first group had 10 pirates, the second group had 15 pirates, and the third group had 20 pirates. If each pirate had 2 eyes, how
+</span></code></pre></div>
+</details>
+<details class="note">
+<summary>Hour 15-16: Qwen2.5 Surface/Inverse Scope Judgements</summary>
+<p>Goal: Try SOTA models which likely have high Mandarin proficiency (e.g. produced by Chinese AI Labs)</p>
+<p>Note: here we are making a critical assumption that Qwen and Deepseek models have acquired Mandarin and English grammars; we safely make this assumption since these models are SOTA. However, we are also testing the models through a sanity check script to ensure the model produces reasonable completions.</p>
+<p>After an hour of experimenting, Qwen2.5-{0.5, 1.5, 3, 7, 14, 32}B follow these trends:</p>
+<ol>
+<li>Existential-Universal (EU) for English prefers Surface but can accept some inverse scope readings starting model 1.5B and larger. Mandarin stimuli accept only surface forms
+    a. Interestingly, the English inverse preference occurs when the subject is <code>kangaroo</code>. Perhaps some more stimui are needed to narrow down this behavior</li>
+<li>Universal-Existential (UE) show Surface preference for English and Mandarin. Surprisingly, Mandarin also accepts inverse scope in UE.</li>
+<li>All preferences for surface are significant</li>
+</ol>
+<div class="admonition example">
+<p class="admonition-title">Existential-Universal Construction (A … Every…)</p>
+<table>
+<thead>
+<tr>
+<th>Model Size</th>
+<th>Language</th>
+<th>Inverse</th>
+<th>Surface</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen2.5-0.5B</td>
+<td>en</td>
+<td>7</td>
+<td>93</td>
+</tr>
+<tr>
+<td>Qwen2.5-0.5B</td>
+<td>zh</td>
+<td>8</td>
+<td>92</td>
+</tr>
+<tr>
+<td>Qwen2.5-1.5B</td>
+<td>en</td>
+<td>14</td>
+<td>86</td>
+</tr>
+<tr>
+<td>Qwen2.5-1.5B</td>
+<td>zh</td>
+<td>0</td>
+<td>100</td>
+</tr>
+<tr>
+<td>Qwen2.5-3B</td>
+<td>en</td>
+<td>16</td>
+<td>84</td>
+</tr>
+<tr>
+<td>Qwen2.5-3B</td>
+<td>zh</td>
+<td>0</td>
+<td>100</td>
+</tr>
+<tr>
+<td>Qwen2.5-7B</td>
+<td>en</td>
+<td>10</td>
+<td>90</td>
+</tr>
+<tr>
+<td>Qwen2.5-7B</td>
+<td>zh</td>
+<td>4</td>
+<td>96</td>
+</tr>
+<tr>
+<td>Qwen2.5-14B</td>
+<td>en</td>
+<td>7</td>
+<td>93</td>
+</tr>
+<tr>
+<td>Qwen2.5-14B</td>
+<td>zh</td>
+<td>0</td>
+<td>100</td>
+</tr>
+<tr>
+<td>Qwen2.5-32B</td>
+<td>en</td>
+<td>10</td>
+<td>90</td>
+</tr>
+<tr>
+<td>Qwen2.5-32B</td>
+<td>zh</td>
+<td>0</td>
+<td>100</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Universal-Existential Construction (Every…A …)</p>
+<table>
+<thead>
+<tr>
+<th>Model / Model Size</th>
+<th>Language</th>
+<th>Inverse</th>
+<th>Surface</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen2.5-0.5B</td>
+<td>en</td>
+<td>6</td>
+<td>94</td>
+</tr>
+<tr>
+<td>Qwen2.5-0.5B</td>
+<td>zh</td>
+<td>29</td>
+<td>71</td>
+</tr>
+<tr>
+<td>Qwen2.5-1.5B</td>
+<td>en</td>
+<td>9</td>
+<td>91</td>
+</tr>
+<tr>
+<td>Qwen2.5-1.5B</td>
+<td>zh</td>
+<td>22</td>
+<td>78</td>
+</tr>
+<tr>
+<td>Qwen2.5-3B</td>
+<td>en</td>
+<td>6</td>
+<td>94</td>
+</tr>
+<tr>
+<td>Qwen2.5-3B</td>
+<td>zh</td>
+<td>27</td>
+<td>73</td>
+</tr>
+<tr>
+<td>Qwen2.5-7B</td>
+<td>en</td>
+<td>3</td>
+<td>97</td>
+</tr>
+<tr>
+<td>Qwen2.5-7B</td>
+<td>zh</td>
+<td>24</td>
+<td>76</td>
+</tr>
+<tr>
+<td>Qwen2.5-14B</td>
+<td>en</td>
+<td>7</td>
+<td>93</td>
+</tr>
+<tr>
+<td>Qwen2.5-14B</td>
+<td>zh</td>
+<td>7</td>
+<td>93</td>
+</tr>
+<tr>
+<td>Qwen2.5-32B</td>
+<td>en</td>
+<td>2</td>
+<td>98</td>
+</tr>
+<tr>
+<td>Qwen2.5-32B</td>
+<td>zh</td>
+<td>26</td>
+<td>74</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Next steps: </p>
+<ul>
+<li>Since our goal is to use these sentences as a way to probe for steering vectors and then causality, the stats/stimlui need not be perfect. </li>
+<li>Instead, we can look to find those steering vectors to test the influence of hypothesized steering vectors.</li>
+</ul>
+<details class="example">
+<summary>Qwen/qwen2.5-0.5b eu scope</summary>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>inverse</th>
+<th>surface</th>
+<th>total</th>
+<th>p_inverse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-0.5B</td>
+<td>en</td>
+<td>7</td>
+<td>93</td>
+<td>100</td>
+<td>7.0%</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-0.5B</td>
+<td>zh</td>
+<td>8</td>
+<td>92</td>
+<td>100</td>
+<td>8.0%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>delta_mean__count</th>
+<th>delta_mean__mean</th>
+<th>delta_mean__median</th>
+<th>delta_mean__std</th>
+<th>ratio_mean__count</th>
+<th>ratio_mean__mean</th>
+<th>ratio_mean__median</th>
+<th>ratio_mean__std</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-0.5B</td>
+<td>en</td>
+<td>100</td>
+<td>-0.779</td>
+<td>-0.797</td>
+<td>0.536</td>
+<td>100</td>
+<td>0.528</td>
+<td>0.45</td>
+<td>0.292</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-0.5B</td>
+<td>zh</td>
+<td>100</td>
+<td>-0.58</td>
+<td>-0.564</td>
+<td>0.621</td>
+<td>100</td>
+<td>0.669</td>
+<td>0.569</td>
+<td>0.494</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>agreement_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-0.5B</td>
+<td>85.0%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>pattern</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-0.5B</td>
+<td>surface_EN__surface_ZH</td>
+<td>85</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-0.5B</td>
+<td>surface_EN__inverse_ZH</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-0.5B</td>
+<td>inverse_EN__surface_ZH</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th>n</th>
+<th>Statistic</th>
+<th>p-value</th>
+<th>Mean Δ</th>
+<th>Median Δ</th>
+<th>Preference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>en</td>
+<td>100</td>
+<td>100</td>
+<td>3.78e-17</td>
+<td>-0.7787</td>
+<td>-0.7974</td>
+<td>surface</td>
+</tr>
+<tr>
+<td>zh</td>
+<td>100</td>
+<td>380</td>
+<td>8.2e-14</td>
+<td>-0.5802</td>
+<td>-0.5642</td>
+<td>surface</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="example">
+<summary>Qwen/qwen2.5-0.5b ue scope</summary>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>inverse</th>
+<th>surface</th>
+<th>total</th>
+<th>p_inverse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-0.5B</td>
+<td>en</td>
+<td>6</td>
+<td>94</td>
+<td>100</td>
+<td>6.0%</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-0.5B</td>
+<td>zh</td>
+<td>29</td>
+<td>71</td>
+<td>100</td>
+<td>29.0%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>delta_mean__count</th>
+<th>delta_mean__mean</th>
+<th>delta_mean__median</th>
+<th>delta_mean__std</th>
+<th>ratio_mean__count</th>
+<th>ratio_mean__mean</th>
+<th>ratio_mean__median</th>
+<th>ratio_mean__std</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-0.5B</td>
+<td>en</td>
+<td>100</td>
+<td>-0.428</td>
+<td>-0.441</td>
+<td>0.242</td>
+<td>100</td>
+<td>0.671</td>
+<td>0.644</td>
+<td>0.169</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-0.5B</td>
+<td>zh</td>
+<td>100</td>
+<td>-0.258</td>
+<td>-0.301</td>
+<td>0.394</td>
+<td>100</td>
+<td>0.833</td>
+<td>0.74</td>
+<td>0.323</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>agreement_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-0.5B</td>
+<td>69.0%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>pattern</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-0.5B</td>
+<td>surface_EN__surface_ZH</td>
+<td>67</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-0.5B</td>
+<td>surface_EN__inverse_ZH</td>
+<td>27</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-0.5B</td>
+<td>inverse_EN__surface_ZH</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-0.5B</td>
+<td>inverse_EN__inverse_ZH</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th>n</th>
+<th>Statistic</th>
+<th>p-value</th>
+<th>Mean Δ</th>
+<th>Median Δ</th>
+<th>Preference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>en</td>
+<td>100</td>
+<td>49</td>
+<td>8.45e-18</td>
+<td>-0.4277</td>
+<td>-0.4407</td>
+<td>surface</td>
+</tr>
+<tr>
+<td>zh</td>
+<td>100</td>
+<td>947</td>
+<td>2.89e-08</td>
+<td>-0.2577</td>
+<td>-0.3014</td>
+<td>surface</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="example">
+<summary>Qwen/qwen2.5-1.5b eu scope</summary>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>inverse</th>
+<th>surface</th>
+<th>total</th>
+<th>p_inverse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-1.5B</td>
+<td>en</td>
+<td>14</td>
+<td>86</td>
+<td>100</td>
+<td>14.0%</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-1.5B</td>
+<td>zh</td>
+<td>0</td>
+<td>100</td>
+<td>100</td>
+<td>0.0%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>delta_mean__count</th>
+<th>delta_mean__mean</th>
+<th>delta_mean__median</th>
+<th>delta_mean__std</th>
+<th>ratio_mean__count</th>
+<th>ratio_mean__mean</th>
+<th>ratio_mean__median</th>
+<th>ratio_mean__std</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-1.5B</td>
+<td>en</td>
+<td>100</td>
+<td>-0.413</td>
+<td>-0.436</td>
+<td>0.309</td>
+<td>100</td>
+<td>0.695</td>
+<td>0.647</td>
+<td>0.231</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-1.5B</td>
+<td>zh</td>
+<td>100</td>
+<td>-0.8</td>
+<td>-0.779</td>
+<td>0.217</td>
+<td>100</td>
+<td>0.459</td>
+<td>0.459</td>
+<td>0.093</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>agreement_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-1.5B</td>
+<td>86.0%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>pattern</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-1.5B</td>
+<td>surface_EN__surface_ZH</td>
+<td>86</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-1.5B</td>
+<td>inverse_EN__surface_ZH</td>
+<td>14</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th>n</th>
+<th>Statistic</th>
+<th>p-value</th>
+<th>Mean Δ</th>
+<th>Median Δ</th>
+<th>Preference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>en</td>
+<td>100</td>
+<td>184</td>
+<td>4.17e-16</td>
+<td>-0.4127</td>
+<td>-0.4358</td>
+<td>surface</td>
+</tr>
+<tr>
+<td>zh</td>
+<td>100</td>
+<td>0</td>
+<td>1.95e-18</td>
+<td>-0.8003</td>
+<td>-0.7793</td>
+<td>surface</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="example">
+<summary>Qwen/qwen2.5-1.5b ue scope</summary>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>inverse</th>
+<th>surface</th>
+<th>total</th>
+<th>p_inverse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-1.5B</td>
+<td>en</td>
+<td>9</td>
+<td>91</td>
+<td>100</td>
+<td>9.0%</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-1.5B</td>
+<td>zh</td>
+<td>22</td>
+<td>78</td>
+<td>100</td>
+<td>22.0%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>delta_mean__count</th>
+<th>delta_mean__mean</th>
+<th>delta_mean__median</th>
+<th>delta_mean__std</th>
+<th>ratio_mean__count</th>
+<th>ratio_mean__mean</th>
+<th>ratio_mean__median</th>
+<th>ratio_mean__std</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-1.5B</td>
+<td>en</td>
+<td>100</td>
+<td>-0.285</td>
+<td>-0.282</td>
+<td>0.218</td>
+<td>100</td>
+<td>0.769</td>
+<td>0.754</td>
+<td>0.166</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-1.5B</td>
+<td>zh</td>
+<td>100</td>
+<td>-0.432</td>
+<td>-0.407</td>
+<td>0.452</td>
+<td>100</td>
+<td>0.714</td>
+<td>0.665</td>
+<td>0.298</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>agreement_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-1.5B</td>
+<td>73.0%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>pattern</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-1.5B</td>
+<td>surface_EN__surface_ZH</td>
+<td>71</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-1.5B</td>
+<td>surface_EN__inverse_ZH</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-1.5B</td>
+<td>inverse_EN__surface_ZH</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-1.5B</td>
+<td>inverse_EN__inverse_ZH</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th>n</th>
+<th>Statistic</th>
+<th>p-value</th>
+<th>Mean Δ</th>
+<th>Median Δ</th>
+<th>Preference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>en</td>
+<td>100</td>
+<td>140</td>
+<td>1.2e-16</td>
+<td>-0.2854</td>
+<td>-0.2825</td>
+<td>surface</td>
+</tr>
+<tr>
+<td>zh</td>
+<td>100</td>
+<td>486</td>
+<td>1.19e-12</td>
+<td>-0.4319</td>
+<td>-0.4074</td>
+<td>surface</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="example">
+<summary>Qwen/qwen2.5-3b eu scope</summary>
+<table>
+<thead>
+<tr>
+<th>mode`l</th>
+<th>language</th>
+<th>inverse</th>
+<th>surface</th>
+<th>total</th>
+<th>p_inverse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-3B</td>
+<td>en</td>
+<td>16</td>
+<td>84</td>
+<td>100</td>
+<td>16.0%</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-3B</td>
+<td>zh</td>
+<td>0</td>
+<td>100</td>
+<td>100</td>
+<td>0.0%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>delta_mean__count</th>
+<th>delta_mean__mean</th>
+<th>delta_mean__median</th>
+<th>delta_mean__std</th>
+<th>ratio_mean__count</th>
+<th>ratio_mean__mean</th>
+<th>ratio_mean__median</th>
+<th>ratio_mean__std</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-3B</td>
+<td>en</td>
+<td>100</td>
+<td>-0.394</td>
+<td>-0.404</td>
+<td>0.365</td>
+<td>100</td>
+<td>0.72</td>
+<td>0.668</td>
+<td>0.27</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-3B</td>
+<td>zh</td>
+<td>100</td>
+<td>-0.831</td>
+<td>-0.861</td>
+<td>0.247</td>
+<td>100</td>
+<td>0.449</td>
+<td>0.423</td>
+<td>0.119</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>agreement_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-3B</td>
+<td>84.0%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>pattern</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-3B</td>
+<td>surface_EN__surface_ZH</td>
+<td>84</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-3B</td>
+<td>inverse_EN__surface_ZH</td>
+<td>16</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th>n</th>
+<th>Statistic</th>
+<th>p-value</th>
+<th>Mean Δ</th>
+<th>Median Δ</th>
+<th>Preference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>en</td>
+<td>100</td>
+<td>318</td>
+<td>1.62e-14</td>
+<td>-0.3936</td>
+<td>-0.4037</td>
+<td>surface</td>
+</tr>
+<tr>
+<td>zh     `</td>
+<td>100</td>
+<td>0</td>
+<td>1.95e-18</td>
+<td>-0.8312</td>
+<td>-0.8612</td>
+<td>surface</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="example">
+<summary>Qwen/qwen2.5-3b ue scope</summary>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>inverse</th>
+<th>surface</th>
+<th>total</th>
+<th>p_inverse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-3B</td>
+<td>en</td>
+<td>6</td>
+<td>94</td>
+<td>100</td>
+<td>6.0%</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-3B</td>
+<td>zh</td>
+<td>27</td>
+<td>73</td>
+<td>100</td>
+<td>27.0%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>delta_mean__count</th>
+<th>delta_mean__mean</th>
+<th>delta_mean__median</th>
+<th>delta_mean__std</th>
+<th>ratio_mean__count</th>
+<th>ratio_mean__mean</th>
+<th>ratio_mean__median</th>
+<th>ratio_mean__std</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-3B</td>
+<td>en</td>
+<td>100</td>
+<td>-0.49</td>
+<td>-0.475</td>
+<td>0.309</td>
+<td>100</td>
+<td>0.641</td>
+<td>0.622</td>
+<td>0.194</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-3B</td>
+<td>zh</td>
+<td>100</td>
+<td>-0.167</td>
+<td>-0.18</td>
+<td>0.28</td>
+<td>100</td>
+<td>0.878</td>
+<td>0.836</td>
+<td>0.241</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>agreement_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-3B</td>
+<td>77.0%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>pattern</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-3B</td>
+<td>surface_EN__surface_ZH</td>
+<td>72</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-3B</td>
+<td>surface_EN__inverse_ZH</td>
+<td>22</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-3B</td>
+<td>inverse_EN__inverse_ZH</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-3B</td>
+<td>inverse_EN__surface_ZH</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th>n</th>
+<th>Statistic</th>
+<th>p-value</th>
+<th>Mean Δ</th>
+<th>Median Δ</th>
+<th>Preference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>en</td>
+<td>100</td>
+<td>46</td>
+<td>7.73e-18</td>
+<td>-0.4904</td>
+<td>-0.4748</td>
+<td>surface</td>
+</tr>
+<tr>
+<td>zh</td>
+<td>100</td>
+<td>1008</td>
+<td>9.14e-08</td>
+<td>-0.1675</td>
+<td>-0.1796</td>
+<td>surface</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="example">
+<summary>Qwen/qwen2.5-7b eu scope</summary>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>inverse</th>
+<th>surface</th>
+<th>total</th>
+<th>p_inverse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-7B</td>
+<td>en</td>
+<td>10</td>
+<td>90</td>
+<td>100</td>
+<td>10.0%</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-7B</td>
+<td>zh</td>
+<td>4</td>
+<td>96</td>
+<td>100</td>
+<td>4.0%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>delta_mean__count</th>
+<th>delta_mean__mean</th>
+<th>delta_mean__median</th>
+<th>delta_mean__std</th>
+<th>ratio_mean__count</th>
+<th>ratio_mean__mean</th>
+<th>ratio_mean__median</th>
+<th>ratio_mean__std</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-7B</td>
+<td>en</td>
+<td>100</td>
+<td>-0.64</td>
+<td>-0.688</td>
+<td>0.363</td>
+<td>100</td>
+<td>0.565</td>
+<td>0.502</td>
+<td>0.224</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-7B</td>
+<td>zh</td>
+<td>100</td>
+<td>-0.525</td>
+<td>-0.542</td>
+<td>0.28</td>
+<td>100</td>
+<td>0.614</td>
+<td>0.581</td>
+<td>0.172</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>agreement_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-7B</td>
+<td>86.0%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>pattern</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-7B</td>
+<td>surface_EN__surface_ZH</td>
+<td>86</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-7B</td>
+<td>inverse_EN__surface_ZH</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-7B</td>
+<td>surface_EN__inverse_ZH</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th>n</th>
+<th>Statistic</th>
+<th>p-value</th>
+<th>Mean Δ</th>
+<th>Median Δ</th>
+<th>Preference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>en</td>
+<td>100</td>
+<td>68</td>
+<td>1.48e-17</td>
+<td>-0.64</td>
+<td>-0.6885</td>
+<td>surface</td>
+</tr>
+<tr>
+<td>zh</td>
+<td>100</td>
+<td>14</td>
+<td>2.97e-18</td>
+<td>-0.5253</td>
+<td>-0.5424</td>
+<td>surface</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="example">
+<summary>Qwen/qwen2.5-7b ue scope</summary>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>inverse</th>
+<th>surface</th>
+<th>total</th>
+<th>p_inverse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-7B</td>
+<td>en</td>
+<td>3</td>
+<td>97</td>
+<td>100</td>
+<td>3.0%</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-7B</td>
+<td>zh</td>
+<td>24</td>
+<td>76</td>
+<td>100</td>
+<td>24.0%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>delta_mean__count</th>
+<th>delta_mean__mean</th>
+<th>delta_mean__median</th>
+<th>delta_mean__std</th>
+<th>ratio_mean__count</th>
+<th>ratio_mean__mean</th>
+<th>ratio_mean__median</th>
+<th>ratio_mean__std</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-7B</td>
+<td>en</td>
+<td>100</td>
+<td>-0.432</td>
+<td>-0.424</td>
+<td>0.265</td>
+<td>100</td>
+<td>0.672</td>
+<td>0.655</td>
+<td>0.179</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-7B</td>
+<td>zh</td>
+<td>100</td>
+<td>-0.259</td>
+<td>-0.271</td>
+<td>0.396</td>
+<td>100</td>
+<td>0.836</td>
+<td>0.763</td>
+<td>0.355</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>agreement_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-7B</td>
+<td>77.0%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>pattern</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-7B</td>
+<td>surface_EN__surface_ZH</td>
+<td>75</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-7B</td>
+<td>surface_EN__inverse_ZH</td>
+<td>22</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-7B</td>
+<td>inverse_EN__inverse_ZH</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-7B</td>
+<td>inverse_EN__surface_ZH</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th>n</th>
+<th>Statistic</th>
+<th>p-value</th>
+<th>Mean Δ</th>
+<th>Median Δ</th>
+<th>Preference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>en</td>
+<td>100</td>
+<td>54</td>
+<td>9.8e-18</td>
+<td>-0.4321</td>
+<td>-0.4238</td>
+<td>surface</td>
+</tr>
+<tr>
+<td>zh</td>
+<td>100</td>
+<td>911</td>
+<td>1.43e-08</td>
+<td>-0.2593</td>
+<td>-0.2711</td>
+<td>surface</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="example">
+<summary>Qwen/qwen2.5-14b eu scope</summary>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>inverse</th>
+<th>surface</th>
+<th>total</th>
+<th>p_inverse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-14B</td>
+<td>en</td>
+<td>7</td>
+<td>93</td>
+<td>100</td>
+<td>7.0%</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-14B</td>
+<td>zh</td>
+<td>0</td>
+<td>100</td>
+<td>100</td>
+<td>0.0%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>delta_mean__count</th>
+<th>delta_mean__mean</th>
+<th>delta_mean__median</th>
+<th>delta_mean__std</th>
+<th>ratio_mean__count</th>
+<th>ratio_mean__mean</th>
+<th>ratio_mean__median</th>
+<th>ratio_mean__std</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-14B</td>
+<td>en</td>
+<td>100</td>
+<td>-0.485</td>
+<td>-0.519</td>
+<td>0.291</td>
+<td>100</td>
+<td>0.643</td>
+<td>0.595</td>
+<td>0.196</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-14B</td>
+<td>zh</td>
+<td>100</td>
+<td>-0.962</td>
+<td>-0.892</td>
+<td>0.31</td>
+<td>100</td>
+<td>0.4</td>
+<td>0.41</td>
+<td>0.116</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>agreement_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-14B</td>
+<td>93.0%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>pattern</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-14B</td>
+<td>surface_EN__surface_ZH</td>
+<td>93</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-14B</td>
+<td>inverse_EN__surface_ZH</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th>n</th>
+<th>Statistic</th>
+<th>p-value</th>
+<th>Mean Δ</th>
+<th>Median Δ</th>
+<th>Preference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>en</td>
+<td>100</td>
+<td>61</td>
+<td>1.21e-17</td>
+<td>-0.485</td>
+<td>-0.5192</td>
+<td>surface</td>
+</tr>
+<tr>
+<td>zh</td>
+<td>100</td>
+<td>0</td>
+<td>1.95e-18</td>
+<td>-0.9621</td>
+<td>-0.8918</td>
+<td>surface</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="example">
+<summary>Qwen/qwen2.5-14b ue scope</summary>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>inverse</th>
+<th>surface</th>
+<th>total</th>
+<th>p_inverse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-14B</td>
+<td>en</td>
+<td>7</td>
+<td>93</td>
+<td>100</td>
+<td>7.0%</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-14B</td>
+<td>zh</td>
+<td>7</td>
+<td>93</td>
+<td>100</td>
+<td>7.0%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>delta_mean__count</th>
+<th>delta_mean__mean</th>
+<th>delta_mean__median</th>
+<th>delta_mean__std</th>
+<th>ratio_mean__count</th>
+<th>ratio_mean__mean</th>
+<th>ratio_mean__median</th>
+<th>ratio_mean__std</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-14B</td>
+<td>en</td>
+<td>100</td>
+<td>-0.274</td>
+<td>-0.258</td>
+<td>0.205</td>
+<td>100</td>
+<td>0.776</td>
+<td>0.772</td>
+<td>0.162</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-14B</td>
+<td>zh</td>
+<td>100</td>
+<td>-0.694</td>
+<td>-0.835</td>
+<td>0.456</td>
+<td>100</td>
+<td>0.554</td>
+<td>0.434</td>
+<td>0.259</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>agreement_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-14B</td>
+<td>92.0%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>pattern</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-14B</td>
+<td>surface_EN__surface_ZH</td>
+<td>89</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-14B</td>
+<td>inverse_EN__surface_ZH</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-14B</td>
+<td>surface_EN__inverse_ZH</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-14B</td>
+<td>inverse_EN__inverse_ZH</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th>n</th>
+<th>Statistic</th>
+<th>p-value</th>
+<th>Mean Δ</th>
+<th>Median Δ</th>
+<th>Preference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>en</td>
+<td>100</td>
+<td>131</td>
+<td>9.26e-17</td>
+<td>-0.2742</td>
+<td>-0.2584</td>
+<td>surface</td>
+</tr>
+<tr>
+<td>zh</td>
+<td>100</td>
+<td>61</td>
+<td>1.21e-17</td>
+<td>-0.6941</td>
+<td>-0.8354</td>
+<td>surface</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="example">
+<summary>Qwen/qwen2.5-32b eu scope</summary>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>inverse</th>
+<th>surface</th>
+<th>total</th>
+<th>p_inverse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-32B</td>
+<td>en</td>
+<td>10</td>
+<td>90</td>
+<td>100</td>
+<td>10.0%</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-32B</td>
+<td>zh</td>
+<td>0</td>
+<td>100</td>
+<td>100</td>
+<td>0.0%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>delta_mean__count</th>
+<th>delta_mean__mean</th>
+<th>delta_mean__median</th>
+<th>delta_mean__std</th>
+<th>ratio_mean__count</th>
+<th>ratio_mean__mean</th>
+<th>ratio_mean__median</th>
+<th>ratio_mean__std</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-32B</td>
+<td>en</td>
+<td>100</td>
+<td>-0.415</td>
+<td>-0.401</td>
+<td>0.329</td>
+<td>100</td>
+<td>0.696</td>
+<td>0.67</td>
+<td>0.231</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-32B</td>
+<td>zh</td>
+<td>100</td>
+<td>-1.192</td>
+<td>-1.077</td>
+<td>0.463</td>
+<td>100</td>
+<td>0.334</td>
+<td>0.341</td>
+<td>0.135</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>agreement_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-32B</td>
+<td>90.0%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>pattern</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-32B</td>
+<td>surface_EN__surface_ZH</td>
+<td>90</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-32B</td>
+<td>inverse_EN__surface_ZH</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th>n</th>
+<th>Statistic</th>
+<th>p-value</th>
+<th>Mean Δ</th>
+<th>Median Δ</th>
+<th>Preference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>en</td>
+<td>100</td>
+<td>172</td>
+<td>2.97e-16</td>
+<td>-0.4151</td>
+<td>-0.4008</td>
+<td>surface</td>
+</tr>
+<tr>
+<td>zh</td>
+<td>100</td>
+<td>0</td>
+<td>1.95e-18</td>
+<td>-1.1921</td>
+<td>-1.0773</td>
+<td>surface</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="example">
+<summary>Qwen/qwen2.5-32b ue scope</summary>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>inverse</th>
+<th>surface</th>
+<th>total</th>
+<th>p_inverse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-32B</td>
+<td>en</td>
+<td>2</td>
+<td>98</td>
+<td>100</td>
+<td>2.0%</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-32B</td>
+<td>zh</td>
+<td>26</td>
+<td>74</td>
+<td>100</td>
+<td>26.0%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>language</th>
+<th>delta_mean__count</th>
+<th>delta_mean__mean</th>
+<th>delta_mean__median</th>
+<th>delta_mean__std</th>
+<th>ratio_mean__count</th>
+<th>ratio_mean__mean</th>
+<th>ratio_mean__median</th>
+<th>ratio_mean__std</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-32B</td>
+<td>en</td>
+<td>100</td>
+<td>-0.349</td>
+<td>-0.295</td>
+<td>0.199</td>
+<td>100</td>
+<td>0.719</td>
+<td>0.744</td>
+<td>0.132</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-32B</td>
+<td>zh</td>
+<td>100</td>
+<td>-0.65</td>
+<td>-0.815</td>
+<td>0.672</td>
+<td>100</td>
+<td>0.652</td>
+<td>0.443</td>
+<td>0.438</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>agreement_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-32B</td>
+<td>74.0%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>pattern</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen_Qwen2.5-32B</td>
+<td>surface_EN__surface_ZH</td>
+<td>73</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-32B</td>
+<td>surface_EN__inverse_ZH</td>
+<td>25</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-32B</td>
+<td>inverse_EN__inverse_ZH</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Qwen_Qwen2.5-32B</td>
+<td>inverse_EN__surface_ZH</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th>n</th>
+<th>Statistic</th>
+<th>p-value</th>
+<th>Mean Δ</th>
+<th>Median Δ</th>
+<th>Preference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>en</td>
+<td>100</td>
+<td>5</td>
+<td>2.27e-18</td>
+<td>-0.349</td>
+<td>-0.2952</td>
+<td>surface</td>
+</tr>
+<tr>
+<td>zh</td>
+<td>100</td>
+<td>539</td>
+<td>4.29e-12</td>
+<td>-0.6502</td>
+<td>-0.8149</td>
+<td>surface</td>
+</tr>
+</tbody>
+</table>
+</details>
+</details>
+<details class="note">
+<summary>Hour 17-20: Look for Steering Vector</summary>
+<ul>
+<li>Goal: look fora steering vector for inverse/surface in DQ constructions</li>
+<li>Agnostic on whether the model correctly generalizes the expected Mandarin surface scope only</li>
+<li>Agnostic on whether the steering vector applies cross-linguistically</li>
+</ul>
+<p>Steps:</p>
+<ol>
+<li>
+<p>Find token position to find <code>.</code>/<code>。</code> token  before the continuation (where the information about the sentence is likely pooled</p>
+</li>
+<li>
+<p>Calculate the <span class="arithmatex">\(\mu_S\)</span> and <span class="arithmatex">\(\mu_I\)</span> for en/zh to get <span class="arithmatex">\(v_{en}\)</span> and <span class="arithmatex">\(v_{zh}\)</span>; normalize v into a unit vector.</p>
+</li>
+<li>
+<p>Correlation: Histograms of $ p_i = v^{\top} h_{l,i} $ with <span class="arithmatex">\(i \in S\)</span> and <span class="arithmatex">\(I \in I\)</span> next to each other to see if there is correlation of the steering vector and the scope type</p>
+</li>
+<li>
+<p>Causation: Intervene by adding <span class="arithmatex">\(h_{l, i}' =  h_{l,i} + \alpha v\)</span> and see if the preferences skew</p>
+</li>
+</ol>
+<p>Gotchas</p>
+<ol>
+<li>
+<p>Create a train/test set; calcuate <span class="arithmatex">\(v\)</span> (and therefore <span class="arithmatex">\(\mu_{inverse}\)</span> and <span class="arithmatex">\(\mu_{surface}\)</span>) from the trainining set; see how well v generalizes to test set in <span class="arithmatex">\(p_i\)</span></p>
+</li>
+<li>
+<p>Same as above, apply training <span class="arithmatex">\(v\)</span> to test h's for steering</p>
+</li>
+<li>
+<p>Deciding which layer is tricky (using an AUC metric but need to better understand math from first principles). Deciding how much to scale <span class="arithmatex">\(\alpha\)</span> is also tricky</p>
+</li>
+</ol>
+<p>Takeaways so far:</p>
+<ol>
+<li>
+<p>Cross-linguistic evidence of v is not supported; applying <span class="arithmatex">\(v_{en}\)</span> to zh data doesn't separate zh inverse and surface forms. Similarly, <span class="arithmatex">\(v_{zh}\)</span> does not separate inverse and surface forms.</p>
+</li>
+<li>
+<p>Mandarin Existential-Universal and Universal-Existential supports a language specific steering vector occurs early in layer 4-7, that separates inverse and surface judgements.</p>
+</li>
+<li>
+<p>Tokenization idiosyncracies (e.g. removing a space between the sentence and its continuation in Mandarin) yields more favorability towards inverse scope). Additionally, Universal-Existential constructions favor inverse scope in Mandarin for model sizes except for Qwen2.5-14b.</p>
+</li>
+</ol>
+</details>
+<details class="note">
+<summary>Future Work</summary>
+<p>While there was not enough time to pursue activation patching of this steering vector in Mandarin stimulus, below are the next steps to evalute if candidate direction <span class="arithmatex">\(v_{zh}\)</span> causally affect the continuation preference.</p>
+<div class="arithmatex">\[ h'_i = h_i + \alpha v_{zh} \]</div>
+<ol>
+<li>
+<p>Baseline: add {random noise, <span class="arithmatex">\(v_{zh}\)</span>} to verify if <span class="arithmatex">\(v_{zh}\)</span> indeed establishes causality</p>
+</li>
+<li>
+<p>Intervene at high AUC layers (layers 4-7)</p>
+</li>
+<li>
+<p>Test whether different token positions before the continuation may also encode scope direction (e.g. The continuation starting positions "there is"/"有一[CLASSIFIER]") in addition to the period mark which we assume to pool information.</p>
+</li>
+</ol>
+<p>Also added AUC, ROC, and Wilcoxon stats knowledge to <a href="../../Todo/">todos</a></p>
+</details>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 25, 2026 06:19:14 UTC">February 25, 2026</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../Dyck-probe/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Dyck Transformer Probe">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Dyck Transformer Probe
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../pcd/" class="md-footer__link md-footer__link--next" aria-label="Next: Building Predictive Concept Decoders (PCD) on a Student Budget">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Building Predictive Concept Decoders (PCD) on a Student Budget
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      kgng [at] usc [dot] edu
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Ky-Ng" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/kgng/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.footer"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
