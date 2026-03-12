@@ -52,7 +52,8 @@ for i in range(I):
 $$
 \text{attention\_pattern} = softmax\frac{QK^\top}{\sqrt d}V
 $$
-![Attention Calc](../../assets/concepts/einsum_attention/attention_calc.png.png)
+
+![Attention Calc](../../assets/concepts/einsum_attention/attention_calc.png)
 
 ```python
 einsum("batch seqQ n_head d_head, 
