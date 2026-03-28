@@ -105,7 +105,7 @@ Adapted from bullet list at end of Section 2 in paper:
 
 let $n_{prefix}$, $n_{middle}$, and $n_{suffix}$ be the lengths of the tokens of the prefix, middle, and suffix of the prompt $P$
 
-$$ P = p^({1:n_{prefix}}) + p^({n_{prefix}:n_{middle}}) + p^({n_{middle}:n_{suffix}}) $$
+$$ P = p^{({1:n_{prefix}})} + p^{({n_{prefix}:n_{middle}})} + p^{({n_{middle}:n_{suffix}})} $$
 
 To make our lives easier:
 
