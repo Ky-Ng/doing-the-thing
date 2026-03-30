@@ -154,7 +154,69 @@ $$ \mathcal{L}_{aux} = - \frac{\epsilon_{aux}}{k_{aux}} \sum_{i \in I} W_{enc, i
 
 #### Finetuning
 - Use SynthSys (a dataset where the model has an implicit assumption about the user known as a `user model`)
-- Mix in Pretraining (FineWeb) sequences at 50% to reduce "forgetting" (which I think means concepts dying in the encoder dictionary)
-- Train using the same loss function as in Pretraining except middle is user and prompt activations, decoder also a user prompt.
+- Mix in Pretraining (FineWeb) sequences at 50% to reduce "catastrophic forgetting" (LoRA Decoder weights learned in pretraining changed so that model can no longer perform continuations on the Subject model)
+- Train using the same loss function as in Pretraining except middle is prompt activations, decoder also a user prompt.
 
 ![PCD Fineutning](../../assets/projects/pcd/PCD_Finetuning.png)
+
+## Finetuning Deep Dive
+
+Three main steps to 
+
+| Dataset | Percentage | Motivation |
+| --- | --- | --- |
+| Fineweb | 50% | Prevent Catastrophic Forgetting | 
+| SynthSys | 50% | Teach decoder how to reason about decoder features |
+
+The finetuning steps do two pretty amazing things:
+
+1. The SynthSys dataset consists of a user attribute in the system prompt and A/B/C/D Multiple Choice Question (MCQ) response
+
+2. The model is able to generalize not just MCQ answers to Out of distribution (OOD) attributes
+
+3. Model generalizes to multi-token natural language 
+
+### SynthSys(8B) Template
+Below is Figure 6 from the paper of how the SynthSys(8B) from ([Choi et al. 2025](https://transluce.org/user-modeling)) is structured
+
+![SynthSys](docs/assets/projects/pcd/Figure_6_SynthSys.png)
+
+! Consistency Fiiltering: "Noisily" Labeled Data
+    One crucial aspect about SynthSys is that the examples added to the finetuning mixture are only where the Subject model's response is consistent with the System prompt attribute. Whether the model response is consistent with the System prompt is determined by an LLM judge.
+    
+    This process is "noisy" because it is not clear if the model's response implies that the activations and sparse encoder representations are faithful to the models belief about the user. However, this noise is acceptable since the goal of the decoder is to explain activations that are behaviorally-relevant rather than ground-truth model beliefs. (e.g. does activation of feature 1493 really mean "male"? It's ok if it doesn't because we're trying to predict the behavior of the subject model continuing with generation that describes the user with male qualities)
+
+#### SynthSys Curation
+
+Goal: Allow the decoder to learn how to decode frozen encoder concepts into descriptions of the model internals (rather than a continuation of the user prompt). The decoder prompt is a MCQ on what it is thinking about the user(note that the goal is that this training will generalize from the MCQ single token A/B/C/D response to multi-token descriptions)
+
+1. Generate a series of attributes (e.g. ethnicity, gender, age, profession, dietary restrictions \[vegan/non-vegan]) and split all but 2 for decoder fine tuning
+
+2. Prompt the Subject Model $\mathcal{S}$ in the format:
+
+```
+<SYSTEM>: The user is <ATTRIBUTE> (e.g. female)
+
+<USER>: What could I wear to a wedding?
+```
+
+The Subject Model will respond 
+
+```
+<ASSISTANT>: A dress and high heels.
+```
+
+3. Use the Subject Model to judge the conversation transcript if the model's `<ASSISTANT>` output is consistent with the (prototypical) attribute given in the `<SYSTEM>` prompt, add this `<SYSTEM>` and `<USER>` prompt to the dataset
+
+4. Generate MCQ prompts/answers for the decoder to learn (note during training only the `<USER>` activations are added in, but the `<SYSTEM>` prompt is not)
+
+Prompt input
+```
+[Patch in Activations from the Subject model's <USER> prompt] +
+<USER> What does the model think the gender of the user is? (A) Female (B) Male (C) Non-binary (D) None of the Above
+```
+
+Single Token Output label
+```
+<ASSISTANT>: A
+```
