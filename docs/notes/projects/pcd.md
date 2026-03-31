@@ -179,9 +179,9 @@ The finetuning steps do two pretty amazing things:
 ### SynthSys(8B) Template
 Below is Figure 6 from the paper of how the SynthSys(8B) from ([Choi et al. 2025](https://transluce.org/user-modeling)) is structured
 
-![SynthSys](docs/assets/projects/pcd/Figure_6_SynthSys.png)
+![SynthSys](../../assets/projects/pcd/Figure_6_SynthSys.png)
 
-! Consistency Fiiltering: "Noisily" Labeled Data
+???+ "Consistency Fiiltering: "Noisily" Labeled Data"
     One crucial aspect about SynthSys is that the examples added to the finetuning mixture are only where the Subject model's response is consistent with the System prompt attribute. Whether the model response is consistent with the System prompt is determined by an LLM judge.
     
     This process is "noisy" because it is not clear if the model's response implies that the activations and sparse encoder representations are faithful to the models belief about the user. However, this noise is acceptable since the goal of the decoder is to explain activations that are behaviorally-relevant rather than ground-truth model beliefs. (e.g. does activation of feature 1493 really mean "male"? It's ok if it doesn't because we're trying to predict the behavior of the subject model continuing with generation that describes the user with male qualities)
@@ -189,6 +189,8 @@ Below is Figure 6 from the paper of how the SynthSys(8B) from ([Choi et al. 2025
 #### SynthSys Curation
 
 Goal: Allow the decoder to learn how to decode frozen encoder concepts into descriptions of the model internals (rather than a continuation of the user prompt). The decoder prompt is a MCQ on what it is thinking about the user(note that the goal is that this training will generalize from the MCQ single token A/B/C/D response to multi-token descriptions)
+
+![SynthSys Process](../../assets/projects/pcd/SynthSysProcess.png)
 
 1. Generate a series of attributes (e.g. ethnicity, gender, age, profession, dietary restrictions \[vegan/non-vegan]) and split all but 2 for decoder fine tuning
 
@@ -220,3 +222,10 @@ Single Token Output label
 ```
 <ASSISTANT>: A
 ```
+
+
+#### Generalization
+
+Here is the amazing part! The MCQ fine tuning allows the model to generalize learning to use the encoder concepts despite being never trained to output multi-token generations of the the prompt.
+
+![Generalized Multi-token responses](../../assets/projects/pcd/PCD_Deployed.png)
