@@ -8,6 +8,7 @@ theme:
     code: Red Hat Mono
   # icon:
   #   logo: material/magnify
+  favicon: images/Ngineering.png
   palette:
   # dark mode
   - scheme: slate 

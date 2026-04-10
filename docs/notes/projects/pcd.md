@@ -1,12 +1,12 @@
 # Building Predictive Concept Decoders (PCD) on a Student Budget
 
-Date: Feb. 7th, 2026
+Start Date: Feb. 7th, 2026, picked up again on March 27th, 2026
 
 Github: [github.com/Ky-Ng/repro-pcd](https://github.com/Ky-Ng/repro-pcd)
 
 Paper: [Predictive Concept Decoders: Training Scalable End-to-End Interpretability Assistants](https://arxiv.org/abs/2512.15712)
 
-- Attempted 1 day hackathon to build PCDs on a Student Budget
+- Attempted 1 day hackathon to build PCDs on a Student Budget turned into multi-month deep research side quest!
 
 ???+ note "Motivation"
     - I had the opportunity to see Sarah Schwettmann present PCDs at the NeurIPS 2025 MechInterp Workshop! I didn't have the Interp understanding at the time to grasp the concepts (other than, *wow this is really cool!*)

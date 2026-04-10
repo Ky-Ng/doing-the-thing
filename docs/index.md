@@ -2,6 +2,13 @@
 <sub> For motivation/momentum purposes: Started AI Safety journey **{{ dlog_num_days() }} days ago** with current daily streak of "doing the thing" for **{{ dlog_consecutive_days() }} consecutive days**! </sub>
 
 ???+ tip "Updates"
+    1. Extending and reproducing Anthropic's [MOLTs (sparse Mixtures of Linear Transforms)](./notes/projects/MOLTs.md) as part of [Georg Lange's SPAR stream](https://sparai.org/projects/sp26/recEvvXXZbGC8SHKC?search=Georg) on *Automating Circuit Interpretability with Agents* ([writeup](https://drive.google.com/file/d/1j29tCtfDae0smb8Rn-KbLZ0EN2QpV4o4/view?usp=sharing), [github](https://github.com/Ky-Ng/repro-molts))
+
+    2. Reproducing Transluce's Predictive Concept Decoders (PCD) to "read the mind" of an AI model through decoding activations of a Subject Model into natural language via a Sparse Encoder and LLM Decoder Model ([docs](./notes/projects/pcd.md), [github](https://github.com/Ky-Ng/repro-pcd))
+
+    3. Reflections from first 3 weeks of 2026 abroad at [LISA](https://www.safeai.org.uk/) and attending Oxford AI Safety Initiative's [ARBOx](./notes/reflections/ARBOx.md) including work in progress Theory of Change 
+
+<!-- ???+ tip "Updates"
     1. In the UK working from [LISA](https://www.safeai.org.uk/) from **Monday, January 19th to Friday, January 23rd**; worked from Trajan House, Oxford Monday, January 5th to Friday, January 16th
         
         a. Looking to meet more AI Safety folks! Please let me know if you would like to meet up; happy to travel to meet!
@@ -12,7 +19,7 @@
         
         a. Automated Circuit Tracing (e.g. developing Agents to automatically find circuits in Neuronpedia like attribution graphs)
 
-        b. Cross-lingual alignment (e.g. Does aligning a model in English mean it's aligned in Chinese?)
+        b. Cross-lingual alignment (e.g. Does aligning a model in English mean it's aligned in Chinese?) -->
 
 ??? note "TLDR of Things I've Done Since Starting My AI Safety Journey {{ dlog_num_days() }} Days Ago"
     **Projects**
