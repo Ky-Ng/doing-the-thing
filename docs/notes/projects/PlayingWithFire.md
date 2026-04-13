@@ -15,3 +15,7 @@ Start Date: April 11th, 2026
 While AI Safety/Interp research is not very accessible, playing games, `playing with fire` through interactive games that share the key takeaways of interp literature can (1) share AIS research with the local community while (2) fostering communication between researchers and the people they work to protect.
 
 ![Playing with Fire](../../assets/projects/playing-with-fire/playing-with-fire.png)
+
+Hopefully, `playing with fire` (not a presentation, scary RL formula, or lecture) will help general audiences understand the [light and shade](https://www.anthropic.com/company), taking away the benefits and risks through "playing" with intuitive game simulations of models.
+
+- Inspired by Grant Sanderson (3 Blue 1 Brown) who talks about teaching math as a "smoking gun detective mystery"!
