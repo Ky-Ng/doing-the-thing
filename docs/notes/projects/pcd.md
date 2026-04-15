@@ -2,6 +2,8 @@
 
 Start Date: Feb. 7th, 2026, picked up again on March 27th, 2026
 
+Walkthrough: [YouTube Playlist](https://www.youtube.com/playlist?list=PLd_GVe4IPmpAvb9zdWgl6QLMYOH-9TEkT)
+
 Github: [github.com/Ky-Ng/repro-pcd](https://github.com/Ky-Ng/repro-pcd)
 
 Latest Training Run: [Wandb Pretraining Run](https://api.wandb.ai/links/kgng-usc/ed6mrtg9)
