@@ -4,15 +4,19 @@ Start Date: Feb. 7th, 2026, picked up again on March 27th, 2026
 
 Github: [github.com/Ky-Ng/repro-pcd](https://github.com/Ky-Ng/repro-pcd)
 
-Paper: [Predictive Concept Decoders: Training Scalable End-to-End Interpretability Assistants](https://arxiv.org/abs/2512.15712)
+Latest Training Run: [Wandb Pretraining Run](https://api.wandb.ai/links/kgng-usc/ed6mrtg9)
+
+HuggingFace Artifacts: [kylelovesllms/hand-repro-pcd](https://huggingface.co/kylelovesllms/hand-repro-pcd/tree/main)
 
 - Attempted 1 day hackathon to build PCDs on a Student Budget turned into multi-month deep research side quest!
+
+- Original paper by Transluce, [Predictive Concept Decoders: Training Scalable End-to-End Interpretability Assistants](https://arxiv.org/abs/2512.15712)
 
 ???+ note "Motivation"
     - I had the opportunity to see Sarah Schwettmann present PCDs at the NeurIPS 2025 MechInterp Workshop! I didn't have the Interp understanding at the time to grasp the concepts (other than, *wow this is really cool!*)
     - It's been 62 days since NeurIPS 2025, looking to try my hand at reproducing SOTA research
         - Also been wanting to work on this since my week at LISA but have been battling catching up with the school I missed while in the UK! Looking to timebox this into a single Saturday at the library!
-    
+
 ## High Level Plan
 
 Goal: Reproduce the most important aspects of PCDs (1) Encoder/Decoder Architecture (2) Pretraining/FT (3) Understand $L_{aux}$
