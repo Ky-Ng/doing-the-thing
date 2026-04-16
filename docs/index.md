@@ -4,11 +4,11 @@
 ???+ tip "Updates"
     1. Extending and reproducing Anthropic's [MOLTs (sparse Mixtures of Linear Transforms)](./notes/projects/MOLTs.md) as part of [Georg Lange's SPAR stream](https://sparai.org/projects/sp26/recEvvXXZbGC8SHKC?search=Georg) on *Automating Circuit Interpretability with Agents* ([writeup](https://drive.google.com/file/d/1j29tCtfDae0smb8Rn-KbLZ0EN2QpV4o4/view?usp=sharing), [github](https://github.com/Ky-Ng/repro-molts))
 
-    2. Reproducing [Transluce's Predictive Concept Decoders (PCD)](./notes/projects/pcd.md) to "read the mind" of an AI model through decoding activations of a Subject Model into natural language via a Sparse Encoder and LLM Decoder Model [github](https://github.com/Ky-Ng/repro-pcd)
+    2. Reproducing [Transluce's Predictive Concept Decoders (PCD)](./notes/projects/pcd.md) to "read the mind" of an AI model through decoding activations of a Subject Model into natural language via a Sparse Encoder and LLM Decoder Model [[github](https://github.com/Ky-Ng/repro-pcd)]
     
-        - Started Karpathy-inspired video tutorials PCD reproduction line-by-line to make AutoInterp research more accessible [video walkthrough](https://www.youtube.com/playlist?list=PLd_GVe4IPmpAvb9zdWgl6QLMYOH-9TEkT)
+        - Started Karpathy-inspired video tutorials PCD reproduction line-by-line to make AutoInterp research more accessible [[video walkthrough](https://www.youtube.com/playlist?list=PLd_GVe4IPmpAvb9zdWgl6QLMYOH-9TEkT)]
 
-    3. Playing with Fire: Proposal for a Sharing AI Safety Research with At-Risk Youth through Games [[pitch](https://drive.google.com/file/d/11ux_p18Wr5mNtIz80o85EwfDVS9GV-GU/view?usp=sharing), [documentation](./notes/projects/PlayingWithFire.md)]
+    3. Playing with Fire: Proposal for a Sharing AI Safety Research with At-Risk Youth through Games [[video](https://drive.google.com/file/d/11ux_p18Wr5mNtIz80o85EwfDVS9GV-GU/view?usp=sharing), [documentation](./notes/projects/PlayingWithFire.md)]
         - 3-step pipeline to making AIS research accessible to broader community (e.g. at-risk teenagers using AI for mental health counseling); “AIS researchers are only one piece of the puzzle” ethos 
     
     4. Reflections from first 3 weeks of 2026 abroad at [LISA](https://www.safeai.org.uk/) and attending Oxford AI Safety Initiative's [ARBOx](./notes/reflections/ARBOx.md) including work in progress [Theory of Change](./notes/reflections/TheoryChange.md)
