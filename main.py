@@ -92,7 +92,19 @@ def define_env(env):
 
     @env.macro
     def dlog_num_days():
+        start = datetime(2025, 10, 17).date()
+        today = datetime.now().date()
+        return (today - start).days
+    
+    @env.macro
+    def dlog_num_documented_days():
         return len(_load_entries(docs_dir))
+    
+    @env.macro
+    def dlog_percentage_documented_days():
+        ratio = dlog_num_documented_days() / dlog_num_days()
+        percentage = int(ratio * 100)
+        return percentage
 
     @env.macro
     def dlog_cards(limit=7):
