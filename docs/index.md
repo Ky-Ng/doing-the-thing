@@ -2,6 +2,8 @@
 <sub> For motivation/momentum purposes: Started AI Safety journey **{{ dlog_num_days() }} days ago** with current daily streak of "doing the thing" for **{{ dlog_consecutive_days() }} consecutive days**! </sub>
 
 ???+ tip "Updates"
+    0. Currently investigating how the QK and OV projections in the Attention Mechanism represent and process *syntax*,the structure of sentences, through the task of translation from "SVO" Head Inital (e.g. English) to "SOV" Head Final (e.g. Japanese) languages [[daily research journal](https://docs.google.com/document/d/1Q9-qicusAw7CJGslPEBcdXTpFy9Mz3l83YaJG5Diwp0/edit?tab=t.hj03mca737pr), advised by [Professor Khalil Iskarous](https://dornsife.usc.edu/profile/khalil-iskarous/) and [Professor Robin Jia](https://robinjia.github.io)]
+
     1. Extending and reproducing Anthropic's [MOLTs (sparse Mixtures of Linear Transforms)](./notes/projects/MOLTs.md) as part of [Georg Lange's SPAR stream](https://sparai.org/projects/sp26/recEvvXXZbGC8SHKC?search=Georg) on *Automating Circuit Interpretability with Agents* ([writeup](https://drive.google.com/file/d/1j29tCtfDae0smb8Rn-KbLZ0EN2QpV4o4/view?usp=sharing), [github](https://github.com/Ky-Ng/repro-molts))
 
     2. Reproducing [Transluce's Predictive Concept Decoders (PCD)](./notes/projects/pcd.md) to "read the mind" of an AI model through decoding activations of a Subject Model into natural language via a Sparse Encoder and LLM Decoder Model [[github](https://github.com/Ky-Ng/repro-pcd)]
@@ -46,7 +48,7 @@
     3. Started being mentored by [Sudhanshu Kasewa](https://www.linkedin.com/in/skasewa/?originalSubdomain=uk) from [80,000 Hours](https://80000hours.org/)
 
 ## What is this?
-Here it goes! I'm Kyle, a 4th year Computational Linguistics student at USC. This is the start of my AI Safety journey! I am very greatful to be mentored by [Prof. Khalil Iskarous](https://dornsife.usc.edu/profile/khalil-iskarous/) at USC.
+Here it goes! I'm Kyle, a 4th year Computational Linguistics student at USC. This is the start of my AI Safety journey! I am very greatful to be jointly advised by [Professor Khalil Iskarous](https://dornsife.usc.edu/profile/khalil-iskarous/) and [Professor Robin Jia](https://robinjia.github.io) at USC.
 
 I learned about AI Safety from the Seattle Llama4 Hackathon on June 21st, 2025 where I learned of [AI 2027](https://ai-2027.com). After finishing an awesome summer of [engineering](https://en.wikipedia.org/wiki/Annapurna_Labs), I realized the problems which excite me the most lie at the crossroads of engineering and science (computation and linguistics). 
 
