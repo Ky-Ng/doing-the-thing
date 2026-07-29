@@ -4,7 +4,7 @@
 ???+ tip "Updates"
     0. Currently investigating how the QK and OV projections in the Attention Mechanism represent and process *syntax*,the structure of sentences, through the task of translation from "SVO" Head Inital (e.g. English) to "SOV" Head Final (e.g. Japanese) languages [[daily research journal](https://docs.google.com/document/d/1Q9-qicusAw7CJGslPEBcdXTpFy9Mz3l83YaJG5Diwp0/edit?tab=t.hj03mca737pr), advised by [Professor Khalil Iskarous](https://dornsife.usc.edu/profile/khalil-iskarous/) and [Professor Robin Jia](https://robinjia.github.io)]
 
-    1. Worked on extending and reproducing Anthropic's [MOLTs (sparse Mixtures of Linear Transforms)](./notes/projects/MOLTs.md) as part of [Georg Lange's SPAR stream](https://sparai.org/projects/sp26/recEvvXXZbGC8SHKC?search=Georg) on *Automating Circuit Interpretability with Agents* ([writeup](https://drive.google.com/file/d/1j29tCtfDae0smb8Rn-KbLZ0EN2QpV4o4/view?usp=sharing), [github](https://github.com/Ky-Ng/repro-molts))
+    1. Previously working on extending and reproducing Anthropic's [MOLTs (sparse Mixtures of Linear Transforms)](./notes/projects/MOLTs.md) as part of [Georg Lange's SPAR stream](https://sparai.org/projects/sp26/recEvvXXZbGC8SHKC?search=Georg) on *Automating Circuit Interpretability with Agents* ([writeup](https://drive.google.com/file/d/1j29tCtfDae0smb8Rn-KbLZ0EN2QpV4o4/view?usp=sharing), [github](https://github.com/Ky-Ng/repro-molts))
 
     2. Reproducing [Transluce's Predictive Concept Decoders (PCD)](./notes/projects/pcd.md) to "read the mind" of an AI model through decoding activations of a Subject Model into natural language via a Sparse Encoder and LLM Decoder Model [[github](https://github.com/Ky-Ng/repro-pcd)]
     
