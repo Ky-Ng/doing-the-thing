@@ -40,14 +40,13 @@ Here it goes! I'm Kyle, a 5th year undergrad/1st year master's in Computational 
 ### Motivation
 This is my daily log, **doing-the-thing**, a self-accountability + documentation + reflection in my journey in becoming a Mech Interp researcher.
 
-If **Language connnects us**, how can studying *language* models at the intersection of linguistics and interpretability help us build *human understanding* of (a) **how LLMs work and when they fail** and (b) inform theories of **real-time language processing in humans**.
+If **Language connnects us**, how can studying *language* models at the intersection of linguistics and interpretability help us build **human understanding** of (a) **how LLMs work and when they fail** and (b) inform theories of **real-time language processing in humans**.
 
 ### Burning Questions
-From a scientific angle, my current burning questions are:
 
 1. What causal mechanisms allow language models to implement *symbolic* and *discrete* algorithms in *distributed* and *continuous* architectures? (e.g. syntax and translation)
 
-2. How do these causal mechanisms emerge from training pressures, specifically the axes of training data and model architecture?
+2. How do these causal mechanisms emerge from training pressures, specifically the axes of training data and model architecture? (e.g. can we plot $W_Q$, $W_K$, $W_V$ over time and intervene on gradients to control what circuits emerge?)
 
 3. How can we create more *faithful* and *accessible* metaphors for general audiences to understand AI? (e.g. de-risk youth populations who confide in AI models for mental health counseling)
 
