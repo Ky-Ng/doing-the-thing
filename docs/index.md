@@ -1,5 +1,5 @@
 # Doing The Thing: From Mechanical Turk to Mech Interp
-<sub>Visiting San Francisco for COLM 2026 Tuesday, October 6th - Sunday, October 11th. Would love to chat and meet folks!</sub>
+<!-- <sub>Visiting San Francisco for COLM 2026 Tuesday, October 6th - Sunday, October 11th. Would love to chat and meet folks!</sub> -->
 
 ???+ tip "Updates"
     0. Currently investigating how the QK and OV projections in the Attention Mechanism represent and process *syntax*,the structure of sentences, through the task of translation from "SVO" Head Inital (e.g. English) to "SOV" Head Final (e.g. Japanese) languages [[daily research journal](https://docs.google.com/document/d/1Q9-qicusAw7CJGslPEBcdXTpFy9Mz3l83YaJG5Diwp0/edit?tab=t.hj03mca737pr), advised by [Professor Khalil Iskarous](https://dornsife.usc.edu/profile/khalil-iskarous/) and [Professor Robin Jia](https://robinjia.github.io)]
