@@ -2,6 +2,9 @@
 <!-- <sub>Visiting San Francisco for COLM 2026 Tuesday, October 6th - Sunday, October 11th. Would love to chat and meet folks!</sub> -->
 <sub>Excited to chat with folks at [SoCalNLP 2026](https://socalnlp.github.io/symp26/index.html). Looking forward to talking to folks about interpretability, multilingual models, and linguistics!</sub>
 
+## What is this?
+Here it goes! I'm Kyle, a 5th year undergrad/1st year master's in Computational Linguistics student at USC. I am very greatful to be jointly advised by [Professor Khalil Iskarous](https://dornsife.usc.edu/profile/khalil-iskarous/) and [Professor Robin Jia](https://robinjia.github.io). 
+
 ???+ tip "Updates"
     0. Currently investigating how the QK and OV projections in the Attention Mechanism represent and process *syntax*,the structure of sentences, through the task of translation from "SVO" Head Inital (e.g. English) to "SOV" Head Final (e.g. Japanese) languages [[daily research journal](https://docs.google.com/document/d/1Q9-qicusAw7CJGslPEBcdXTpFy9Mz3l83YaJG5Diwp0/edit?tab=t.hj03mca737pr), advised by [Professor Khalil Iskarous](https://dornsife.usc.edu/profile/khalil-iskarous/) (Linguistics) and [Professor Robin Jia](https://robinjia.github.io)] (Computer Science).
 
@@ -15,10 +18,7 @@
         - 3-step pipeline to making AIS research accessible to broader community (e.g. at-risk teenagers using AI for mental health counseling); “AIS researchers are only one piece of the puzzle” ethos 
     
     4. Reflections from first 3 weeks of 2026 abroad at [LISA](https://www.safeai.org.uk/) and attending Oxford AI Safety Initiative's [ARBOx](./notes/reflections/ARBOx.md) including work in progress [Theory of Change](./notes/reflections/TheoryChange.md)
-
-## What is this?
-Here it goes! I'm Kyle, a 5th year undergrad/1st year master's in Computational Linguistics student at USC. I am very greatful to be jointly advised by [Professor Khalil Iskarous](https://dornsife.usc.edu/profile/khalil-iskarous/) and [Professor Robin Jia](https://robinjia.github.io). 
-
+    
 ### Motivation
 This is my research log, **doing-the-thing**, a self-accountability+documentation+reflection in my journey in becoming a computational+linguist+interpretability researcher.
 
