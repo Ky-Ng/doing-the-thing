@@ -116,12 +116,25 @@ def define_env(env):
             tags_str = " · ".join(e["tags"]) if e["tags"] else ""
             goal =  _replace_relative_links(e["goal"], DEV_PATH, e["path"])
             summary =  _replace_relative_links(e["summary"], DEV_PATH, e["path"])
+
+            line_date = f'- **[{e["date_str"]}]({e["path"]})** | '
+            line_time = f'{e["minutes"]//60} hr {e["minutes"] % 60} min | '
+            line_goal = f'**Goal:** {goal}  \n'
+            line_summary = f'  _{summary}_  \n'
             
-            line = (
-                f'- **[{e["date_str"]}]({e["path"]})** | {e["minutes"]//60} hr {e["minutes"] % 60} min | '
-                f'**Goal:** {goal}  \n'
-                f'  _{summary}_  \n'
-            )
+            if e["minutes"] == 0:
+                line = (
+                    f'{line_date}'
+                    f'{line_goal}'
+                    f'{line_summary}'
+                )
+            else:
+                line = (
+                    f'{line_date} {line_time}'
+                    f'{line_goal}'
+                    f'{line_summary}'
+                )
+            
             if tags_str:
                 line += f'  \n     <sub>{tags_str}</sub>'
             out.append(line)

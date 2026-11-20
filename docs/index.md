@@ -1,8 +1,9 @@
 # Doing The Thing: From Mechanical Turk to Mech Interp
 <!-- <sub>Visiting San Francisco for COLM 2026 Tuesday, October 6th - Sunday, October 11th. Would love to chat and meet folks!</sub> -->
+<sub>Excited to chat with folks at [SoCalNLP 2026](https://socalnlp.github.io/symp26/index.html). Looking forward to talking to folks about interpretability, multilingual models, and linguistics!</sub>
 
 ???+ tip "Updates"
-    0. Currently investigating how the QK and OV projections in the Attention Mechanism represent and process *syntax*,the structure of sentences, through the task of translation from "SVO" Head Inital (e.g. English) to "SOV" Head Final (e.g. Japanese) languages [[daily research journal](https://docs.google.com/document/d/1Q9-qicusAw7CJGslPEBcdXTpFy9Mz3l83YaJG5Diwp0/edit?tab=t.hj03mca737pr), advised by [Professor Khalil Iskarous](https://dornsife.usc.edu/profile/khalil-iskarous/) and [Professor Robin Jia](https://robinjia.github.io)]
+    0. Currently investigating how the QK and OV projections in the Attention Mechanism represent and process *syntax*,the structure of sentences, through the task of translation from "SVO" Head Inital (e.g. English) to "SOV" Head Final (e.g. Japanese) languages [[daily research journal](https://docs.google.com/document/d/1Q9-qicusAw7CJGslPEBcdXTpFy9Mz3l83YaJG5Diwp0/edit?tab=t.hj03mca737pr), advised by [Professor Khalil Iskarous](https://dornsife.usc.edu/profile/khalil-iskarous/) (Linguistics) and [Professor Robin Jia](https://robinjia.github.io)] (Computer Science).
 
     1. Previously working on extending and reproducing Anthropic's [MOLTs (sparse Mixtures of Linear Transforms)](./notes/projects/MOLTs.md) as part of [Georg Lange's SPAR stream](https://sparai.org/projects/sp26/recEvvXXZbGC8SHKC?search=Georg) on *Automating Circuit Interpretability with Agents* ([writeup](https://drive.google.com/file/d/1j29tCtfDae0smb8Rn-KbLZ0EN2QpV4o4/view?usp=sharing), [github](https://github.com/Ky-Ng/repro-molts))
 
@@ -15,32 +16,15 @@
     
     4. Reflections from first 3 weeks of 2026 abroad at [LISA](https://www.safeai.org.uk/) and attending Oxford AI Safety Initiative's [ARBOx](./notes/reflections/ARBOx.md) including work in progress [Theory of Change](./notes/reflections/TheoryChange.md)
 
-??? note "TLDR of Things I've Done Since Starting My AI Safety Journey {{ dlog_num_days() }} Days Ago"
-    **Projects**
-
-    1. Cross-Linguistic Alignment: Does LoRA Fine Tuning a model on a task (e.g. respond in all CAPS) translate cross-linguistically? ([Summary](https://docs.google.com/presentation/d/16jQDJhF4orOrSzpVKMJwtU52u-vlzT77pCK8gZGwO9g/edit?usp=sharing) && [Github](https://github.com/leungchristopher/arbox_project))
-
-    2. Reproducing [Neo et al. 2024 Interpreting Context Look Ups](./notes/papers/interpretability/Neo_et_al_2024.md)
-
-    3. [Multilingual Semantics Probe](./notes/projects/MultilingualSemanticsProbe.md): Looking for Steering Vectors for semantically ambiguous sentences in English but not Mandarin 
-
-    3. Syntactic Dependencies in Transformers: Attention Patterns for Balanced Parentheses (Dyck) Language ([Github](https://github.com/Ky-Ng/Dyck-Interp-Probe))
-
-    **Programs**
-
-    1. [ARBOx](./notes/reflections/ARBOx.md): 2 weeks of compressed ARENA curriculum; project on Cross-linguistic generalization of fine-tuning
-    
-    2. Attended NeurIPS [Mech Interp 2025 Workshop](https://mechinterpworkshop.com) and found some cool [takeaways](./notes/reflections/meetings/NeurIPS_2025_Mech_Interp_Workshop.md)!
-
-    3. Started being mentored by [Sudhanshu Kasewa](https://www.linkedin.com/in/skasewa/?originalSubdomain=uk) from [80,000 Hours](https://80000hours.org/)
-
 ## What is this?
 Here it goes! I'm Kyle, a 5th year undergrad/1st year master's in Computational Linguistics student at USC. I am very greatful to be jointly advised by [Professor Khalil Iskarous](https://dornsife.usc.edu/profile/khalil-iskarous/) and [Professor Robin Jia](https://robinjia.github.io). 
 
 ### Motivation
-This is my daily log, **doing-the-thing**, a self-accountability + documentation + reflection in my journey in becoming a Mech Interp researcher.
+This is my research log, **doing-the-thing**, a self-accountability+documentation+reflection in my journey in becoming a computational+linguist+interpretability researcher.
 
 If **Language connnects us**, how can studying *language* models at the intersection of linguistics and interpretability help us build **human understanding** of (a) **how LLMs work and when they fail** and (b) inform theories of **real-time language processing in humans**.
+
+I am also interested in the intersection of formal languages/mathematical linguistics + LLMs and neuroscience broadly.
 
 ### Burning Questions
 
@@ -77,13 +61,15 @@ Sometimes (often) I get analysis paralysis or want to wait for the perfect {time
 
 <!-- ![Mechanical Turk to Mech Interp](./assets/homepage/Mechanical_Turk_to_Mech_Interp.png) -->
 
-## What is **dlog**? 
-I am starting this daily log or *dlog* where every day I will document my progress. I hope that the daily act of documenting will make me more resilient and help prove to myself how badly I want to be an interpetability researcher. With the help of AI, a macro pulls the daily logs into the summary you see below:
+## What is **wlog**? 
+I am starting this weekly log or *wlog* where every week I will document my progress. I hope that the act of documenting will make me more resilient and help prove to myself how conviction I have to become a researcher. A macro pulls the weekly logs into the summary you see below. 
 
-## **dlog**: {{ dlog_num_days() }} Days and Counting
-**Total time focused so far:** {{ dlog_total_time()["hrs"] }} hrs {{ dlog_total_time()["mins"] }} mins throughout {{ dlog_num_days() }} days of learning
+<small>If you've seen previous iterations of this site, you'll notice that section used to be a daily log! I've since moved to doing weekly updates since this matches the research journals I keep which measure at the granularity of weeks. I hope this will also help me see the higher-level trajectories of my research journey.</small>
 
-Below are the latest updates (auto-generated). 
+<!-- ## **dlog**: {{ dlog_num_days() }} Days and Counting
+**Total time focused so far:** {{ dlog_total_time()["hrs"] }} hrs {{ dlog_total_time()["mins"] }} mins throughout {{ dlog_num_days() }} days of learning -->
+
+<!-- Below are the latest updates (auto-generated).  -->
 
 ### Latest entries
 {{ dlog_cards(limit=10) }}
